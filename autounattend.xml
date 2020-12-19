@@ -126,5 +126,5 @@
             </UserAccounts>
         </component>
     </settings>
-    <cpi:offlineImage cpi:source="wim:c:/users/mschmidt/downloads/windows10_20h2/sources/install.wim#Windows 10 Pro N" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
+    <cpi:offlineImage cpi:source="wim:c:/users/mschmidt/workspace/github/w10install/install.wim#Windows 10 Pro N" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
 </unattend>
