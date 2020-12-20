@@ -5,6 +5,13 @@ set SCRIPTS="c:\scripts"
 
 echo ####### autounattend.cmd #######
 
+echo killing some processes...
+taskkill /F /IM ssh-agent.exe
+taskkill /F /IM ssh.exe
+
+echo restart explorer ...
+taskkill /F /IM explorer.exe & start explorer.exe
+
 echo deleting %TOOLS% and %SCRIPTS% ...
 rd /S /Q %TOOLS%
 rd /S /Q %SCRIPTS%
