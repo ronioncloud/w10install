@@ -1,4 +1,7 @@
-del c:\TEMP\Win10*.iso
+set ISOGLOB=c:\TEMP\Win10*.iso
+set ISO=c:\TEMP\Win10.iso
+
+del %ISOGLOB%
 ftp -i -s:download-iso.ftp
-move c:\TEMP\Win10*.iso c:\TEMP\Win10.iso
+move %ISOGLOB% %ISO%
 

@@ -1,8 +1,11 @@
-del c:\TEMP\install.wim
+set SOURCES="c:\TEMP\Win10\sources"
+
+del %SOURCES%\install.wim
+
 dism /Export-Image ^
-  /SourceImageFile:c:\TEMP\Win10\sources\install.esd ^
+  /SourceImageFile:%SOURCES%\install.esd ^
   /SourceIndex:6 ^
-  /DestinationImageFile:c:\TEMP\install.wim ^
+  /DestinationImageFile:%SOURCES%\install.wim ^
   /Compress:Max ^
   /CheckIntegrity
 
