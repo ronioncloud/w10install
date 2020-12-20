@@ -1,16 +1,27 @@
 echo off
+set T="c:\TEMP"
+set TOOLS="c:\tools"
+set SCRIPTS="c:\scripts"
 
 echo ####### autounattend.cmd #######
 
-echo getting 7zip and TOOLS archive from webserver ...
-ftp -s:autounattend.ftp
+echo deleting %TOOLS% and %SCRIPTS% ...
+rd /S /Q %TOOLS%
+rd /S /Q %SCRIPTS%
 
-echo extracting TOOLS archive ...
-7z x -aoa -oc:\ c:\tools.zip
+echo creating directories ...
+mkdir %T% 1>nul 2>nul
+mkdir %TOOLS% 1>nul 2>nul
+mkdir %SCRIPTS% 1>nul 2>nul
+mkdir %SCRIPTS%\conf 1>nul 2>nul
+mkdir %SCRIPTS%\desktop 1>nul 2>nul
+mkdir %SCRIPTS%\tweaks 1>nul 2>nul
 
-echo deleting c:\tools.zip ..
-del c:\tools.zip
+echo getting TOOLS from webserver ...
+ftp -i -s:autounattend.ftp
 
 echo ####### autounattend.cmd #######
-timeout /t 3
+
+echo STARTING setup script...
+call %SCRIPTS%\1st-setup.cmd
 
