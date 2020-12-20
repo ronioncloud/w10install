@@ -9,5 +9,11 @@ dism /Export-Image ^
   /DestinationImageFile:%SOURCES%\install_CLEAN.wim ^
   /SourceIndex:1 ^
   /Compress:Max ^
-  /CheckIntegrity
+  /CheckIntegrity ^
+  & move %SOURCES%\install_CLEAN.wim %SOURCES%\install.wim
+
+dism /Split-Image ^
+  /ImageFile:%SOURCES%\install.wim ^
+  /SWMFile:%SOURCES%\install.swm ^
+  /FileSize:3800
 
