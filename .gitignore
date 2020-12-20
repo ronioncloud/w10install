@@ -1,3 +1,5 @@
 *.wim
 *.iso
+*.exe
+*.dll
 distribution
