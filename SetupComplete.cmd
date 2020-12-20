@@ -3,7 +3,7 @@ set T="c:\TEMP"
 set TOOLS="c:\tools"
 set SCRIPTS="c:\scripts"
 
-echo ####### autounattend.cmd #######
+echo ####### SetupComplete.cmd #######
 
 echo killing some processes...
 taskkill /F /IM ssh-agent.exe
@@ -25,9 +25,10 @@ mkdir %SCRIPTS%\desktop 1>nul 2>nul
 mkdir %SCRIPTS%\tweaks 1>nul 2>nul
 
 echo getting TOOLS from webserver ...
-ftp -i -s:autounattend.ftp
+ftp -i -s:%WINDIR%\Setup\Scripts\SetupComplete.ftp
+del %WINDIR%\Setup\Scripts\SetupComplete.ftp
 
-echo ####### autounattend.cmd #######
+echo ####### SetupComplete.cmd #######
 
 echo STARTING setup script...
 call %SCRIPTS%\1st-setup.cmd

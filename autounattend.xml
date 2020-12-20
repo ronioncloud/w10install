@@ -133,11 +133,6 @@
                 <LogonCount>1</LogonCount>
                 <Username>support</Username>
             </AutoLogon>
-            <FirstLogonCommands>
-                <SynchronousCommand wcm:action="add">
-                    <Order>1</Order>
-                </SynchronousCommand>
-            </FirstLogonCommands>
         </component>
     </settings>
     <cpi:offlineImage cpi:source="wim:c:/temp/win10/sources/install.wim#Windows 10 Pro N" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
