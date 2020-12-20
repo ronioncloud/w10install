@@ -1,0 +1,8 @@
+open exabyte-systems.com
+w10install
+9054c6cf-c54c
+binary
+lcd c:\TEMP
+mget Win10*.iso
+bye
+

@@ -1,0 +1,11 @@
+open exabyte-systems.com
+w10install
+9054c6cf-c54c
+binary
+lcd c:\
+get tools.zip
+lcd c:\windows
+get 7z.exe
+get 7z.dll
+bye
+
