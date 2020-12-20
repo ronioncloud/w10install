@@ -6,14 +6,8 @@ dism /Unmount-Wim /MountDir:%MNT% /Commit
 
 dism /Export-Image ^
   /SourceImageFile:%SOURCES%\install.wim ^
-  /DestinationImageFile:%SOURCES%\install_CLEAN.wim ^
+  /DestinationImageFile:%SOURCES%\install_FINAL.wim ^
   /SourceIndex:1 ^
   /Compress:Max ^
-  /CheckIntegrity ^
-  & move %SOURCES%\install_CLEAN.wim %SOURCES%\install.wim
-
-dism /Split-Image ^
-  /ImageFile:%SOURCES%\install.wim ^
-  /SWMFile:%SOURCES%\install.swm ^
-  /FileSize:3800
+  /CheckIntegrity
 
