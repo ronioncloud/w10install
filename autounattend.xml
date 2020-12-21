@@ -76,10 +76,11 @@
                     <InstallFrom>
                         <MetaData wcm:action="add">
                             <Key>/IMAGE/DESCRIPTION</Key>
-                            <Value>Windows 10 Home</Value>
+                            <Value>Windows 10 Pro</Value>
                         </MetaData>
-                        <Path>install.esd</Path>
+                        <Path>D:\sources\install_FINAL.esd</Path>
                     </InstallFrom>
+                    <WillShowUI>OnError</WillShowUI>
                 </OSImage>
             </ImageInstall>
             <UserData>
@@ -89,6 +90,19 @@
                 <AcceptEula>true</AcceptEula>
                 <Organization>none</Organization>
             </UserData>
+            <WindowsDeploymentServices>
+                <ImageSelection>
+                    <InstallImage>
+                        <ImageName>MY_IMAGE_NAME</ImageName>
+                        <ImageGroup>MY IMAGE GROUP</ImageGroup>
+                        <Filename>D:\sources\install_FINAL.esd</Filename>
+                    </InstallImage>
+                    <InstallTo>
+                        <DiskID>0</DiskID>
+                        <PartitionID>4</PartitionID>
+                    </InstallTo>
+                </ImageSelection>
+            </WindowsDeploymentServices>
         </component>
     </settings>
     <settings pass="specialize">
