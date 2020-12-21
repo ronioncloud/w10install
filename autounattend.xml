@@ -73,6 +73,13 @@
                         <DiskID>0</DiskID>
                         <PartitionID>4</PartitionID>
                     </InstallTo>
+                    <InstallFrom>
+                        <MetaData wcm:action="add">
+                            <Key>/IMAGE/DESCRIPTION</Key>
+                            <Value>Windows 10 Home</Value>
+                        </MetaData>
+                        <Path>install.esd</Path>
+                    </InstallFrom>
                 </OSImage>
             </ImageInstall>
             <UserData>
@@ -135,5 +142,5 @@
             </AutoLogon>
         </component>
     </settings>
-    <cpi:offlineImage cpi:source="wim:c:/temp/win10/sources/install.wim#Windows 10 Pro N" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
+    <cpi:offlineImage cpi:source="wim:c:/temp/win10/sources/install_final.wim#Windows 10 Pro N" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
 </unattend>
