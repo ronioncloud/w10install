@@ -1,4 +1,4 @@
-echo off
+@echo off
 set MNT="c:\TEMP\WIM"
 
 echo ####### Copy2Wim.cmd #######

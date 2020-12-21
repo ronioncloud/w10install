@@ -1,4 +1,4 @@
-echo off
+@echo off
 set SOURCES=c:\TEMP\Win10\sources
 set FILENAME=%1
 

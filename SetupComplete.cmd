@@ -1,4 +1,4 @@
-echo off
+@echo off
 set T="c:\TEMP"
 set TOOLS="c:\tools"
 set SCRIPTS="c:\scripts"
