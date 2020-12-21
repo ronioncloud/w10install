@@ -1,4 +1,3 @@
-@echo off
 mkdir c:\TEMP 1>nul 2>nul
 
 set ISOGLOB=c:\TEMP\Win10*.iso

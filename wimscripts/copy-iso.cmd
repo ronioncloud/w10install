@@ -1,4 +1,3 @@
-@echo off
 set W10="c:\TEMP\Win10"
 
 rd /S /Q %W10% 1>nul 2>nul

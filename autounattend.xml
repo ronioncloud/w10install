@@ -73,13 +73,6 @@
                         <DiskID>0</DiskID>
                         <PartitionID>4</PartitionID>
                     </InstallTo>
-                    <InstallFrom>
-                        <MetaData wcm:action="add">
-                            <Key>/IMAGE/DESCRIPTION</Key>
-                            <Value>Windows 10 Pro</Value>
-                        </MetaData>
-                        <Path>D:\sources\install_FINAL.esd</Path>
-                    </InstallFrom>
                     <WillShowUI>OnError</WillShowUI>
                 </OSImage>
             </ImageInstall>
@@ -90,19 +83,6 @@
                 <AcceptEula>true</AcceptEula>
                 <Organization>none</Organization>
             </UserData>
-            <WindowsDeploymentServices>
-                <ImageSelection>
-                    <InstallImage>
-                        <ImageName>MY_IMAGE_NAME</ImageName>
-                        <ImageGroup>MY IMAGE GROUP</ImageGroup>
-                        <Filename>D:\sources\install_FINAL.esd</Filename>
-                    </InstallImage>
-                    <InstallTo>
-                        <DiskID>0</DiskID>
-                        <PartitionID>4</PartitionID>
-                    </InstallTo>
-                </ImageSelection>
-            </WindowsDeploymentServices>
         </component>
     </settings>
     <settings pass="specialize">
@@ -156,5 +136,5 @@
             </AutoLogon>
         </component>
     </settings>
-    <cpi:offlineImage cpi:source="wim:c:/temp/win10/sources/install_final.wim#Windows 10 Pro N" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
+    <cpi:offlineImage cpi:source="wim:c:/temp/win10/sources/install.wim#Windows 10 Pro" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
 </unattend>
