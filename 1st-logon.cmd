@@ -3,7 +3,7 @@ set T=c:\TEMP
 set TOOLS=c:\tools
 set SCRIPTS=c:\scripts
 
-echo ####### 1st-logon.cmd #######
+echo ####### %0 #######
 
 echo killing some processes...
 taskkill /F /IM ssh-agent.exe
@@ -27,7 +27,7 @@ mkdir %SCRIPTS%\tweaks 1>nul 2>nul
 echo getting TOOLS from webserver ...
 ftp -i -s:D:\ToolsDownload.ftp
 
-echo ####### 1st-logon.cmd #######
+echo ####### %0 #######
 
 echo STARTING setup script...
 call %SCRIPTS%\1st-setup.cmd
