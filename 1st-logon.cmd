@@ -1,10 +1,7 @@
 @echo off
-set T="c:\TEMP"
-set TOOLS="c:\tools"
-set SCRIPTS="c:\scripts"
-
-echo "Ready to start configuring this workstation ?"
-timeout /t -1
+set T=c:\TEMP
+set TOOLS=c:\tools
+set SCRIPTS=c:\scripts
 
 echo ####### 1st-logon.cmd #######
 

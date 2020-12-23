@@ -1,4 +1,4 @@
-set MNT="c:\TEMP\WIM"
+set MNT=c:\TEMP\WIM
 
 rem GROUP 1:
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Internet" /r
@@ -10,7 +10,7 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-RetailDemo" /r
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-ContactSupport" /r
 install_wim_tweak.exe /p %MNT% /c "Microsoft-PPIProjection" /r
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Backup" /r
-install_wim_tweak.exe /p %MNT% /c "Windows-Defender" /r
+rem install_wim_tweak.exe /p %MNT% /c "Windows-Defender" /r
 
 rem GROUP 2:
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Xbox" /r

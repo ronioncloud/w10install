@@ -17,6 +17,11 @@ lcd c:\scripts\conf
 mget *
 cd ..
 
+cd other
+lcd c:\scripts\other
+mget *
+cd ..
+
 cd desktop
 lcd c:\scripts\desktop
 mget *
