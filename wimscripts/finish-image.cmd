@@ -1,10 +1,14 @@
-@set SOURCES=c:\TEMP\Win10\sources
-@set MNT=c:\TEMP\WIM
+@echo off
+set SOURCES=c:\TEMP\Win10\sources
+set MNT=c:\TEMP\WIM
 
-@rd /S /Q %MNT%\Windows\Setup\scripts 1>nul 2>nul
-@mkdir %MNT%\Windows\Setup\scripts 1>nul 2>nul
-copy /Y SetupComplete*.cmd %MNT%\Windows\Setup\scripts
-copy /Y SetupComplete*.ps1 %MNT%\Windows\Setup\scripts
+rd /S /Q %MNT%\Windows\Setup\scripts 1>nul 2>nul
+mkdir %MNT%\Windows\Setup\scripts 1>nul 2>nul
+
+rem copy SetupComplete script ...
+copy /Y SetupComplete.cmd %MNT%\Windows\Setup\scripts
+if %errorlevel% neq 0 exit /b %errorlevel%
+dir %MNT%\Windows\Setup\scripts
 
 dism /Image:%MNT% /Cleanup-Image /StartComponentCleanup /ResetBase
 dism /Unmount-Wim /MountDir:%MNT% /Commit
@@ -15,4 +19,6 @@ dism /Export-Image ^
   /SourceName:"Windows 10 Pro" ^
   /Compress:Recovery ^
   /CheckIntegrity
+
+rem del /Q %SOURCES%\install.wim
 

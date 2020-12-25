@@ -158,24 +158,24 @@
                     <Description>Password Never Expires</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <Order>7</Order>
-                    <CommandLine>cmd /C D:\1st-logon.cmd</CommandLine>
-                    <Description>Initial Setup</Description>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <Order>4</Order>
-                    <Description>Turn Firewall OFF</Description>
-                    <CommandLine>cmd /C netsh advfirewall set allprofiles state off</CommandLine>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
                     <CommandLine>reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /v EnableFirstLogonAnimation /t REG_DWORD /d 0 /f</CommandLine>
-                    <Order>5</Order>
+                    <Order>4</Order>
                     <Description>Disable Windows Hi Animation (Part1)</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <Order>6</Order>
+                    <Order>5</Order>
                     <Description>Disable Windows Hi Animation (Part2)</Description>
                     <CommandLine>reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v EnableFirstLogonAnimation /t REG_DWORD /d 0 /f</CommandLine>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <Order>6</Order>
+                    <Description>Enable outgoing ftp</Description>
+                    <CommandLine>cmd /C netsh advfirewall firewall add rule name="ftp" service=ftp dir=out action=allow profile=any</CommandLine>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <Order>7</Order>
+                    <CommandLine>cmd /C D:\1st-logon.cmd</CommandLine>
+                    <Description>Initial Setup</Description>
                 </SynchronousCommand>
             </FirstLogonCommands>
         </component>

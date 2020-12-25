@@ -1,6 +1,7 @@
 @echo off
-set SCRIPTS=%WINDIR%\Setup\scripts
-set LOG=%SCRIPTS%\SetupComplete.txt
+set LOG=C:\SetupComplete.txt
+set BATCH=SetupComplete.cmd
+set PS1=SetupComplete.ps1
 
 if not "%1"=="STDOUT_TO_FILE" %0 STDOUT_TO_FILE %* 1>%LOG% 2>&1
 shift /1
@@ -8,12 +9,6 @@ shift /1
 echo ####### %0 #######
 date /t
 time /t
-
-echo DISABLE Windows "Hi" animation ...
-@echo on
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v EnableFirstLogonAnimation /t REG_DWORD /d 0 /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v EnableFirstLogonAnimation /t REG_DWORD /d 0 /f
-@echo off
 echo.
 
 rem allow execution of any powershell script ...
@@ -27,9 +22,25 @@ powershell -Command ^
 }"
 echo.
 
-rem call powershell stuff ...
-powershell -Command %SCRIPTS%\SetupComplete.ps1
+rem try to call a script...
+for %%D in (H G F E D) do (
+  if EXIST %%D:\%PS1% (
+    echo EXECUTING %PS1% on drive %%D ...
+    powershell -Command %%D:\%PS1%
+  ) else (
+    echo INFO: %PS1% not found on drive %%D!
+  )
 
+  if EXIST %%D:\%BATCH% (
+    echo EXECUTING %BATCH% on drive %%D ...
+    call %%D:\%BATCH%
+  ) else (
+    echo INFO: %BATCH% not found on drive %%D!
+  )
+
+)
+
+echo.
 date /t
 time /t
 echo ####### %0 #######
