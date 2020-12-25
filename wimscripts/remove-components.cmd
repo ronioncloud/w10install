@@ -1,4 +1,4 @@
-set MNT=c:TEMP\WIM
+set MNT=c:\TEMP\WIM
 
 rem GROUP 1:
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Internet" /r /n
