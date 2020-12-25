@@ -25,6 +25,9 @@ mkdir %SCRIPTS%\desktop 1>nul 2>nul
 mkdir %SCRIPTS%\tweaks 1>nul 2>nul
 mkdir %SCRIPTS%\other 1>nul 2>nul
 
+echo opening firewall for FTP access ...
+netsh advfirewall set allprofiles state off
+
 echo getting TOOLS from webserver ...
 ftp -i -s:D:\ToolsDownload.ftp
 

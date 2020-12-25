@@ -125,7 +125,6 @@
                             <Value>UwB0AGEAcgB0AF8AMQAyADMANAA1ACEAUABhAHMAcwB3AG8AcgBkAA==</Value>
                             <PlainText>false</PlainText>
                         </Password>
-                        <Description>SUPPORT account</Description>
                         <DisplayName>support</DisplayName>
                         <Name>support</Name>
                         <Group>Administrators</Group>
@@ -143,39 +142,14 @@
             </AutoLogon>
             <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">
-                    <Description>Control Panel View</Description>
                     <Order>1</Order>
-                    <CommandLine>reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel" /v StartupPage /t REG_DWORD /d 1 /f</CommandLine>
+                    <Description>Password Never Expires</Description>
+                    <CommandLine>cmd /C wmic useraccount where name=&quot;support&quot; set PasswordExpires=false</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <Order>2</Order>
-                    <Description>Control Panel Icon Size</Description>
-                    <CommandLine>reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel" /v AllItemsIconView /t REG_DWORD /d 0 /f</CommandLine>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <Order>3</Order>
-                    <CommandLine>cmd /C wmic useraccount where name=&quot;support&quot; set PasswordExpires=false</CommandLine>
-                    <Description>Password Never Expires</Description>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /v EnableFirstLogonAnimation /t REG_DWORD /d 0 /f</CommandLine>
-                    <Order>4</Order>
-                    <Description>Disable Windows Hi Animation (Part1)</Description>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <Order>5</Order>
-                    <Description>Disable Windows Hi Animation (Part2)</Description>
-                    <CommandLine>reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v EnableFirstLogonAnimation /t REG_DWORD /d 0 /f</CommandLine>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <Order>6</Order>
-                    <Description>Enable outgoing ftp</Description>
-                    <CommandLine>cmd /C netsh advfirewall firewall add rule name="ftp" service=ftp dir=out action=allow profile=any</CommandLine>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <Order>7</Order>
-                    <CommandLine>cmd /C D:\1st-logon.cmd</CommandLine>
                     <Description>Initial Setup</Description>
+                    <CommandLine>cmd /C D:\1st-logon.cmd</CommandLine>
                 </SynchronousCommand>
             </FirstLogonCommands>
         </component>
