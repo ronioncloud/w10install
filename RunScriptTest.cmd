@@ -2,8 +2,8 @@
 
 echo ####### %0 #######
 
-copy 1st-logon.cmd D:\
-copy ToolsDownload.ftp D:\
+copy /Y 1st-logon.cmd D:\
+copy /Y ToolsDownload.ftp D:\
 
 echo ####### %0 #######
 

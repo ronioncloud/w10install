@@ -1,5 +1,10 @@
-rem REMOVE all applications except the Store...
+# REMOVE all applications except the Store...
 
+write-host '#######',(split-path $PSCommandPath -Leaf),'#######'
+
+$progressPreference = 'SilentlyContinue'
 Get-AppxPackage -AllUsers | where-object {$_.name -notlike "*store*"} | Remove-AppxPackage
 Get-AppxProvisionedPackage -online | where-object {$_.name -notlike "*store*"} | Remove-AppxProvisionedPackage -online
+
+write-host '#######',(split-path $PSCommandPath -Leaf),'#######'
 
