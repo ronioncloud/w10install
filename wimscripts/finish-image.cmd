@@ -20,5 +20,5 @@ dism /Export-Image ^
   /Compress:Recovery ^
   /CheckIntegrity
 
-rem del /Q %SOURCES%\install.wim
+del /Q %SOURCES%\install.wim
 
