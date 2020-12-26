@@ -187,49 +187,6 @@ install_wim_tweak.exe /p %MNT% /c "Server-Help" /r /n
 install_wim_tweak.exe /p %MNT% /c "Windows-Defender" /r /n
 install_wim_tweak.exe /p %MNT% /c "WindowsSearchEngineSKU-Group" /r /n
 
-rem NEW Group:
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Client-License-Platform" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Onecore-SPP-VirtualDevice" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Client-EmbeddedExp" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Client-Optional-Features" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Client-ShellLauncher" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-ConfigCI" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Desktop-BCDTemplate" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Holographic-Desktop" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-HVSI-Components" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-HyperV-OptionalFeature-HypervisorPlatform" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-HyperV-OptionalFeature-VirtualMachinePlatform" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Identity-Foundation" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Management-SecureAssessment" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Media-Format" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MSMQ-Client" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MSMQ-MMC-OptGroup" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MultiPoint-Connector" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Not-Supported-On-LTSB" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-OneCore-Containers" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-PAW-Feature" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-PhotoBasic" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Portable-Devices" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Presentation" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Printing-WFS-FoD" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Printing-PremiumTools" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Printing-PMCPPC-FoD" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Printing-InternetPrinting-Client" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Printing-LocalPrinting-Enterprise" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Product-Data-EKB" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Professional-SPP-Components" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-SecureStartup" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Security-SPP-Component-SKU" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WindowsMediaPlayer-Troubleshooters" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-SMB1" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-SMB1Client-D" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-SMB1Deprecation-Group" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-SMB1Server-D-Opt" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-SmbDirect-Opt" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WMPNetworkSharingService" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WordPad-FoD" /r /n
-install_wim_tweak.exe /p %MNT% /c "Multimedia-RestrictedCodecsDolby" /r /n
-
 rem CLEANUP:
 del SOFTWAREBKP 1>nul 2>nul
 

@@ -21,4 +21,5 @@ dism /Export-Image ^
   /CheckIntegrity
 
 del /Q %SOURCES%\install.wim
+dir %MNT%
 
