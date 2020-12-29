@@ -213,6 +213,12 @@ install_wim_tweak.exe /p %MNT% /c "Server-Help" /r /n
 install_wim_tweak.exe /p %MNT% /c "Windows-Defender" /r /n
 install_wim_tweak.exe /p %MNT% /c "WindowsSearchEngineSKU-Group" /r /n
 
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Media-Format" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MediaPlayback-OC" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WindowsMediaPlayer" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WindowsMediaPlayer-Troubleshooters" /r /n
+
+
 rem CLEANUP:
 del SOFTWAREBKP 1>nul 2>nul
 
