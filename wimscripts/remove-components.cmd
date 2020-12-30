@@ -17,6 +17,7 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-Hyper-V" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-IoTUAP-ShellExt-Tools" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Media-Foundation" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Mobile" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-OneCore" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-OneCore-AllJoyn" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-OneCore-AllowTelemetry" /r /n
 install_wim_tweak.exe /p %MNT% /c "microsoft-onecore-applicationmodel-sync-desktop" /r /n
@@ -45,7 +46,6 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-OneCore-Networking-MobileBroadbandA
 install_wim_tweak.exe /p %MNT% /c "Microsoft-OneCore-NowPlayingSessionManager" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-OneCore-PointOfService" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-OneCore-RemoteDesktopServices" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-OneCore" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-OneCore-Sensors" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-OneCore-SpeechComponents" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Onecore-SPP-VirtualDevice" /r /n
