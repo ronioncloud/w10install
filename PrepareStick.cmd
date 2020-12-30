@@ -20,5 +20,3 @@ copy /Y SetupComplete.ps1 %TARGET%\
 
 echo ####### %0 #######
 
-rem call %TARGET%\%TESTSCRIPT%
-

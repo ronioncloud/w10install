@@ -2,6 +2,7 @@
 set T=c:\TEMP
 set TOOLS=c:\tools
 set SCRIPTS=c:\scripts
+set FTPSCRIPT=ToolsDownload.ftp
 
 echo ####### %0 #######
 
@@ -25,11 +26,20 @@ mkdir %SCRIPTS%\desktop 1>nul 2>nul
 mkdir %SCRIPTS%\tweaks 1>nul 2>nul
 mkdir %SCRIPTS%\other 1>nul 2>nul
 
-echo opening firewall for FTP access ...
+echo DISABLE firewall (for FTP access) ...
 netsh advfirewall set allprofiles state off
 
 echo getting TOOLS from webserver ...
-ftp -i -s:D:\ToolsDownload.ftp
+rem try to call a script...
+for %%D in (H G F E D) do (
+  if EXIST %%D:\%FTPSCRIPT% (
+    echo EXECUTING ftp-script %FTPSCRIPT% on drive %%D ...
+    ftp -i -s:%%D:\%FTPSCRIPT%
+  ) else (
+    echo INFO: %FTPSCRIPT% not found on drive %%D!
+  )
+
+)
 
 echo ####### %0 #######
 
