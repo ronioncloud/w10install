@@ -85,12 +85,14 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-DeviceSync" /r /n
 install_wim_tweak.exe /p %MNT% /c "microsoft-windows-directoryservices-adam" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-DirectoryServices-ADAM" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-EnterpriseClientSync" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-FodMetadata" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Geolocation" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Hello-Face" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Help" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-HVSI-Components" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-HyperV-OptionalFeature-HypervisorPlatform" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-HyperV-OptionalFeature-VirtualMachinePlatform" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Identity-Foundation" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-IIS-WebServer" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-International" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-InternetExplorer" /r /n
@@ -102,6 +104,8 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Legacy" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Links" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Lxss" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Management-SecureAssessment" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Media-Format" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MediaPlayback-OC" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MediaPlayer" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Media-Streaming" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Migration" /r /n
@@ -118,6 +122,7 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Network-Connectivity-Assist
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-NetworkDiagnostics" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Network-QoS" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-NFS" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Notepad-FoD" /r /n
 install_wim_tweak.exe /p %MNT% /c "microsoft-windows-notepad" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Not-Supported-On-LTSB" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-OfflineFiles" /r /n
@@ -188,11 +193,14 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-VirtualPC" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-VirtualXP" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WebcamExperience" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WindowsFoundation-LanguagePack" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WindowsMediaPlayer" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WindowsMediaPlayer-Troubleshooters" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WinOcr" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WinRT" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WinSATMediaFiles" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WMIPerf" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WordBreaking" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WordPad-FoD" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WorkplaceJoin" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WPD-LegacyWmdmFeature" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WPD-UltimatePortableDeviceFeature-Feature" /r /n
@@ -213,11 +221,47 @@ install_wim_tweak.exe /p %MNT% /c "Server-Help" /r /n
 install_wim_tweak.exe /p %MNT% /c "Windows-Defender" /r /n
 install_wim_tweak.exe /p %MNT% /c "WindowsSearchEngineSKU-Group" /r /n
 
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Media-Format" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MediaPlayback-OC" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WindowsMediaPlayer" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WindowsMediaPlayer-Troubleshooters" /r /n
 
+rem ESSENTIAL (do NOT remove):
+
+rem Microsoft-Client-License-Platform
+rem Microsoft-Windows-20H2Enablement
+rem Microsoft-Windows-Client-Desktop-Required
+rem Microsoft-Windows-Client-LanguagePack
+rem Microsoft-Windows-Common-Foundation
+rem Microsoft-Windows-Common-RegulatedPackages
+rem Microsoft-Windows-ConfigCI
+rem Microsoft-Windows-Desktop-BCDTemplate
+rem Microsoft-Windows-DesktopFileExplorer
+rem Microsoft-Windows-DeviceGuard-GPEXT
+rem Microsoft-Windows-EditionPack-Professional
+rem Microsoft-Windows-EditionSpecific-Professional
+rem Microsoft-Windows-Editions-Professional
+rem Microsoft-Windows-Embedded-UnifiedWriteFilterCSP
+rem Microsoft-Windows-Enterprise-Desktop-Share
+rem Microsoft-Windows-FCI-Client
+rem Microsoft-Windows-Foundation
+rem Microsoft-Windows-GroupPolicy-ClientExtensions
+rem Microsoft-Windows-GroupPolicy-ClientTools
+rem Microsoft-Windows-Holographic-Desktop
+rem Microsoft-Windows-HVSI
+rem Microsoft-Windows-MSPaint-FoD
+rem Microsoft-Windows-NetFx
+rem Microsoft-Windows-NetFx2
+rem Microsoft-Windows-NetFx3
+rem Microsoft-Windows-NetFx4
+rem Microsoft-Windows-NewTabPageHost
+rem Microsoft-Windows-PowerShell-ISE-FOD
+rem Microsoft-Windows-Product-Data-EKB
+rem Microsoft-Windows-ProfessionalEdition
+rem Microsoft-Windows-Professional-SPP-Components
+rem Microsoft-Windows-RegulatedPackages
+rem Microsoft-Windows-Required-ShellExperiences-Desktop
+rem Microsoft-Windows-Runtime-Metadata-Desktop
+rem Microsoft-Windows-SecureStartup
+rem Microsoft-Windows-Security-SPP-Component-SKU
+rem Microsoft-Windows-ShellExperienceHost
+rem Microsoft-Windows-WMPNetworkSharingService
 
 rem CLEANUP:
 del SOFTWAREBKP 1>nul 2>nul
