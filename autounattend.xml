@@ -8,8 +8,8 @@
             </SetupUILanguage>
             <InputLocale>de-DE</InputLocale>
             <SystemLocale>de-DE</SystemLocale>
-            <UILanguage>de-DE</UILanguage>
-            <UserLocale>de-DE</UserLocale>
+            <UILanguage>en-US</UILanguage>
+            <UserLocale>en-US</UserLocale>
         </component>
         <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <DiskConfiguration>
@@ -89,7 +89,7 @@
         <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <OEMInformation>
                 <Manufacturer>IBM PC</Manufacturer>
-                <Model>Windos</Model>
+                <Model>Windows</Model>
             </OEMInformation>
             <CopyProfile>true</CopyProfile>
             <RegisteredOrganization>none</RegisteredOrganization>
@@ -97,7 +97,6 @@
             <TimeZone>Central Europe Standard Time</TimeZone>
             <ProductKey>VK7JG-NPHTM-C97JM-9MPGT-3V66T</ProductKey>
             <ShowPowerButtonOnStartScreen>true</ShowPowerButtonOnStartScreen>
-            <BluetoothTaskbarIconEnabled>true</BluetoothTaskbarIconEnabled>
         </component>
         <component name="Microsoft-Windows-SQMApi" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <CEIPEnabled>0</CEIPEnabled>
@@ -107,8 +106,8 @@
         <component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <InputLocale>de-DE</InputLocale>
             <SystemLocale>de-DE</SystemLocale>
-            <UILanguage>de-DE</UILanguage>
-            <UserLocale>de-DE</UserLocale>
+            <UILanguage>en-US</UILanguage>
+            <UserLocale>en-US</UserLocale>
         </component>
         <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <OOBE>

@@ -66,7 +66,7 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Basic-Http-Minio" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-BioEnrollment" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-BITS" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Branding-Enterprise" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Browser" /r /n
+rem install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Browser" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-BusinessScanning" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Casting" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Client-AssignedAccess" /r /n
@@ -82,8 +82,8 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-CoreSystem-DebugTransports"
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Cortana" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-DataCenterBridging" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-DeviceSync" /r /n
-rem install_wim_tweak.exe /p %MNT% /c "microsoft-windows-directoryservices-adam" /r /n
-rem install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-DirectoryServices-ADAM" /r /n
+install_wim_tweak.exe /p %MNT% /c "microsoft-windows-directoryservices-adam" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-DirectoryServices-ADAM" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-EnterpriseClientSync" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-FodMetadata" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Geolocation" /r /n
@@ -92,7 +92,7 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Help" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-HVSI-Components" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-HyperV-OptionalFeature-HypervisorPlatform" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-HyperV-OptionalFeature-VirtualMachinePlatform" /r /n
-rem install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Identity-Foundation" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Identity-Foundation" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-IIS-WebServer" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-International" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-InternetExplorer" /r /n
@@ -103,7 +103,7 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-LanguageFeatures" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Legacy" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Links" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Lxss" /r /n
-rem install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Management-SecureAssessment" /r /n
+install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Management-SecureAssessment" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Media-Format" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MediaPlayback-OC" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MediaPlayer" /r /n
@@ -212,7 +212,7 @@ install_wim_tweak.exe /p %MNT% /c "Multimedia-RestrictedCodecsCore" /r /n
 install_wim_tweak.exe /p %MNT% /c "Multimedia-RestrictedCodecsDolby" /r /n
 install_wim_tweak.exe /p %MNT% /c "MultiPoint-Help" /r /n
 install_wim_tweak.exe /p %MNT% /c "MultiPoint" /r /n
-rem install_wim_tweak.exe /p %MNT% /c "Networking-MPSSVC-Rules-EnterpriseEdition-Package" /r /n
+install_wim_tweak.exe /p %MNT% /c "Networking-MPSSVC-Rules-EnterpriseEdition-Package" /r /n
 install_wim_tweak.exe /p %MNT% /c "OpenSSH-Client-Package" /r /n
 install_wim_tweak.exe /p %MNT% /c "openssh-client-package-Wrapper" /r /n
 install_wim_tweak.exe /p %MNT% /c "RemoteDesktopServices-Base-Package" /r /n
