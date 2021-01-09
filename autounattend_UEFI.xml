@@ -148,7 +148,7 @@
                 <SynchronousCommand wcm:action="add">
                     <Order>2</Order>
                     <Description>Initial Setup</Description>
-                    <CommandLine>cmd /C D:\1st-logon.cmd</CommandLine>
+                    <CommandLine>cmd /C c:\scripts\1st-setup.cmd</CommandLine>
                 </SynchronousCommand>
             </FirstLogonCommands>
         </component>

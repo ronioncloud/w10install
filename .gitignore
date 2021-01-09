@@ -1,7 +1,10 @@
+*.swp
 *.wim
 *.iso
 *.exe
 *.dll
+null
+log.txt
+Packages.txt
 distribution
-*.swp
-
+SOFTWAREBKP

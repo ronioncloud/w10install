@@ -1,16 +1,15 @@
 @echo off
-set TARGET=D:
-set TESTSCRIPT=1st-logon.cmd
+set SCRIPTS=%WINDIR%\Setup\scripts
+set LOG=C:\SetupComplete.txt
+mkdir %SCRIPTS% 1>nul 2>nul
+del /Q %LOG% 1>nul 2>nul
 
 echo ####### %0 #######
 
-copy /Y autounattend.xml %TARGET%\
-copy /Y 1st-logon.cmd %TARGET%\
-copy /Y ToolsDownload.ftp %TARGET%\
-copy /Y SetupComplete.cmd %TARGET%\
-copy /Y SetupComplete.ps1 %TARGET%\
+copy /Y SetupComplete.cmd %SCRIPTS%
+copy /Y ToolsDownload.* %SCRIPTS%
 
 echo ####### %0 #######
 
-rem call %TARGET%\%TESTSCRIPT%
+call %SCRIPTS%\SetupComplete.cmd
 
