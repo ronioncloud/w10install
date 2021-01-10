@@ -1,6 +1,6 @@
 @echo off
 
-set SOURCE=desktopicons
+set SOURCE=icons
 set TARGET=c:\Users\Public\Desktop
 
 echo ####### %0 #######

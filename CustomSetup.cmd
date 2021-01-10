@@ -1,8 +1,6 @@
 @echo off
 set T=c:\TEMP
 set TOOLS=c:\tools
-mkdir %USERPROFILE%\workspace 1>nul 2>nul
-mkdir %USERPROFILE%\.ssh 1>nul 2>nul
 
 echo ####### %0 #######
 
@@ -25,7 +23,7 @@ rd /S /Q %TOOLS%
 echo copying folder tools to %TOOLS% ...
 robocopy tools %TOOLS% /MIR /256 /NJH /NFL /NDL
 
-rem chdir to scripts folder ...
+rem cd to scripts folder ...
 cd scripts
 
 echo unpacking BGInfo ...
@@ -60,6 +58,14 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Env
   /t REG_EXPAND_SZ ^
   /d "%TOOLS%\usr\bin\ssh.exe" ^
   /f
+
+rem copy files in deploy folder to tools directory ...
+copy /Y deploy\* %TOOLS%
+
+rem create directories for current user ...
+mkdir %USERPROFILE%\workspace 1>nul 2>nul
+mkdir %USERPROFILE%\.ssh 1>nul 2>nul
+copy /Y %TOOLS%\ssh_config %USERPROFILE%\.ssh\config
 
 rem installing startup links ...
 call install-logonscript.cmd

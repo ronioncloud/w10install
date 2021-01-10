@@ -1,5 +1,5 @@
 @echo off
-set TARGET=c:\scripts\tweaks
+set TARGET=tweaks
 
 echo ####### %0 #######
 

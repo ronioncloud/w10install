@@ -1,7 +1,4 @@
 @echo off
-set T=c:\TEMP
-mkdir %T% 1>nul 2>nul
-cd /D %T%
 
 set CONFIG=install-git.txt
 set EXE=..\software\Git-2.29.0-64-bit.exe
