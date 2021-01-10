@@ -23,24 +23,27 @@ rd /S /Q %TOOLS%
 echo copying folder tools to %TOOLS% ...
 robocopy tools %TOOLS% /MIR /256 /NJH /NFL /NDL
 
+rem delete .gitignore in tools folder ...
+del /F %TOOLS%\.gitignore
+
 rem cd to scripts folder ...
 cd scripts
 
 echo unpacking BGInfo ...
 %TOOLS%\7z x -aoa -o%TOOLS% %TOOLS%\BGInfo.zip
-del /Q %TOOLS%\BGInfo.zip 1>nul 2>nul
+del /F %TOOLS%\BGInfo.zip 1>nul 2>nul
 
 echo unpacking TOTAL commander ...
 %TOOLS%\7z x -aoa -o%TOOLS% %TOOLS%\totalcmd.zip
-del /Q %TOOLS%\totalcmd.zip 1>nul 2>nul
+del /F %TOOLS%\totalcmd.zip 1>nul 2>nul
 
 echo unpacking notepad++ ...
 %TOOLS%\7z x -aoa -o%TOOLS% %TOOLS%\notepad++.zip
-del /Q %TOOLS%\notepad++.zip 1>nul 2>nul
+del /F %TOOLS%\notepad++.zip 1>nul 2>nul
 
 echo unpacking ImapCopy ...
 %TOOLS%\7z x -aoa -o%TOOLS% %TOOLS%\ImapCopy.zip
-del /Q %TOOLS%\ImapCopy.zip 1>nul 2>nul
+del /F %TOOLS%\ImapCopy.zip 1>nul 2>nul
 
 echo installing GIT ...
 call install-git.cmd
