@@ -1,3 +1,5 @@
+tools/*
+software/*
 *.swp
 *.wim
 *.iso
