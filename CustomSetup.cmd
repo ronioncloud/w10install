@@ -17,7 +17,7 @@ taskkill /F /IM ssh.exe
 echo restart explorer ...
 taskkill /F /IM explorer.exe & start explorer.exe
 
-echo deleting %TOOLS% and %SCRIPTS% ...
+echo deleting %TOOLS% ...
 rd /S /Q %TOOLS%
 
 echo copying folder tools to %TOOLS% ...
@@ -80,10 +80,10 @@ rem changing power configuration ...
 call install-powertweaks.cmd
 
 rem uninstall OneDrive completely ...
-call %SCRIPTS%\uninstall-onedrive.cmd
+call uninstall-onedrive.cmd
 
 rem uninstall Edge completely ...
-call %SCRIPTS%\uninstall-edge.cmd
+call uninstall-edge.cmd
 
 rem allow execution of any powershell script ...
 powershell -Command "Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine"
@@ -97,7 +97,7 @@ powershell -Command ^
 echo.
 
 rem uninstall some Apps (but keep the store) ...
-powershell %SCRIPTS%\uninstall-apps.ps1
+powershell uninstall-apps.ps1
 
 echo setting PATH variable (all users) ...
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" ^
@@ -107,23 +107,23 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Env
   /f
 
 echo cleanup startmenu ...
-call %SCRIPTS%\cleanup-startmenu.cmd
-powershell -Command %SCRIPTS%\cleanup-tiles.ps1
+call cleanup-startmenu.cmd
+powershell -Command cleanup-tiles.ps1
 
 rem install openshell (fuck you microsoft) ...
-call %SCRIPTS%\install-openshell.cmd
+call install-openshell.cmd
 
 rem install Mozilla Firefox (fuck you google) ...
-call %SCRIPTS%\install-firefox.cmd
+call install-firefox.cmd
 
 rem install F-Secure Antivirus ...
-call %SCRIPTS%\install-antivir.cmd
+call install-antivir.cmd
 
 rem echo ENABLE firewall ...
 rem netsh advfirewall set allprofiles state on
 
 rem disable autologon for support user ...
-call %SCRIPTS%\disable-autologon.cmd
+call disable-autologon.cmd
 
 echo ####### %0 #######
 echo READY.
