@@ -46,7 +46,7 @@ if NOT EXIST %USBDRIVE% (
 
 if EXIST %SOURCES%\install_FINAL.esd (
   echo copying install.esd to drive %USBDRIVE% ...
-  robocopy %SOURCES% %USBDRIVE%\sources install_FINAL.esd /NFL /NDL
+  robocopy %SOURCES% %USBDRIVE%\sources install_FINAL.esd /NJH
   del /F %USBDRIVE%\sources\install.esd 
   move /Y %USBDRIVE%\sources\install_FINAL.esd %USBDRIVE%\sources\install.esd
   move /Y %SOURCES%\install_FINAL.esd %SOURCES%\install_FINAL_copy.esd
