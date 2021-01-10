@@ -16,7 +16,7 @@ msiexec /i %MSI% ADDLOCAL=StartMenu,ClassicExplorer /passive
 
 rem cleanup ...
 del /Q %MSI% 1>nul 2>nul
-cd %SCRIPTS
+cd %SCRIPTS%
 
 echo ####### %0 #######
 

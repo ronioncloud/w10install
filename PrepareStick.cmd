@@ -54,7 +54,7 @@ if EXIST %SOURCES%\install_FINAL.esd (
 
 for %%P in (tools software scripts) do (
   if EXIST %%P (
-    rd /S /Q %USBDRIVE%\%%P
+    rd /S /Q %USBDRIVE%\%%P 1>nul 2>nul
     echo copying folder %%P to drive %USBDRIVE% ...
     robocopy %%P %USBDRIVE%\%%P /MIR /256 /NJH /NFL /NDL
   )

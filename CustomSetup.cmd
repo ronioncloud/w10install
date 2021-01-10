@@ -100,7 +100,7 @@ powershell -Command ^
 echo.
 
 rem uninstall some Apps (but keep the store) ...
-powershell uninstall-apps.ps1
+powershell -Command .\uninstall-apps.ps1
 
 echo setting PATH variable (all users) ...
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" ^
@@ -111,7 +111,7 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Env
 
 echo cleanup startmenu ...
 call cleanup-startmenu.cmd
-powershell -Command cleanup-tiles.ps1
+powershell -Command .\cleanup-tiles.ps1
 
 rem install openshell (fuck you microsoft) ...
 call install-openshell.cmd
