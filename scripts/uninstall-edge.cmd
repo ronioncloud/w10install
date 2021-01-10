@@ -10,5 +10,8 @@ echo ####### %0 #######
 rd /S /Q %EDGEROOT% 1>nul 2>nul
 rd /S /Q %EDGEUPDATE% 1>nul 2>nul
 
+del /F "%PUBLIC%\Desktop\Microsoft Edge.lnk" 1>nul 2>nul
+del /F "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk" 1>nul 2>nul
+
 echo ####### %0 #######
 

@@ -16,6 +16,8 @@ msiexec /i %MSI% ADDLOCAL=StartMenu,ClassicExplorer /passive
 
 rem cleanup ...
 del /Q %MSI% 1>nul 2>nul
+del /F "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Open-Shell\Open-Shell Readme.lnk" 1>nul 2>nul
+
 cd %SCRIPTS%
 
 echo ####### %0 #######

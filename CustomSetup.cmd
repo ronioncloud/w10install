@@ -23,9 +23,6 @@ rd /S /Q %TOOLS%
 echo copying folder tools to %TOOLS% ...
 robocopy tools %TOOLS% /MIR /256 /NJH /NFL /NDL
 
-rem delete .gitignore in tools folder ...
-del /F %TOOLS%\.gitignore
-
 rem cd to scripts folder ...
 cd scripts
 
@@ -34,8 +31,8 @@ echo unpacking BGInfo ...
 del /F %TOOLS%\BGInfo.zip 1>nul 2>nul
 
 echo unpacking TOTAL commander ...
-%TOOLS%\7z x -aoa -o%TOOLS% %TOOLS%\totalcmd.zip
-del /F %TOOLS%\totalcmd.zip 1>nul 2>nul
+%TOOLS%\7z x -aoa -o%TOOLS% %TOOLS%\totalcmd_951.zip
+del /F %TOOLS%\totalcmd_951.zip 1>nul 2>nul
 
 echo unpacking notepad++ ...
 %TOOLS%\7z x -aoa -o%TOOLS% %TOOLS%\notepad++.zip

@@ -46,7 +46,7 @@ if NOT EXIST %USBDRIVE% (
 
 if EXIST %SOURCES%\install_FINAL.esd (
   echo copying install.esd to drive %USBDRIVE% ...
-  robocopy %SOURCES% %USBDRIVE%\sources install_FINAL.esd /NJH
+  robocopy %SOURCES% %USBDRIVE%\sources install_FINAL.esd /J /NJH
   del /F %USBDRIVE%\sources\install.esd 
   move /Y %USBDRIVE%\sources\install_FINAL.esd %USBDRIVE%\sources\install.esd
   move /Y %SOURCES%\install_FINAL.esd %SOURCES%\install_FINAL_copy.esd
@@ -54,12 +54,14 @@ if EXIST %SOURCES%\install_FINAL.esd (
 
 for %%P in (tools software scripts) do (
   if EXIST %%P (
-    rd /S /Q %USBDRIVE%\%%P 1>nul 2>nul
+    echo.
     echo copying folder %%P to drive %USBDRIVE% ...
-    robocopy %%P %USBDRIVE%\%%P /MIR /256 /NJH /NFL /NDL
+    robocopy %%P %USBDRIVE%\%%P /COPY:DT /FFT /XO /MIR /256 /NJH /NJS /NDL /XF .gitignore
+    del /F %USBDRIVE%\%%P\.gitignore 1>nul 2>nul
   )
 )
 
+echo.
 echo copying custom setup script to %USBDRIVE% ...
 copy /Y CustomSetup.cmd %USBDRIVE%\
 
