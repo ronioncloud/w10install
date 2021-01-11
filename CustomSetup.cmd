@@ -110,10 +110,6 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Env
   /d "%SYSTEMROOT%;%SYSTEMROOT%\system32;%SYSTEMROOT%\system32\wbem;%SYSTEMROOT%\system32\WindowsPowerShell\v1.0;%TOOLS%;%TOOLS%\git\bin;%TOOLS%\git\usr\bin;%TOOLS%\notepad++" ^
   /f
 
-echo cleanup startmenu ...
-call cleanup-startmenu.cmd
-powershell -Command .\cleanup-tiles.ps1
-
 rem install openshell (fuck you microsoft) ...
 call install-openshell.cmd
 
@@ -123,11 +119,21 @@ call install-firefox.cmd
 rem install F-Secure Antivirus ...
 call install-antivir.cmd
 
-rem echo ENABLE firewall ...
-rem netsh advfirewall set allprofiles state on
-
 rem disable autologon for support user ...
 call disable-autologon.cmd
+
+rem disable logon screen background ...
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" ^
+  /v DisableLogonBackgroundImage ^
+  /t REG_DWORD /d 1 /f
+
+rem this must be done as late as possible ... stupid os problem
+echo cleanup startmenu and tiles ...
+powershell -Command .\cleanup-tiles.ps1
+call cleanup-startmenu.cmd
+
+rem echo ENABLE firewall ...
+rem netsh advfirewall set allprofiles state on
 
 echo ####### %0 #######
 echo READY.
