@@ -82,12 +82,6 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MobilePC" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MRT10" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MSMQ" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MultiPoint-Connector" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-NetFx2-OC-Package" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-NetFx3-OC-Package" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-NetFx3-OnDemand-Package" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-NetFx3-WCF-OC-Package" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-NetFx4-US-OC-Package" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-NetFx4-WCF-US-OC-Package" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Network-Connectivity-Assistant" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-NetworkDiagnostics" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Network-QoS" /r /n

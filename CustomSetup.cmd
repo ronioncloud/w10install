@@ -42,6 +42,10 @@ echo unpacking ImapCopy ...
 %TOOLS%\7z x -aoa -o%TOOLS% %TOOLS%\ImapCopy.zip
 del /F %TOOLS%\ImapCopy.zip 1>nul 2>nul
 
+echo unpacking MediaCreationTool ...
+%TOOLS%\7z x -aoa -o%TOOLS% %TOOLS%\MediaCreationTool20H2.zip
+del /F %TOOLS%\MediaCreationTool20H2.zip 1>nul 2>nul
+
 echo installing GIT ...
 call install-git.cmd
 
