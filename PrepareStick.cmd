@@ -30,13 +30,16 @@ if NOT EXIST %USBDRIVE% (
   exit /b
 )
 
+set answer=
 :ask
   set /p answer="BIOS or UEFI setup (B/U)? "
   if /i "%answer:~,1%" EQU "B" (
+    echo selected: BIOS
     copy /Y autounattend_BIOS.xml %USBDRIVE%\autounattend.xml
     GOTO CONT 
   )
   if /i "%answer:~,1%" EQU "U" (
+    echo selected: UEFI
     copy /Y autounattend_UEFI.xml %USBDRIVE%\autounattend.xml
     GOTO CONT 
   )
@@ -55,7 +58,7 @@ if EXIST %SOURCES%\install_FINAL.esd (
 echo.
 if EXIST tools (
   echo copying folder tools to drive %USBDRIVE% ...
-  robocopy tools %USBDRIVE%\tools /COPY:DT /FFT /XO /MIR /256 /NJH /NJS /NDL /XF .gitignore
+  robocopy tools %USBDRIVE%\tools /COPY:DT /FFT /XO /256 /NJH /NJS /NDL /XF .gitignore
 )
 
 for %%P in (software scripts) do (
