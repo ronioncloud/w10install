@@ -1,6 +1,6 @@
 @echo off
 
-set CONF=deploy\firefox
+set CONF=config\firefox
 set SCRIPTS=..\..\scripts
 set SOFTWARE=..\software\firefox
 

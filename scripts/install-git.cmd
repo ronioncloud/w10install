@@ -1,7 +1,8 @@
 @echo off
 
-set CONFIG=install-git.txt
+set CONFIG=config\install-git.txt
 set EXE=..\software\Git-2.29.0-64-bit.exe
+set TOOLS=c:\tools
 
 echo ####### %0 #######
 
@@ -11,6 +12,20 @@ taskkill /F /IM ssh.exe
 
 echo installing GIT ...
 %EXE% /LOADINF=%CONFIG% /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
+
+echo setting GIT_EDITOR variable (all users) ...
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" ^
+  /v GIT_EDITOR ^
+  /t REG_EXPAND_SZ ^
+  /d "%TOOLS%\vim.exe" ^
+  /f
+
+echo setting GIT_SSH variable (all users) ...
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" ^
+  /v GIT_SSH ^
+  /t REG_EXPAND_SZ ^
+  /d "%TOOLS%\usr\bin\ssh.exe" ^
+  /f
 
 echo ####### %0 #######
 

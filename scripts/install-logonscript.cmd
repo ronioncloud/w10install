@@ -1,6 +1,4 @@
 @echo off
-
-set SOURCE=deploy/logon.cmd
 set TOOLS=c:\tools
 set TARGET="%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 
@@ -10,10 +8,7 @@ rem cleanup ...
 del /Q /F %TARGET%\logon* 1>nul 2>nul
 del /Q /F %TOOLS%\logon.cmd 1>nul 2>nul
 
-echo copy logon.cmd to %TOOLS% ...
-copy /Y %SOURCE% %TOOLS%
-
-echo create link for logon script...
+echo creating link for logon script...
 mklink %TARGET%\logon.cmd %TOOLS%\logon.cmd
 
 echo create link on desktop...

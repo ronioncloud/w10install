@@ -1,5 +1,4 @@
 @echo off
-
 set TOOLS=c:\tools
 
 echo ####### %0 #######
@@ -20,7 +19,7 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Hi
 rem refresh desktop (W10 style)
 ie4uinit.exe -show
 
-echo remove wallpaper ...
+echo removing wallpaper ...
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v WallPaper /t REG_SZ /d " " /f
 RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
 
@@ -29,6 +28,11 @@ echo set desktop colour ...
 
 echo starting BGInfo ...
 %TOOLS%\bginfo\bginfo64.exe %TOOLS%\bginfo\config.bgi /NOLICPROMPT /silent /timer:0
+
+echo creating some directories and files for current user ...
+mkdir %USERPROFILE%\workspace 1>nul 2>nul
+mkdir %USERPROFILE%\.ssh 1>nul 2>nul
+copy /Y %TOOLS%\scripts\config\ssh_config.txt %USERPROFILE%\.ssh\config
 
 echo start workstation service ...
 net start workstation 1>nul 2>nul

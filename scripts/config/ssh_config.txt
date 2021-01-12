@@ -1,0 +1,9 @@
+ControlMaster=auto
+ControlPersist=60s
+ServerAliveInterval=30
+StrictHostKeyChecking=no
+UpdateHostKeys=no
+CheckHostIP=no
+UserKnownHostsFile=/dev/null
+LogLevel=ERROR
+

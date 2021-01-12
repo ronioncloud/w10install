@@ -52,12 +52,17 @@ if EXIST %SOURCES%\install_FINAL.esd (
   move /Y %SOURCES%\install_FINAL.esd %SOURCES%\install_FINAL_copy.esd
 )
 
-for %%P in (tools software scripts) do (
+echo.
+if EXIST tools (
+  echo copying folder tools to drive %USBDRIVE% ...
+  robocopy tools %USBDRIVE%\tools /COPY:DT /FFT /XO /MIR /256 /NJH /NJS /NDL /XF .gitignore
+)
+
+for %%P in (software scripts) do (
   if EXIST %%P (
     echo.
-    echo copying folder %%P to drive %USBDRIVE% ...
-    robocopy %%P %USBDRIVE%\%%P /COPY:DT /FFT /XO /MIR /256 /NJH /NJS /NDL /XF .gitignore
-    del /F %USBDRIVE%\%%P\.gitignore 1>nul 2>nul
+    echo copying folder %%P to drive %USBDRIVE%\tools ...
+    robocopy %%P %USBDRIVE%\tools\%%P /COPY:DT /FFT /XO /MIR /256 /NJH /NJS /NDL /XF .gitignore
   )
 )
 
