@@ -4,9 +4,16 @@ rem this script is doing most of the work ...
 set T=c:\TEMP
 set TOOLS=c:\tools
 set SCRIPTS=%TOOLS%\scripts
+set LOG=%SCRIPTS%\autoconfig-all.txt
+
+if not "%1"=="STDOUT_TO_FILE" %0 STDOUT_TO_FILE %* 1>%LOG% 2>&1
+shift /1
 
 echo.
 echo ####### %0 #######
+date /t
+time /t
+echo.
 
 echo creating %T% ...
 mkdir %T% 1>nul 2>nul
@@ -127,6 +134,12 @@ rem echo ENABLE firewall ...
 rem netsh advfirewall set allprofiles state on
 rem echo.
 
+echo rebooting ...
+shutdown -g -t 0
+echo.
+
+date /t
+time /t
 echo ####### %0 #######
 echo READY.
-pause
+
