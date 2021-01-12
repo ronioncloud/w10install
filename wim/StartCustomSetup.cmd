@@ -15,7 +15,7 @@ for %%D in (A B D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
   if EXIST %%D:\%BATCH% (
     echo EXECUTING %%D:\%BATCH% ...
     cd /D %%D:\
-    start cmd /C %BATCH%
+    start /MIN cmd /C %BATCH%
     GOTO END 
   ) else (
     echo INFO: %BATCH% not found on drive %%D!

@@ -57,7 +57,7 @@ del /F %TOOLS%\MediaCreationTool20H2.zip 1>nul 2>nul
 echo.
 
 echo starting %BATCH% ...
-start cmd /C %BATCH%
+start /MIN cmd /C %BATCH%
 echo.
 
 date /t
