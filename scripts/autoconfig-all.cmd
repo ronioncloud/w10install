@@ -92,6 +92,12 @@ rem fuck you google ...
 call install-firefox.cmd
 echo.
 
+call install-emclient.cmd
+echo.
+
+call install-softmaker.cmd
+echo.
+
 call install-antivir.cmd
 echo.
 
