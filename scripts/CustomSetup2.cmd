@@ -39,7 +39,7 @@ powershell -Command ^
 }"
 echo.
 
-echo setting PATH variable ( for all users) ...
+echo setting PATH variable (for all users) ...
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" ^
   /d "%SYSTEMROOT%;%SYSTEMROOT%\system32;%SYSTEMROOT%\system32\wbem;%SYSTEMROOT%\system32\WindowsPowerShell\v1.0;%TOOLS%;%TOOLS%\git\bin;%TOOLS%\git\usr\bin;%TOOLS%\notepad++" ^
   /v PATH /t REG_EXPAND_SZ /f
