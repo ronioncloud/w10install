@@ -10,8 +10,9 @@ echo ####### %0 #######
 cd %SOFTWARE%
 @echo on
 msiexec /i %MSI% /qb APPLICATIONFOLDER="c:\Program Files\Softmaker Office 2021" ^
-  INSTALLTM=1 INSTALLPM=1 INSTALLPR=1 INSTALLTB1=0 INSTALLTB2=0 /l*v log.log
+  INSTALLTM=1 INSTALLPM=1 INSTALLPR=1 INSTALLTB1=0 INSTALLTB2=0 /l*v c:\temp\softmaker.log
 @echo off
+del /F c:\temp\softmaker.log
 cd %SCRIPTS%
 
 echo installing desktop icons ...
