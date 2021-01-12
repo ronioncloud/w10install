@@ -46,17 +46,12 @@ powershell -Command ^
 }"
 echo.
 
-echo setting PATH variable (for all users) ...
-reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" ^
-  /d "%SYSTEMROOT%;%SYSTEMROOT%\system32;%SYSTEMROOT%\system32\wbem;%SYSTEMROOT%\system32\WindowsPowerShell\v1.0;%TOOLS%;%TOOLS%\git\bin;%TOOLS%\git\usr\bin;%TOOLS%\notepad++" ^
-  /v PATH /t REG_EXPAND_SZ /f
+call modify-path.cmd 
 echo.
 
-rem changing power configuration ...
 call modify-powersettings.cmd
 echo.
 
-rem installing tweaks ...
 call install-tweaks.cmd
 echo.
 
@@ -69,11 +64,9 @@ rem uninstall ALL Apps (but keep the store) ...
 powershell -Command .\uninstall-apps.ps1
 echo.
 
-rem uninstall OneDrive completely ...
 call uninstall-onedrive.cmd
 echo.
 
-rem uninstall Edge completely ...
 call uninstall-edge.cmd
 echo.
 
@@ -107,13 +100,12 @@ echo ### DISABLE tasks ###
 echo #####################
 echo.
 
-echo disabling logon screen background ...
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" ^
-  /v DisableLogonBackgroundImage ^
-  /t REG_DWORD /d 1 /f
+call disable-logonbackground.cmd 
 echo.
 
-rem disable autologon for support user ...
+call disable-meetnow.cmd
+echo.
+
 call disable-autologon.cmd
 echo.
 
