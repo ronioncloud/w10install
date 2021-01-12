@@ -98,6 +98,9 @@ echo.
 call install-softmaker.cmd
 echo.
 
+call install-gsync.cmd
+echo.
+
 call install-antivir.cmd
 echo.
 
