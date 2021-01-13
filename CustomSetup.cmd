@@ -2,17 +2,10 @@
 rem this script puts everything in place ...
 
 set TOOLS=c:\tools
-set LOG=c:\CustomSetup.txt
-
 set SCRIPTS=%TOOLS%\scripts
 set BATCH=%SCRIPTS%\autoconfig-all.cmd
 
-if not "%1"=="STDOUT_TO_FILE" %0 STDOUT_TO_FILE %* 1>%LOG% 2>&1
-shift /1
-
 echo ####### %0 #######
-date /t
-time /t
 echo.
 
 echo killing ssh agent ...
@@ -57,11 +50,9 @@ del /F %TOOLS%\MediaCreationTool20H2.zip 1>nul 2>nul
 echo.
 
 echo starting %BATCH% ...
-start /MIN cmd /C %BATCH%
+call %BATCH%
 echo.
 
-date /t
-time /t
 echo ####### %0 #######
 echo READY.
-
+echo.

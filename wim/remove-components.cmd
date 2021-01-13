@@ -1,5 +1,9 @@
 set MNT=c:\TEMP\WIM
 
+echo exporting PACKAGE list BEFORE doing any changes ...
+install_wim_tweak /p %MNT% /l
+move /Y Packages.txt Packages-BEFORE.txt
+
 install_wim_tweak.exe /p %MNT% /c "Adobe-Flash" /r /n
 install_wim_tweak.exe /p %MNT% /c "Containers-ApplicationGuard" /r /n
 install_wim_tweak.exe /p %MNT% /c "Containers-Client" /r /n
@@ -15,7 +19,7 @@ install_wim_tweak.exe /p %MNT% /c "Media-Ocr" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Composable-PlatformExtension" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Hyper-V" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-IoTUAP-ShellExt-Tools" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Media-Foundation" /r /n
+rem install_wim_tweak.exe /p %MNT% /c "Microsoft-Media-Foundation" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Mobile" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-OneCore" /r /n
 install_wim_tweak.exe /p %MNT% /c "microsoft-onecore-applicationmodel-sync-desktop-fod-package-Wrapper" /r /n
@@ -69,11 +73,10 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Legacy" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Links" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Lxss" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Management-SecureAssessment" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Media-Format" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MediaPlayback-OC" /r /n
+rem install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Media-Format" /r /n
+rem install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MediaPlayback-OC" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MediaPlayer" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MediaPlayer-Payload-Package" /r /n
-install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Media-Streaming" /r /n
+rem install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Media-Streaming" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Migration" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MiracastView" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-MobileBroadband" /r /n
@@ -169,9 +172,9 @@ install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-WPD-UltimatePortableDeviceF
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Windows-Xps" /r /n
 install_wim_tweak.exe /p %MNT% /c "Microsoft-Xbox" /r /n
 install_wim_tweak.exe /p %MNT% /c "MSMQ-Driver-Package" /r /n
-install_wim_tweak.exe /p %MNT% /c "Multimedia-MFCore" /r /n
-install_wim_tweak.exe /p %MNT% /c "Multimedia-RestrictedCodecsCore" /r /n
-install_wim_tweak.exe /p %MNT% /c "Multimedia-RestrictedCodecsDolby" /r /n
+rem install_wim_tweak.exe /p %MNT% /c "Multimedia-MFCore" /r /n
+rem install_wim_tweak.exe /p %MNT% /c "Multimedia-RestrictedCodecsCore" /r /n
+rem install_wim_tweak.exe /p %MNT% /c "Multimedia-RestrictedCodecsDolby" /r /n
 install_wim_tweak.exe /p %MNT% /c "MultiPoint" /r /n
 install_wim_tweak.exe /p %MNT% /c "Networking-MPSSVC-Rules-EnterpriseEdition-Package" /r /n
 install_wim_tweak.exe /p %MNT% /c "OpenSSH-Client-Package" /r /n
@@ -182,10 +185,13 @@ install_wim_tweak.exe /p %MNT% /c "Server-Help" /r /n
 install_wim_tweak.exe /p %MNT% /c "Windows-Defender" /r /n
 install_wim_tweak.exe /p %MNT% /c "WindowsSearchEngineSKU-Group" /r /n
 
-rem CLEANUP:
+echo CLEANUP ...
 del /F SOFTWAREBKP 1>nul 2>nul
 
-rem export remaining PACKAGE names ...
+echo exporting remaining PACKAGE names AFTER removing packages ...
 install_wim_tweak /p %MNT% /l
-dir Packages.txt
+move /Y Packages.txt Packages-AFTER.txt
+
+rem showing packages ...
+dir Packages*.txt
 

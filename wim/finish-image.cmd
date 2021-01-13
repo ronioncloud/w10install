@@ -5,11 +5,10 @@ set MNT=c:\TEMP\WIM
 rd /S /Q %MNT%\Windows\Setup\scripts 1>nul 2>nul
 mkdir %MNT%\Windows\Setup\scripts 1>nul 2>nul
 
-echo copying SetupComplete script to mountpoint %MNT% ...
+echo copying scripts to %MNT%\Windows\Setup\scripts ...
 copy /Y SetupComplete.cmd %MNT%\Windows\Setup\scripts
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-echo copying script for custom setup to mountpoint %MNT% ...
 copy /Y StartCustomSetup.cmd %MNT%\Windows\Setup\scripts
 if %errorlevel% neq 0 exit /b %errorlevel%
 
