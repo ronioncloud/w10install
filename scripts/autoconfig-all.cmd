@@ -102,6 +102,9 @@ echo ### DISABLE tasks ###
 echo #####################
 echo.
 
+call disable-accountpicture.cmd 
+echo.
+
 call disable-logonbackground.cmd 
 echo.
 
