@@ -3,4 +3,5 @@
 *.iso
 *.exe
 *.dll
-Packages*.*
+Packages*.txt
+Apps*.txt
