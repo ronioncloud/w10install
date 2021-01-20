@@ -127,6 +127,10 @@ rem ... stupid os problem #2
 call cleanup-startmenu.cmd
 echo.
 
+rem ... remove ALL the stupid fucking microsoft TELEMiETRY BULLSHIT!
+call uninstall-telemetry.cmd
+echo.
+
 rem echo ENABLE firewall ...
 rem netsh advfirewall set allprofiles state on
 rem echo.
