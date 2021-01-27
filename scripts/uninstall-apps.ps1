@@ -2,9 +2,8 @@
 
 write-host '#######',(split-path $PSCommandPath -Leaf),'#######'
 
-$ErrorActionPreference = "SilentlyContinue"
+$ErrorActionPreference = 'SilentlyContinue'
 
-# $progressPreference = 'SilentlyContinue'
 Get-AppxPackage -AllUsers |
   where-object {$_.name -notlike "*store*"} |
   Remove-AppxPackage

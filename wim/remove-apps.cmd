@@ -4,9 +4,6 @@ set MNT=c:\TEMP\WIM
 echo exporting APPS list BEFORE doing any changes ...
 dism /Image:%MNT% /Get-ProvisionedAppxPackages 1>Apps-BEFORE.txt
 
-rem keep the store ...
-rem dism /Image:%MNT% /Remove-ProvisionedAppxPackage /PackageName:Microsoft.StorePurchaseApp_11811.1001.1813.0_neutral_~_8wekyb3d8bbwe
-
 @echo on
 
 dism /Image:%MNT% /Remove-ProvisionedAppxPackage /PackageName:Microsoft.549981C3F5F10_1.1911.21713.0_neutral_~_8wekyb3d8bbwe
@@ -38,7 +35,6 @@ dism /Image:%MNT% /Remove-ProvisionedAppxPackage /PackageName:microsoft.windowsc
 dism /Image:%MNT% /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsFeedbackHub_2019.1111.2029.0_neutral_~_8wekyb3d8bbwe
 dism /Image:%MNT% /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsMaps_2019.716.2316.0_neutral_~_8wekyb3d8bbwe
 dism /Image:%MNT% /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsSoundRecorder_2019.716.2313.0_neutral_~_8wekyb3d8bbwe
-dism /Image:%MNT% /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsStore_11910.1002.513.0_neutral_~_8wekyb3d8bbwe
 dism /Image:%MNT% /Remove-ProvisionedAppxPackage /PackageName:Microsoft.Xbox.TCUI_1.23.28002.0_neutral_~_8wekyb3d8bbwe
 dism /Image:%MNT% /Remove-ProvisionedAppxPackage /PackageName:Microsoft.XboxApp_48.49.31001.0_neutral_~_8wekyb3d8bbwe
 dism /Image:%MNT% /Remove-ProvisionedAppxPackage /PackageName:Microsoft.XboxGameOverlay_1.46.11001.0_neutral_~_8wekyb3d8bbwe
