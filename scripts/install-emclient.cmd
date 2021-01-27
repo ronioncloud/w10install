@@ -3,7 +3,7 @@
 set SCRIPTS=..\scripts
 set SOFTWARE=..\software
 
-set MSI=emclient-v8.1.979.msi
+set MSI=emclient-v8.1.1054.msi
 
 echo ####### %0 #######
 

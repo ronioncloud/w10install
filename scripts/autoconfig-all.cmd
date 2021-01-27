@@ -77,6 +77,12 @@ echo.
 call install-git.cmd
 echo.
 
+powershell -Command .\install-wterminal.ps1
+echo.
+
+call install-sublime.cmd
+echo.
+
 rem fuck you microsoft ...
 call install-openshell.cmd
 echo.
@@ -127,7 +133,7 @@ rem ... stupid os problem #2
 call cleanup-startmenu.cmd
 echo.
 
-rem ... remove ALL the stupid fucking microsoft TELEMiETRY BULLSHIT!
+rem ... remove ALL the stupid fucking microsoft TELEMETRY BULLSHIT!
 call uninstall-telemetry.cmd
 echo.
 

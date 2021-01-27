@@ -28,10 +28,26 @@ echo set desktop colour ...
 echo starting BGInfo ...
 %TOOLS%\bginfo\bginfo64.exe %TOOLS%\bginfo\config.bgi /NOLICPROMPT /silent /timer:0
 
-echo creating some directories and files for current user ...
+
+rem ######
+rem ###
+echo creating some directories and copy files for current user ...
+
+rem SSH
 mkdir %USERPROFILE%\workspace 1>nul 2>nul
 mkdir %USERPROFILE%\.ssh 1>nul 2>nul
-copy /Y %TOOLS%\scripts\config\ssh_config.txt %USERPROFILE%\.ssh\config
+xcopy /D %TOOLS%\scripts\config\ssh-config.txt %USERPROFILE%\.ssh\config
+
+rem WINDOWS TERMINAL
+xcopy /D %TOOLS%\scripts\config\wt-settings.json ^
+  %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
+
+rem TOTALCOMMANDER
+xcopy /D %TOOLS%\scripts\config\wcx_ftp.ini %windir%
+
+rem ###
+rem ######
+
 
 echo start workstation service ...
 net start workstation 1>nul 2>nul
