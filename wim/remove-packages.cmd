@@ -165,8 +165,6 @@ for %%P in (
   Microsoft-Windows-WPD-UltimatePortableDeviceFeature-Feature
   Microsoft-Windows-Xps
   Microsoft-Xbox
-  microsoft-onecore-applicationmodel
-  Microsoft-OneCore-ApplicationModel
   Microsoft-OneCore-IsolatedUserMode
   Microsoft-OneCore-Multimedia-CastingCommon
   Microsoft-OneCore-Multimedia-CastingReceiver
