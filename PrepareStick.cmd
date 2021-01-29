@@ -8,20 +8,10 @@ rem ===================
 IF %1.==. GOTO USAGE
 set USBDRIVE=%1
 
-if NOT EXIST %USBDRIVE% (
-  echo ERROR: file %USBDRIVE% does not exist!
-  exit /b
-)
-
 if /I %USBDRIVE% == C: (
   echo ERROR: cannot use drive %USBDRIVE% !
   exit /b
 )
-
-
-rem =====
-rem MAIN
-rem =====
 
 echo using drive %USBDRIVE% ...
 
@@ -29,6 +19,10 @@ if NOT EXIST %USBDRIVE% (
   echo ERROR: drive %USBDRIVE% not found!
   exit /b
 )
+
+rem =====
+rem MAIN
+rem =====
 
 set answer=
 :ask
