@@ -36,14 +36,20 @@ echo creating some directories and copy files for current user ...
 rem SSH
 mkdir %USERPROFILE%\workspace 1>nul 2>nul
 mkdir %USERPROFILE%\.ssh 1>nul 2>nul
-xcopy /D %TOOLS%\scripts\config\ssh-config.txt %USERPROFILE%\.ssh\config
+if NOT EXIST %USERPROFILE%\.ssh\config (
+  copy /Y %TOOLS%\scripts\config\ssh-config.txt %USERPROFILE%\.ssh\config
+)
 
 rem WINDOWS TERMINAL
-xcopy /D %TOOLS%\scripts\config\wt-settings.json ^
-  %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
+if NOT EXIST %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json (
+  copy /Y %TOOLS%\scripts\config\wt-settings.json ^
+    %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
+)
 
 rem TOTALCOMMANDER
-xcopy /D %TOOLS%\scripts\config\wcx_ftp.ini %windir%
+if NOT EXIST %windir%\wcx_ftp.ini (
+  copy /Y %TOOLS%\scripts\config\wcx_ftp.ini %windir%
+)
 
 rem ###
 rem ######

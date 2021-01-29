@@ -68,9 +68,6 @@ echo ### INSTALL tasks ###
 echo #####################
 echo.
 
-call install-logonscript.cmd
-echo.
-
 call install-desktopicons.cmd
 echo.
 
@@ -104,6 +101,9 @@ call install-gsync.cmd
 echo.
 
 call install-antivir.cmd
+echo.
+
+call install-logonscript.cmd
 echo.
 
 echo #####################
