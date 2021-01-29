@@ -54,6 +54,10 @@ if NOT EXIST %windir%\wcx_ftp.ini (
 rem ###
 rem ######
 
+rem deleting useless files ...
+del /F "$APPDATA%\Microsoft\Windows\Start Menu\Programs\Accessories\Internet Explorer.lnk" 1>nul 2>nul
+del /F "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk" 1>nul 2>nul 
+del /F "%USERPROFILE%\Desktop\Microsoft Edge.lnk" 1>nul 2>nul
 
 echo start workstation service ...
 net start workstation 1>nul 2>nul

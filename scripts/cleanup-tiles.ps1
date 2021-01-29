@@ -40,12 +40,13 @@ foreach ($regAlias in $regAliases) {
 
 # restart Explorer, open the start menu (necessary to load the new layout),
 #   and give it a few seconds to process ...
-Start-Sleep -s 3
 echo "restart explorer ..."
-Stop-Process -name explorer
-Start-Sleep -s 3
+taskkill /F /IM explorer.exe
+sleep 3
+start explorer.exe
+sleep 3
 $wshell = New-Object -ComObject wscript.shell; $wshell.SendKeys('^{ESCAPE}')
-Start-Sleep -s 3
+sleep 3
 
 # enable the ability to pin items again by disabling "LockedStartLayout" ...
 foreach ($regAlias in $regAliases) {
@@ -56,8 +57,10 @@ foreach ($regAlias in $regAliases) {
 
 # restart Explorer and delete the layout file ...
 echo "restart explorer ..."
-Stop-Process -name explorer
+taskkill /F /IM explorer.exe
+sleep 3
 Remove-Item $LAYOUT
+start explorer.exe
 
 write-host '#######',(split-path $PSCommandPath -Leaf),'#######'
 

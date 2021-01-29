@@ -7,8 +7,8 @@ set TOOLS=c:\tools
 echo ####### %0 #######
 
 echo killing ssh processes...
-taskkill /F /IM ssh-agent.exe
-taskkill /F /IM ssh.exe
+taskkill /F /IM ssh-agent.exe 2>nul
+taskkill /F /IM ssh.exe 2>nul
 
 echo installing GIT ...
 %EXE% /LOADINF=%CONFIG% /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS

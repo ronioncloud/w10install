@@ -165,6 +165,14 @@ for %%P in (
   Microsoft-Windows-WPD-UltimatePortableDeviceFeature-Feature
   Microsoft-Windows-Xps
   Microsoft-Xbox
+  microsoft-onecore-applicationmodel
+  Microsoft-OneCore-ApplicationModel
+  Microsoft-OneCore-IsolatedUserMode
+  Microsoft-OneCore-Multimedia-CastingCommon
+  Microsoft-OneCore-Multimedia-CastingReceiver
+  Microsoft-OneCore-VirtualizationBasedSecurity
+  Microsoft-OneCore-Multimedia-CastingTransmitter-Media-Package
+  Microsoft-Onecore-SPP-VirtualDevice
   MSMQ-Driver-Package
   MultiPoint
   Networking-MPSSVC-Rules-EnterpriseEdition-Package
@@ -175,15 +183,6 @@ for %%P in (
   Server-Help
   Windows-Defender
   WindowsSearchEngineSKU-Group
-  microsoft-onecore-applicationmodel
-  Microsoft-OneCore-ApplicationModel
-  Microsoft-OneCore-IsolatedUserMode
-  Microsoft-OneCore-Multimedia-CastingCommon
-  Microsoft-OneCore-Multimedia-CastingReceiver
-  Microsoft-OneCore-VirtualizationBasedSecurity
-  Microsoft-OneCoreUAP-AppRuntime
-  Microsoft-OneCore-Multimedia-CastingTransmitter-Media-Package
-  Microsoft-Onecore-SPP-VirtualDevice
 
 ) do (
   

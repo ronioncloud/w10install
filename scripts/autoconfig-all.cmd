@@ -14,9 +14,11 @@ mkdir %T% 1>nul 2>nul
 echo cd to %SCRIPTS% ...
 cd /D %SCRIPTS%
 
-echo moving files in deploy folder to %TOOLS% ...
-move /Y deploy\* %TOOLS%
-rmdir deploy 1>nul 2>nul
+echo copy files in deploy folder to %TOOLS% ...
+if EXIST deploy (
+  move /Y deploy\* %TOOLS% 2>nul
+  rmdir deploy 2>nul
+)
 
 echo.
 echo #######################
