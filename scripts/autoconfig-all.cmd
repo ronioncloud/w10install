@@ -83,6 +83,9 @@ echo.
 call install-sublime.cmd
 echo.
 
+call install-purebasic.cmd
+echo.
+
 rem fuck you microsoft ...
 call install-openshell.cmd
 echo.

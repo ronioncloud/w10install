@@ -18,7 +18,7 @@
             {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "name": "Command Prompt",
-                "commandline": "cmd.exe /K c:\\scripts\\start-ssh-agent.cmd",
+                "commandline": "cmd.exe /K c:\\tools\\start-ssh-agent.cmd",
                 "cursorShape": "filledBox",
                 "startingDirectory": "%USERPROFILE%\\workspace",
                 "colorScheme": "CMDBOX",
