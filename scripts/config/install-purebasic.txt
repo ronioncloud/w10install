@@ -1,0 +1,8 @@
+[Setup]
+Lang=default
+Dir=C:\Program Files\PureBasic
+Group=PureBasic
+NoIcons=0
+SetupType=custom
+Components=main,english
+Tasks=
