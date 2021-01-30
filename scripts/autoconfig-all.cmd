@@ -76,6 +76,9 @@ echo.
 call install-git.cmd
 echo.
 
+call install-far.cmd
+echo.
+
 call install-wezterm.cmd
 echo.
 

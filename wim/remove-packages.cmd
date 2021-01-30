@@ -138,12 +138,9 @@ for %%P in (
   Microsoft-Windows-TabletPCMath
   microsoft-windows-tabletpcmath-package-Wrapper
   Microsoft-Windows-TabShellExperience
-  Microsoft-Windows-Telnet-Client
-  Microsoft-Windows-Telnet
   Microsoft-Windows-TerminalServices
   Microsoft-Windows-TextPrediction-Dictionaries
   Microsoft-Windows-TextPrediction
-  Microsoft-Windows-TFTP-Client
   Microsoft-Windows-TroubleShooting
   Microsoft-Windows-TS
   Microsoft-Windows-UpdateTargeting-ClientOS
@@ -165,14 +162,6 @@ for %%P in (
   Microsoft-Windows-WPD-UltimatePortableDeviceFeature-Feature
   Microsoft-Windows-Xps
   Microsoft-Xbox
-  microsoft-onecore-applicationmodel
-  Microsoft-OneCore-IsolatedUserMode
-  Microsoft-OneCore-Multimedia-CastingCommon
-  Microsoft-OneCore-Multimedia-CastingReceiver
-  Microsoft-OneCore-VirtualizationBasedSecurity
-  Microsoft-OneCore-Multimedia-CastingTransmitter-Media-Package
-  Microsoft-Onecore-SPP-VirtualDevice
-  Microsoft-OneCoreUAP-AppRuntime
   MSMQ-Driver-Package
   MultiPoint
   Networking-MPSSVC-Rules-EnterpriseEdition-Package

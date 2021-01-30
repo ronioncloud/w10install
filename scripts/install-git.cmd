@@ -27,9 +27,5 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Env
   /d "%TOOLS%\usr\bin\ssh.exe" ^
   /f
 
-rem GIT ...
-setx PATH "%PATH%;%TOOLS%\git\bin" /M
-setx PATH "%PATH%;%TOOLS%\git\usr\bin" /M
-
 echo ####### %0 #######
 

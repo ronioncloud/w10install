@@ -2,7 +2,7 @@ local wezterm = require 'wezterm';
 return {
 
   default_prog = {"cmd.exe","/K c:/tools/start-ssh-agent.cmd"},
-  initial_cols = 120,
+  initial_cols = 100,
   initial_rows = 40,
 
   set_environment_variables = {
@@ -25,8 +25,8 @@ return {
     }
   },
 
-  font_size = 20.0,
-  scrollback_lines = 10000,
+  font_size = 16.0,
+  scrollback_lines = 5000,
   enable_scroll_bar = true,
   default_cursor_style = "BlinkingBlock",
   cursor_blink_rate = 500,
@@ -39,7 +39,7 @@ return {
 
   window_padding = {
     left = 8,
-    right = 32,
+    right = 16,
     top = 0,
     bottom = 8,
   },

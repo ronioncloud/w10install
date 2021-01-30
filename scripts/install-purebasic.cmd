@@ -12,8 +12,5 @@ taskkill /F /IM pbcompiler.exe 2>nul
 echo installing PUREBASIC ...
 %EXE% /LOADINF=%CONFIG% /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
 
-rem extend global PATH variable ...
-setx PATH "%PATH%;%ProgramFiles%\PureBasic\Compilers" /M
-
 echo ####### %0 #######
 
