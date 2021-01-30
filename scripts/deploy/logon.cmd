@@ -40,10 +40,16 @@ if NOT EXIST %USERPROFILE%\.ssh\config (
   copy /Y %TOOLS%\scripts\config\ssh-config.txt %USERPROFILE%\.ssh\config
 )
 
-rem WINDOWS TERMINAL
-if NOT EXIST %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json (
-  copy /Y %TOOLS%\scripts\config\wt-settings.json ^
-    %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
+rem VIM
+if NOT EXIST %USERPROFILE%\.vimrc (
+  copy /Y %TOOLS%\scripts\config\vimrc.txt ^
+    %USERPROFILE%\.vimrc
+)
+
+rem WEZTERM
+if NOT EXIST %USERPROFILE%\.wezterm.lua (
+  copy /Y %TOOLS%\scripts\config\wezterm.lua ^
+    %USERPROFILE%\.wezterm.lua
 )
 
 rem TOTALCOMMANDER
@@ -54,7 +60,7 @@ if NOT EXIST %windir%\wcx_ftp.ini (
 rem ###
 rem ######
 
-rem deleting useless files ...
+rem deleting useless files (FUCK YOU AGAIN MICROSOFT!) ...
 del /F "$APPDATA%\Microsoft\Windows\Start Menu\Programs\Accessories\Internet Explorer.lnk" 1>nul 2>nul
 del /F "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk" 1>nul 2>nul 
 del /F "%USERPROFILE%\Desktop\Microsoft Edge.lnk" 1>nul 2>nul

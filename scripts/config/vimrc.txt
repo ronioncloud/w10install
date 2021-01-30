@@ -1,0 +1,74 @@
+"""""""""""""""""""""""""""""""
+"                             "
+"          MISC VIM           "
+"                             "
+"""""""""""""""""""""""""""""""
+
+set history=700       "Sets how many lines of history VIM has to remember
+set ttimeoutlen=50    "Speed up O etc in the Terminal
+set autoread          "Set to auto read when a file is changed from the outside
+set bs=2              "allow backspace
+set scrolloff=6       "start scrolling 5 lines before edge of viewport
+set pastetoggle=<f10> "Better paste behavior
+
+"Search Options
+set ignorecase "Ignore case when searching
+set incsearch  "Make search act like search in modern browsers
+set magic      "Set magic on, for regular expressions
+
+"Turn backup off
+set nobackup
+set nowb
+set noswapfile
+
+"""""""""""""""""""""""""""""""
+"                             "
+"     Spacing and Lines       "
+"                             "
+"""""""""""""""""""""""""""""""
+
+"Show line numbers
+set number
+
+"Transform tabs to spaces
+set tabstop=8
+set shiftwidth=8
+set expandtab    
+
+"Code formatting
+set autoindent
+
+"Line Wrapping
+set wrap
+
+"Use system clipboard
+set clipboard=unnamed
+
+" disable bell and flashing
+set noerrorbells visualbell t_vb=
+
+
+"""""""""""""""""""""""""""""""
+"                             "
+"     Statusline              "
+"                             "
+"""""""""""""""""""""""""""""""
+set laststatus=2
+
+hi User1 ctermbg=green ctermfg=red   guibg=green guifg=red
+hi User2 ctermbg=red   ctermfg=white guibg=red   guifg=blue
+hi User3 ctermbg=blue  ctermfg=green guibg=white guifg=green
+
+set statusline=
+set statusline+=%1* "switch to User1 highlight
+set statusline+=[%n%H%M%R%W]%*
+set statusline+=%3* "switch to User3 highlight
+set statusline+=\ %-40F
+
+set statusline+=%= "move to right
+
+set statusline+=%2* "switch to User2 highlight
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ [%{&fileformat}\]
+set statusline+=\ %8((%l,%c)%)
+set statusline+=\ %P

@@ -76,7 +76,7 @@ echo.
 call install-git.cmd
 echo.
 
-powershell -Command .\install-wterminal.ps1
+call install-wezterm.cmd
 echo.
 
 call install-sublime.cmd
@@ -153,3 +153,4 @@ echo.
 echo ####### %0 #######
 echo READY.
 echo.
+

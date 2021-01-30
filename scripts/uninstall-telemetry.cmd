@@ -151,3 +151,4 @@ echo DELETING some files ...
 del /F /Q "C:\Windows\System32\Tasks\Microsoft\Windows\SettingSync\*" 
 
 echo ####### %0 #######
+
