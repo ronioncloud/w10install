@@ -25,7 +25,7 @@ return {
     }
   },
 
-  font_size = 16.0,
+  font_size = 12.0,
   scrollback_lines = 5000,
   enable_scroll_bar = true,
   default_cursor_style = "BlinkingBlock",

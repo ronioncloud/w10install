@@ -56,7 +56,7 @@ echo #######################
 echo.
 
 rem uninstall ALL Apps (but keep the store) ...
-powershell -Command .\uninstall-apps.ps1
+rem powershell -Command .\uninstall-apps.ps1
 echo.
 
 call uninstall-onedrive.cmd
@@ -80,6 +80,9 @@ call install-far.cmd
 echo.
 
 call install-wezterm.cmd
+echo.
+
+call install-wterminal.cmd
 echo.
 
 call install-sublime.cmd

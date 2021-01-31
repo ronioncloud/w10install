@@ -53,8 +53,10 @@ if NOT EXIST %USERPROFILE%\.wezterm.lua (
 )
 
 rem TOTALCOMMANDER
-if NOT EXIST %windir%\wcx_ftp.ini (
-  copy /Y %TOOLS%\scripts\config\wcx_ftp.ini %windir%
+if NOT EXIST %APPDATA%\GHISLER\WINCMD.ini (
+  mkdir %APPDATA%\GHISLER 1>nul 2>nul
+  copy /Y %TOOLS%\scripts\config\WINCMD.ini %APPDATA%\GHISLER
+  copy /Y %TOOLS%\scripts\config\wcx_ftp.ini %APPDATA%\GHISLER
 )
 
 rem ###
