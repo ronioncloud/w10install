@@ -82,7 +82,7 @@ echo.
 call install-wezterm.cmd
 echo.
 
-call install-wterminal.cmd
+powershell -command install-windowsterminal.ps1
 echo.
 
 call install-sublime.cmd
@@ -153,7 +153,7 @@ rem netsh advfirewall set allprofiles state on
 rem echo.
 
 echo rebooting ...
-shutdown -g -t 0
+rem shutdown -g -t 0
 echo.
 
 echo ####### %0 #######
