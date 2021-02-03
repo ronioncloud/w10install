@@ -19,10 +19,10 @@ move /Y %STARTMENU%\"Backup and Sync from Google\Backup and Sync from Google.lnk
   %STARTMENU%\"Backup and Sync.lnk" 1>nul 2>nul
 
 echo removing gsync startmenu folder ...
-rd /S /Q %STARTMENU%\"Backup and Sync from Google" 1>nul 2>nul
+rd /S /Q %STARTMENU%\"Backup and Sync from Google"
 
 echo removing google desktop icons ...
-del /F /Q %PUBLIC%\Desktop\Google* 1>nul 2>nul
+del /F /Q %PUBLIC%\Desktop\Google*
 
 rem refresh desktop (W10 style)
 ie4uinit.exe -show
