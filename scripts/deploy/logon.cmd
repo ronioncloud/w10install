@@ -59,6 +59,15 @@ if NOT EXIST %APPDATA%\GHISLER\WINCMD.ini (
   copy /Y %TOOLS%\scripts\config\wcx_ftp.ini %APPDATA%\GHISLER
 )
 
+rem WINDOWS TERMINAL
+set LOCALSTATE=%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState
+if NOT EXIST %LOCALSTATE%\settings.json (
+  mkdir %LOCALSTATE% 1>nul 2>nul
+  copy /Y %TOOLS%\scripts\config\wt-settings.json ^
+    %LOCALSTATE%\settings.json
+)
+
+
 rem ###
 rem ######
 

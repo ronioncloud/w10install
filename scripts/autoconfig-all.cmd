@@ -118,6 +118,12 @@ echo.
 call install-receiver.cmd
 echo.
 
+call install-vlc.cmd
+echo.
+
+call install-virtualbox.cmd
+echo.
+
 call install-antivir.cmd
 echo.
 
