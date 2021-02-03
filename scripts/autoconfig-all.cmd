@@ -77,7 +77,7 @@ echo ### INSTALL tasks ###
 echo #####################
 echo.
 
-call install-desktopicons.cmd
+call install-adk.cmd
 echo.
 
 call install-git.cmd
@@ -89,8 +89,8 @@ echo.
 call install-wezterm.cmd
 echo.
 
-rem powershell -command install-windowsterminal.ps1
-rem echo.
+powershell -command install-windowsterminal.ps1
+echo.
 
 call install-sublime.cmd
 echo.
@@ -115,7 +115,13 @@ echo.
 call install-gsync.cmd
 echo.
 
+call install-receiver.cmd
+echo.
+
 call install-antivir.cmd
+echo.
+
+call install-desktopicons.cmd
 echo.
 
 call install-logonscript.cmd
