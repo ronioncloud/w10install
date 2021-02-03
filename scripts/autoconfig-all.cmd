@@ -4,8 +4,15 @@ rem this script is doing most of the work ...
 set T=c:\TEMP
 set TOOLS=c:\tools
 set SCRIPTS=%TOOLS%\scripts
+set LOG=%SCRIPTS%\autoconfig-all.txt
+
+del /F %LOG% 1>nul 2>nul
+if not "%1"=="STDOUT_TO_FILE" %0 STDOUT_TO_FILE %* 1>%LOG% 2>&1
+shift /1
 
 echo ####### %0 #######
+date /t
+time /t
 echo.
 
 echo creating %T% ...
@@ -57,7 +64,7 @@ echo.
 
 rem uninstall ALL Apps (but keep the store) ...
 rem powershell -Command .\uninstall-apps.ps1
-echo.
+rem echo.
 
 call uninstall-onedrive.cmd
 echo.
@@ -82,8 +89,8 @@ echo.
 call install-wezterm.cmd
 echo.
 
-powershell -command install-windowsterminal.ps1
-echo.
+rem powershell -command install-windowsterminal.ps1
+rem echo.
 
 call install-sublime.cmd
 echo.
@@ -136,7 +143,7 @@ echo ### CLEANUP tasks ###
 echo #####################
 echo.
 
-rem this must be done as late as possible ... stupid os problem
+rem this must be done as late as possible ... stupid os problem #1
 powershell -Command .\cleanup-tiles.ps1
 echo.
 
@@ -145,17 +152,19 @@ call cleanup-startmenu.cmd
 echo.
 
 rem ... remove ALL the stupid fucking microsoft TELEMETRY BULLSHIT!
-call uninstall-telemetry.cmd
-echo.
+rem call uninstall-telemetry.cmd
+rem echo.
 
 rem echo ENABLE firewall ...
 rem netsh advfirewall set allprofiles state on
 rem echo.
 
 echo rebooting ...
-rem shutdown -g -t 0
+shutdown -g -t 0
 echo.
 
+date /t
+time /t
 echo ####### %0 #######
 echo READY.
 echo.

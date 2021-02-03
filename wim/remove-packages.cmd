@@ -20,15 +20,18 @@ for %%P in (
   Containers-OptionalFeature
   Containers-Server
   DeviceAccess
+  HyperV
   LanguageFeatures-WordBreaking
   Media-FaceAnalysis
   Media-Ocr
   Microsoft-Composable-PlatformExtension
+  Microsoft-Hyper-V
   Microsoft-IoTUAP-ShellExt-Tools
   Microsoft-Mobile
   Microsoft-PPIProjection
   Microsoft-UtilityVM
   Microsoft-Windows-3DAudio
+  Microsoft-Windows-ApiSetSchemaExtension-HyperV
   Microsoft-Windows-AppCompat
   Microsoft-Windows-AppManagement
   Microsoft-Windows-AppServerClient
@@ -60,6 +63,8 @@ for %%P in (
   Microsoft-Windows-Hello-Face
   Microsoft-Windows-Help
   Microsoft-Windows-HVSI-Components
+  Microsoft-Windows-HyperV-OptionalFeature-HypervisorPlatform
+  Microsoft-Windows-HyperV-OptionalFeature-VirtualMachinePlatform
   Microsoft-Windows-Identity-Foundation
   Microsoft-Windows-IIS-WebServer
   Microsoft-Windows-International
@@ -107,6 +112,7 @@ for %%P in (
   Microsoft-Windows-QuickAssist
   Microsoft-Windows-RDC
   Microsoft-Windows-RemoteAssistance
+  Microsoft-Windows-RemoteDesktop
   Microsoft-Windows-RemoteFX
   Microsoft-Windows-RetailDemo
   Microsoft-Windows-Search2
@@ -140,6 +146,10 @@ for %%P in (
   Microsoft-Windows-UpdateTargeting-ClientOS
   Microsoft-Windows-UserExperience
   microsoft-windows-userexperience-desktop-package-Wrapper
+  Microsoft-Windows-Virtualization-RemoteFX-User-Mode-Transport
+  Microsoft-Windows-Virtualization
+  Microsoft-Windows-VirtualPC
+  Microsoft-Windows-VirtualXP
   Microsoft-Windows-WebcamExperience
   Microsoft-Windows-WindowsFoundation-LanguagePack
   Microsoft-Windows-WinOcr
@@ -157,13 +167,29 @@ for %%P in (
   Networking-MPSSVC-Rules-EnterpriseEdition-Package
   OpenSSH-Client-Package
   openssh-client-package-Wrapper
+  RemoteDesktopServices
   Sensors-Universal
   Server-Help
   Windows-Defender
   WindowsSearchEngineSKU-Group
+  Microsoft-OneCore-Multimedia-CastingCommon
+  Microsoft-OneCore-Multimedia-CastingReceiver
+  Microsoft-OneCore-Multimedia-CastingTransmitter
+  Microsoft-OneCore-DeviceUpdateCenter
+  Microsoft-OneCore-DirectX-Database
+  Microsoft-OneCore-IsolatedUserMode
+  Microsoft-Onecore-SPP-VirtualDevice
+  Microsoft-OneCore-VirtualizationBasedSecurity
+  Microsoft-Windows-WMPNetworkSharingService
 
 ) do (
   
+rem microsoft-onecore-applicationmodel-sync-desktop
+rem Microsoft-OneCore-ApplicationModel-Sync-Desktop
+rem Microsoft-OneCoreUAP-AppRuntime-RemoteAppLifetimeManager
+rem Microsoft-Windows-ConfigCI-Onecore
+rem Microsoft-Windows-ConfigCI-Package
+
   @echo on
   install_wim_tweak.exe /p %MNT% /c "%%P" /r /n
   @echo off 

@@ -4,6 +4,16 @@ rem this script puts everything in place ...
 set TOOLS=c:\tools
 set SCRIPTS=%TOOLS%\scripts
 set BATCH=%SCRIPTS%\autoconfig-all.cmd
+set LOG=c:\CustomSetup.txt
+
+del /F %LOG% 1>nul 2>nul
+if not "%1"=="STDOUT_TO_FILE" %0 STDOUT_TO_FILE %* 1>%LOG% 2>&1
+shift /1
+
+echo ####### %0 #######
+date /t
+time /t
+echo.
 
 echo ####### %0 #######
 echo.
@@ -53,6 +63,9 @@ echo starting %BATCH% ...
 call %BATCH%
 echo.
 
+date /t
+time /t
 echo ####### %0 #######
 echo READY.
 echo.
+
