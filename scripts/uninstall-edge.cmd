@@ -2,20 +2,16 @@
 
 set EDGEROOT="C:\Program Files (x86)\Microsoft\Edge"
 set EDGEUPDATE="C:\Program Files (x86)\Microsoft\EdgeUpdate"
-set INSTALLER=Application\8*\Installer
+set INSTALLER=Application\84.0.522.52\Installer
 
 echo ####### %0 #######
 
 @echo on
 %EDGEROOT%\%INSTALLER%\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 @echo off
-timeout /T 30
+timeout /T 10
 
 echo cleanup ...
-tasklist
-taskkill /F /IM EdgeInstall.exe
-taskkill /F /IM Setup.exe
-
 @echo on
 rd /S /Q %EDGEROOT%
 rd /S /Q %EDGEUPDATE%
