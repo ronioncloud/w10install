@@ -184,12 +184,6 @@ for %%P in (
 
 ) do (
   
-rem microsoft-onecore-applicationmodel-sync-desktop
-rem Microsoft-OneCore-ApplicationModel-Sync-Desktop
-rem Microsoft-OneCoreUAP-AppRuntime-RemoteAppLifetimeManager
-rem Microsoft-Windows-ConfigCI-Onecore
-rem Microsoft-Windows-ConfigCI-Package
-
   @echo on
   install_wim_tweak.exe /p %MNT% /c "%%P" /r /n
   @echo off 

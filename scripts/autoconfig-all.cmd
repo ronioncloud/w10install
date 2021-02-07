@@ -86,9 +86,6 @@ echo.
 call install-far.cmd
 echo.
 
-call install-wezterm.cmd
-echo.
-
 powershell -command install-windowsterminal.ps1
 echo.
 
