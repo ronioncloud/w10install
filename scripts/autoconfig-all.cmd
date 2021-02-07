@@ -54,6 +54,9 @@ echo.
 call modify-powersettings.cmd
 echo.
 
+call modify-desktoptheme.cmd
+echo.
+
 call install-tweaks.cmd
 echo.
 

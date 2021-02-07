@@ -6,11 +6,15 @@ set INSTALLER=Application\8*\Installer
 
 echo ####### %0 #######
 
+@echo on
 %EDGEROOT%\%INSTALLER%\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+@echo off
+timeout /T 30
 
 echo cleanup ...
 tasklist
-taskkill /F /IM "*edge*"
+taskkill /F /IM EdgeInstall.exe
+taskkill /F /IM Setup.exe
 
 @echo on
 rd /S /Q %EDGEROOT%
