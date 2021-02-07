@@ -46,12 +46,6 @@ if NOT EXIST %USERPROFILE%\.vimrc (
     %USERPROFILE%\.vimrc
 )
 
-rem WEZTERM
-if NOT EXIST %USERPROFILE%\.wezterm.lua (
-  copy /Y %TOOLS%\scripts\config\wezterm.lua ^
-    %USERPROFILE%\.wezterm.lua
-)
-
 rem TOTALCOMMANDER
 if NOT EXIST %APPDATA%\GHISLER\WINCMD.ini (
   mkdir %APPDATA%\GHISLER 1>nul 2>nul

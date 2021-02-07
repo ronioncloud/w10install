@@ -9,6 +9,9 @@ echo ####### %0 #######
 %EDGEROOT%\%INSTALLER%\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 
 echo cleanup ...
+tasklist
+taskkill /F /IM "*edge*"
+
 @echo on
 rd /S /Q %EDGEROOT%
 rd /S /Q %EDGEUPDATE%

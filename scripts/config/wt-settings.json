@@ -17,7 +17,7 @@
         [
             {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "name": "Command Prompt",
+                "name": "Commandline",
                 "commandline": "cmd.exe /K c:\\tools\\start-ssh-agent.cmd",
                 "cursorShape": "filledBox",
                 "startingDirectory": "%USERPROFILE%\\workspace",
@@ -26,7 +26,7 @@
             },            
             {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "name": "Windows PowerShell",
+                "name": "PowerShell",
                 "commandline": "powershell.exe",
                 "cursorShape": "filledBox",
                 "startingDirectory": "%USERPROFILE%\\workspace",

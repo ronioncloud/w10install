@@ -86,7 +86,7 @@ echo.
 call install-far.cmd
 echo.
 
-powershell -command install-windowsterminal.ps1
+powershell -command .\install-windowsterminal.ps1
 echo.
 
 call install-sublime.cmd
