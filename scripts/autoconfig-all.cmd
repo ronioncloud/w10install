@@ -112,7 +112,7 @@ echo.
 call install-softmaker.cmd
 echo.
 
-call install-gsync.cmd
+call install-googledrive.cmd
 echo.
 
 call install-receiver.cmd

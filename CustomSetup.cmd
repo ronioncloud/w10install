@@ -2,6 +2,7 @@
 rem this script puts everything in place ...
 
 set TOOLS=c:\tools
+set SOFTWARE=%TOOLS%\software
 set SCRIPTS=%TOOLS%\scripts
 set BATCH=%SCRIPTS%\autoconfig-all.cmd
 set LOG=c:\CustomSetup.txt
@@ -55,8 +56,8 @@ del /F %TOOLS%\ImapCopy.zip 1>nul 2>nul
 echo.
 
 echo unpacking MediaCreationTool ...
-%TOOLS%\7z x -aoa -o%TOOLS% %TOOLS%\MediaCreationTool20H2.zip
-del /F %TOOLS%\MediaCreationTool20H2.zip 1>nul 2>nul
+%TOOLS%\7z x -aoa -o%SOFTWARE% %SOFTWARE%\MediaCreationTool20H2.zip
+del /F %SOFTWARE%\MediaCreationTool20H2.zip 1>nul 2>nul
 echo.
 
 echo starting %BATCH% ...
