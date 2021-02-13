@@ -29,8 +29,10 @@ echo starting BGInfo ...
 %TOOLS%\bginfo\bginfo64.exe %TOOLS%\bginfo\config.bgi /NOLICPROMPT /silent /timer:0
 
 
-rem ######
-rem ###
+rem #####
+rem #####
+rem #####
+
 echo creating some directories and copy files for current user ...
 
 rem SSH
@@ -61,9 +63,26 @@ if NOT EXIST %LOCALSTATE%\settings.json (
     %LOCALSTATE%\settings.json
 )
 
+rem #####
+rem #####
+rem #####
 
-rem ###
-rem ######
+echo disable search box on taskbar ...
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search" ^
+ /v "SearchboxTaskbarMode" /t REG_DWORD /d 0 /f 1>nul
+
+echo disable multi tasking view button on taskbar ...
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" ^
+ /v "ShowTaskViewButton" /t REG_DWORD /d 0 /f 1>nul
+
+echo restarting explorer ...
+taskkill /f /im explorer.exe 1>nul 2>nul
+start explorer.exe
+
+rem #####
+rem #####
+rem #####
+
 
 rem deleting useless files (FUCK YOU AGAIN MICROSOFT!) ...
 del /F "$APPDATA%\Microsoft\Windows\Start Menu\Programs\Accessories\Internet Explorer.lnk" 1>nul 2>nul
