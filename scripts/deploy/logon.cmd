@@ -69,11 +69,31 @@ rem #####
 
 echo disable search box on taskbar ...
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search" ^
- /v "SearchboxTaskbarMode" /t REG_DWORD /d 0 /f 1>nul
+  /v "SearchboxTaskbarMode" /t REG_DWORD /d 0 /f 1>nul
 
-echo disable multi tasking view button on taskbar ...
+echo disable multi tasking view button on the taskbar ...
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" ^
- /v "ShowTaskViewButton" /t REG_DWORD /d 0 /f 1>nul
+  /v "ShowTaskViewButton" /t REG_DWORD /d 0 /f 1>nul
+
+echo disable cortana button on the taskbar ...
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" ^
+  /v "ShowCortanaButton" /t REG_DWORD /d 0 /f 1>nul
+
+echo disable autotray for the taskbar ...
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer" ^
+  /v "EnableAutoTray" /t REG_DWORD /d 0 /f 1>nul
+
+echo disable notification center ...
+reg add "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer" ^
+  /v "DisableNotificationCenter" /t REG_DWORD /d 1 /f 1>nul
+
+echo disable windows ink completely ...
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace" ^
+ /v "AllowWindowsInkWorkspace" /t REG_DWORD /d 0 /f 1>nul
+
+echo remove store icon from taskbar ...
+reg add "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer" ^
+  /v "NoPinningStoreToTaskbar" /t REG_DWORD /d 0 /f 1>nul
 
 echo restarting explorer ...
 taskkill /f /im explorer.exe 1>nul 2>nul
