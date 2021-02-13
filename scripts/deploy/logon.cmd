@@ -87,13 +87,8 @@ echo disable notification center ...
 reg add "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer" ^
   /v "DisableNotificationCenter" /t REG_DWORD /d 1 /f 1>nul
 
-echo disable windows ink completely ...
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace" ^
- /v "AllowWindowsInkWorkspace" /t REG_DWORD /d 0 /f 1>nul
-
-echo remove store icon from taskbar ...
-reg add "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer" ^
-  /v "NoPinningStoreToTaskbar" /t REG_DWORD /d 0 /f 1>nul
+del /F /S /Q /A "%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\*"
+reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband" /f
 
 echo restarting explorer ...
 taskkill /f /im explorer.exe 1>nul 2>nul

@@ -57,6 +57,9 @@ echo.
 call modify-desktoptheme.cmd
 echo.
 
+call modify-taskbar.cmd
+echo.
+
 call install-tweaks.cmd
 echo.
 
