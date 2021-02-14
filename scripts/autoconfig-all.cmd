@@ -37,6 +37,10 @@ rem echo DISABLE firewall ...
 rem netsh advfirewall set allprofiles state off
 rem echo.
 
+rem this must be done EARLY!
+call disable-updates.cmd 
+echo.
+
 rem allow execution of any powershell script ...
 powershell -Command "Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine"
 powershell -Command ^
