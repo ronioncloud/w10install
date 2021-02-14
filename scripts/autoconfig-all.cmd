@@ -72,9 +72,8 @@ echo ### UNINSTALL tasks ###
 echo #######################
 echo.
 
-rem uninstall ALL Apps (but keep the store) ...
-rem powershell -Command .\uninstall-apps.ps1
-rem echo.
+powershell -command .\uninstall-apps.ps1
+echo.
 
 call uninstall-onedrive.cmd
 echo.
