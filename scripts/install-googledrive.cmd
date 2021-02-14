@@ -16,12 +16,7 @@ cd %SCRIPTS%
 
 echo changing startmenu folder ...
 move /Y %STARTMENU%\"Backup and Sync from Google\Backup and Sync from Google.lnk" ^
-  %STARTMENU%\"Backup and Sync.lnk" 1>nul 2>nul
-
-rem waiting 10 seconds for setup ...
-timeout /T 10
-
-tasklist
+  %STARTMENU%\"Backup and Sync.lnk"
 
 echo removing google drive startmenu folder ...
 @echo on
