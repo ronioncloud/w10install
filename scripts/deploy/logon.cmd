@@ -69,15 +69,15 @@ echo refresh desktop (W10 style)
 ie4uinit.exe -show
 
 echo enabling fast shutdown ...
-reg add "HKEY_CURRENT_USER\Control Panel\Desktop"
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" ^
   /v "WaitToKillAppTimeOut" /t REG_DWORD /d 2000 /f 1>nul
-reg add "HKEY_CURRENT_USER\Control Panel\Desktop"
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" ^
   /v "HungAppTimeout" /t REG_DWORD /d 2000 /f 1>nul
-reg add "HKEY_CURRENT_USER\Control Panel\Desktop"
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" ^
   /v "AutoEndTasks" /t REG_DWORD /d 1 /f 1>nul
 
 echo add seconds to clock ...
-reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" ^
   /v "ShowSecondsInSystemClock" /t REG_DWORD /d 1 /f 1>nul
 
 echo disable search box on taskbar ...
