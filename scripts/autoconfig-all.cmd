@@ -72,8 +72,8 @@ echo ### UNINSTALL tasks ###
 echo #######################
 echo.
 
-powershell -command .\uninstall-apps.ps1
-echo.
+rem powershell -command .\uninstall-apps.ps1
+rem echo.
 
 call uninstall-onedrive.cmd
 echo.
