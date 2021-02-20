@@ -1,6 +1,0 @@
-[Setup]
-Lang=default
-Dir=C:\Program Files\Sublime Merge
-Group=Sublime Merge
-NoIcons=0
-Tasks=

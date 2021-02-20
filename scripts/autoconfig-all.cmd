@@ -98,7 +98,7 @@ echo.
 powershell -command .\install-windowsterminal.ps1
 echo.
 
-call install-sublime.cmd
+call install-vscode.cmd
 echo.
 
 call install-purebasic.cmd

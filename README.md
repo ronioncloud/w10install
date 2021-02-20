@@ -140,7 +140,7 @@ del /S /Q /A c:\temp\install-git.txt 1>nul
 
 ```
 
-2.4 Modify system PATH
+## 2.4 Modify system PATH
 
 WARNING!  
 DO NOT execute this in case you have important contents in your path variable!  
@@ -170,7 +170,3 @@ git clone https://github.com/mhgschmidt/w10install.git
 cd w10install
 
 ```
-
-
-
-
