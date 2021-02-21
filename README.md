@@ -10,7 +10,7 @@ Since I am forced to work with Windows on the desktop - for professional reasons
 
 First I looked for a "professional" solution. Unfortunately I didn't find anything suitable. Sure - there is commercial software (so-called "enterprise" programs) but mostly these are bad or expensive or both or simply not available for normal users or small companies. I also follow the KISS principle privately and professionally - so complicated software with agents etc. was out of the question.
 
-Another major problem is the spying frenzy of software manufacturers. This primarily means Windows 10 telemetry. But unsolicited updates, whether by Microsoft or third-party manufacturers, are just as plague. This project also takes care of that - as far as possible - without impairing the functionality of the system in an intolerable manner. But what is still tolerable? This is in the eye of the beholder.
+Another major problem is the spying frenzy of software manufacturers. This primarily means Windows 10 telemetry. But unsolicited updates, whether by Microsoft or third-party manufacturers, are just as plague. This project also takes care of that - as far as possible - without impairing the functionality of the system in an intolerable manner. But what is still tolerable? This lies in the eye of the beholder.
 
 Finally, there is the problem of obesity. Modern systems are getting fatter, slower, more complex and therefore uglier. The whole thing has now reached a level that is no longer acceptable for many users. That is why one of the core tasks of this project is to strip down Windows 10 as much as possible (without loosing to much funtionality - see above). This also automatically results in a reduction of the attack surface (programs that do not exist cannot be attacked).
 
@@ -83,11 +83,11 @@ setx T c:\TEMP
 [7-ZIP Website](https://www.7-zip.org)
 
 Download: https://www.7-zip.org/a/7z1900-x64.exe  
-Save the executable as "7zsetup.exe" in folder "software".
+Save the executable as "7z-setup.exe" in folder "software".
 
 Execute the self extracting file:
 ```dos
-software\7zsetup.exe
+software\7z-setup.exe
 
 ```
 
@@ -108,11 +108,11 @@ rd /S /Q %T%\Lang
 [CURL Website](https://curl.se/windows)
 
 Download: https://curl.se/windows/dl-7.75.0_3/curl-7.75.0_3-win64-mingw.zip  
-Save the zipfile as "curl7.zip" in folder "software".
+Save the zipfile as "curl.zip" in folder "software".
 
 Extract: the self extracting file:
 ```dos
-%TOOLS%\7z -y -o%T%\curl e software\curl7.zip
+%TOOLS%\7z -y -o%T%\curl e software\curl.zip
 move /Y %T%\curl\curl.exe %TOOLS%
 move /Y %T%\curl\libcurl*.dll %TOOLS%
 move /Y %T%\curl\curl-ca-bundle.crt %TOOLS%
@@ -127,7 +127,7 @@ rd /S /Q %T%\curl
 
 Download with curl to software folder:
 ```dos
-%TOOLS%\curl -L https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe --output software\gitsetup.exe
+%TOOLS%\curl -L https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe --output software\git-setup.exe
 
 ```
 
@@ -160,7 +160,7 @@ Save it to c:\temp\install-git.txt
 
 Execute the Git setup:
 ```dos
-software\gitsetup.exe /LOADINF=c:\temp\install-git.txt /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
+software\git-setup.exe /LOADINF=c:\temp\install-git.txt /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
 ```
 
 Cleanup:
@@ -211,6 +211,8 @@ Save it in folder "software" as "MediaCreationTool20H2"
 ## 4.2 Manual download of ISO file
 
 At the moment I don't know of any method to automate this. So start the media creation tool and download the Windows 10 ISO file or get it from somewhere else.
+
+Save the ISO file to folder "iso".
 
 **IMPORTANT HINT:** Download the ISO file with this tool and KEEP this copy on your local disk *and* in your BACKUP! As history shows Microsoft *removes* access to old Windows versions for some time now.
 
