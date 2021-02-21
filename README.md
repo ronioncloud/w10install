@@ -167,7 +167,7 @@ setx PATH %SYSTEMROOT%;%SYSTEMROOT%\system32;%SYSTEMROOT%\system32\wbem;%SYSTEMR
 ```
 
 
-# 3 Clone this repository
+# 3. Clone this repository
 
 ```dos
 cd /D %USERPROFILE%
@@ -177,3 +177,4 @@ git clone https://github.com/mhgschmidt/w10install.git
 cd w10install
 
 ```
+
