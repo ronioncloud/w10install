@@ -178,3 +178,17 @@ cd w10install
 
 ```
 
+# 4. Get/Install essential building tools and software
+
+
+## 4.1 Windows ADK
+
+The Windows ADK contains the Windows Image Manager and some other essential tools.
+
+You can try to download it with the script "download-software.cmd" and then execute "install-adk.cmd". Or you can get it manually under: https://docs.microsoft.com/en-US/windows-hardware/get-started/adk-install
+
+Save it in folder "software" and install it with:
+```dos
+adksetup.exe /q /ceip off /norestart /features OptionId.DeploymentTools
+
+```

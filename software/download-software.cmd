@@ -11,20 +11,29 @@ rem MAIN loop ( download software ) ...
 rem ###################################
 
 FOR /F "tokens=1,2 delims=, " %%E in (%LISTFILE%) do (
-  echo getting: [ %%E ] from [ %%F ]
 
-  curl -L %%E --output %%F
-
-  IF %%~zF == 0 (
-    echo ERROR: size of %%F is 0 bytes
-    del /F %%F
-  ) ELSE (
-    echo INFO: size of %%F is %%~zF bytes
+  rem file is already present ?
+  IF %%~zF EQU 0 (
+    del /F %%F 2>nul
+    echo INFO: [ %%F ] does not exist or is 0 bytes, starting download ...
   )
 
-  if NOT EXIST %%F (
-  echo ERROR: couldn't get %%F! 
-    exit /b
+  IF NOT EXIST %%F (
+
+    rem get it with curl ...
+    echo getting: [ %%E ] from [ %%F ]
+    curl --connect-timeout 5 --fail-early -L %%E --output %%F
+
+    rem success ?
+    if NOT EXIST %%F (
+      echo ERROR: couldn't get %%F!
+    ) ELSE (
+      rem check size (it SHOULD NOT be 0!)
+      FORFILES /M %%F /C "cmd /C if @fsize EQU 0 echo ERROR: file @relpath is zero size!"
+    )
+
+  ) ELSE (
+    FORFILES /M %%F /C "cmd /C if @fsize NEQ 0 echo OK: file @relpath is [ @fsize ] bytes"
   )
 
 )
