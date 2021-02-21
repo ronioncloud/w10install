@@ -9,7 +9,7 @@ This is actually the only *supported* version!
 
 - a working Windows 10 installation
 - a working *commandline* GIT client  
-- a windows ISO image or Media creator
+- a windows ISO image or Windows Media creator
 - some tools from Microsoft
 - some other tools (curl, 7zip etc. pp.)
 
@@ -145,14 +145,21 @@ del /S /Q /A c:\temp\install-git.txt 1>nul
 WARNING!  
 DO NOT execute this in case you have important contents in your path variable!  
 
-Please check you PATH variable with:
+To display the PATH variable execute:
 ```dos
 echo %PATH%
 ```
-... and check the contents.  
-If necessary modify the command below or extend your path variable via the windows settings GUI!
 
-Execute:
+If necessary modify the command below or extend your path variable via the windows settings GUI! You need to extend your PATH variable with the following new pathes:
+
+```text
+%TOOLS%
+%TOOLS%\git\bin
+%TOOLS%\git\usr\bin
+
+```
+
+But in case you are fine with our path settings just execute:
 ```dos
 set PATH=%SYSTEMROOT%;%SYSTEMROOT%\system32;%SYSTEMROOT%\system32\wbem;%SYSTEMROOT%\system32\WindowsPowerShell\v1.0;%LOCALAPPDATA%\Microsoft\WindowsApps;%TOOLS%;%TOOLS%\git\bin;%TOOLS%\git\usr\bin
 setx PATH %SYSTEMROOT%;%SYSTEMROOT%\system32;%SYSTEMROOT%\system32\wbem;%SYSTEMROOT%\system32\WindowsPowerShell\v1.0;%LOCALAPPDATA%\Microsoft\WindowsApps;%TOOLS%;%TOOLS%\git\bin;%TOOLS%\git\usr\bin
