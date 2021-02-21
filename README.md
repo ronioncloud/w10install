@@ -17,9 +17,19 @@ Finally, there is the problem of obesity. Modern systems are getting fatter, slo
 
 ## Project goals
 
+- Provide an automated and unattended Windows 10 installation
+- Remove Microsoft's Windows 10 telemetry (as far as possible)
+- Remove other annyoing Microsoft "gimmicks" (for e.g.: Hello screen)
+- Keep the installation *stable* (save install files to your local disk)
+- Install the system OFFLINE (aka "airgapped")
+- Install 3rd party software automatically
+- Configure the system automatically
+- Keep It Simple Stupid!
+
+---
 
 
-**please read this to get started!**
+# **Please read this to get started!**
 
 **IMPORTANT:**
 This whole thing was crafted and tested with Windows 10 version 20H2.  
@@ -197,11 +207,15 @@ The media creation tool is needed to create a bootable USB stick or you can down
 
 Save it in folder "software" as "MediaCreationTool20H2"
 
-### 4.1.1
+
+## 4.2 Manual download of ISO file
+
+At the moment I don't know of any method to automate this. So start the media creation tool and download the Windows 10 ISO file or get it from somewhere else.
+
+**IMPORTANT HINT:** Download the ISO file with this tool and KEEP this copy on your local disk *and* in your BACKUP! As history shows Microsoft *removes* access to old Windows versions for some time now.
 
 
-
-## 4.2 Windows ADK
+## 4.3 Windows ADK
 
 The Windows ADK contains the Windows Image Manager and some other essential tools.
 
