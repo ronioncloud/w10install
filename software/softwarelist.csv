@@ -1,2 +1,6 @@
-http://download.spotify.com/SpotifyFullSetup.exe spotify.exe
+https://www.7-zip.org/a/7z1900-x64.exe 7zsetup.exe
+https://curl.se/windows/dl-7.75.0_3/curl-7.75.0_3-win64-mingw.zip curl7.zip
+https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe gitsetup.exe
 https://go.microsoft.com/fwlink/?linkid=2120254 adksetup.exe
+https://go.microsoft.com/fwlink/?LinkId=691209 MediaCreationTool20H2.exe
+http://download.spotify.com/SpotifyFullSetup.exe spotifysetup.exe

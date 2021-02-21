@@ -1,3 +1,24 @@
+# Windows 10 automated install
+
+## What is all this about?
+
+The installation of systems (professional or private) is a job that has to be done again and again. Generally nobody enjoys this. Nowadays most private individuals also have at least 2 computers. In my case there are 3 PCs in my private office and 3 in my company office (I am the company owner). There are also 2 laptops. Mind you: I use these 8 PCs solely for my work and my hobby as a Linux developer.
+
+It doesn't matter whether it's Linux, Windows or Mac OS: You need an automated installation if you want to avoid this waste of time. The installation of the system itself is usually not that much work - but installing and configuring the other applications (e.g. browser, email program, office package, etc.) is often very time-consuming.
+
+Since I am forced to work with Windows on the desktop - for professional reasons - this collection of scripts / this HowTo is exclusively geared towards Windows - and that will not change either.
+
+First I looked for a "professional" solution. Unfortunately I didn't find anything suitable. Sure - there is commercial software (so-called "enterprise" programs) but mostly these are bad or expensive or both or simply not available for normal users or small companies. I also follow the KISS principle privately and professionally - so complicated software with agents etc. was out of the question.
+
+Another major problem is the spying frenzy of software manufacturers. This primarily means Windows 10 telemetry. But unsolicited updates, whether by Microsoft or third-party manufacturers, are just as plague. This project also takes care of that - as far as possible - without impairing the functionality of the system in an intolerable manner. But what is still tolerable? This is in the eye of the beholder.
+
+Finally, there is the problem of obesity. Modern systems are getting fatter, slower, more complex and therefore uglier. The whole thing has now reached a level that is no longer acceptable for many users. That is why one of the core tasks of this project is to strip down Windows 10 as much as possible (without loosing to much funtionality - see above). This also automatically results in a reduction of the attack surface (programs that do not exist cannot be attacked).
+
+
+## Project goals
+
+
+
 **please read this to get started!**
 
 **IMPORTANT:**
@@ -52,11 +73,11 @@ setx T c:\TEMP
 [7-ZIP Website](https://www.7-zip.org)
 
 Download: https://www.7-zip.org/a/7z1900-x64.exe  
-... and save the executable in folder "software".
+Save the executable as "7zsetup.exe" in folder "software".
 
 Execute the self extracting file:
 ```dos
-software\7z1900-x64.exe
+software\7zsetup.exe
 
 ```
 
@@ -77,11 +98,11 @@ rd /S /Q %T%\Lang
 [CURL Website](https://curl.se/windows)
 
 Download: https://curl.se/windows/dl-7.75.0_3/curl-7.75.0_3-win64-mingw.zip  
-... and save the executable in folder "software".
+Save the zipfile as "curl7.zip" in folder "software".
 
 Extract: the self extracting file:
 ```dos
-%TOOLS%\7z -y -o%T%\curl e software\curl-7.75.0_3-win64-mingw.zip
+%TOOLS%\7z -y -o%T%\curl e software\curl7.zip
 move /Y %T%\curl\curl.exe %TOOLS%
 move /Y %T%\curl\libcurl*.dll %TOOLS%
 move /Y %T%\curl\curl-ca-bundle.crt %TOOLS%
@@ -96,9 +117,7 @@ rd /S /Q %T%\curl
 
 Download with curl to software folder:
 ```dos
-set URL=https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1
-set EXE=Git-2.30.1-64-bit.exe
-%TOOLS%\curl -L %URL%/%EXE% --output software\%EXE%
+%TOOLS%\curl -L https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe --output software\gitsetup.exe
 
 ```
 
@@ -131,7 +150,7 @@ Save it to c:\temp\install-git.txt
 
 Execute the Git setup:
 ```dos
-software\%EXE% /LOADINF=c:\temp\install-git.txt /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
+software\gitsetup.exe /LOADINF=c:\temp\install-git.txt /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
 ```
 
 Cleanup:
@@ -142,15 +161,7 @@ del /S /Q /A c:\temp\install-git.txt 1>nul
 
 ## 2.4 Modify system PATH
 
-WARNING!  
-DO NOT execute this in case you have important contents in your path variable!  
-
-To display the PATH variable execute:
-```dos
-echo %PATH%
-```
-
-If necessary modify the command below or extend your path variable via the windows settings GUI! You need to extend your PATH variable with the following new pathes:
+You need to extend your PATH variable with the following directories:
 
 ```text
 %TOOLS%
@@ -159,7 +170,7 @@ If necessary modify the command below or extend your path variable via the windo
 
 ```
 
-But in case you are fine with our path settings just execute:
+Or (in case you are fine with our path settings) execute:
 ```dos
 set PATH=%SYSTEMROOT%;%SYSTEMROOT%\system32;%SYSTEMROOT%\system32\wbem;%SYSTEMROOT%\system32\WindowsPowerShell\v1.0;%LOCALAPPDATA%\Microsoft\WindowsApps;%TOOLS%;%TOOLS%\git\bin;%TOOLS%\git\usr\bin
 setx PATH %SYSTEMROOT%;%SYSTEMROOT%\system32;%SYSTEMROOT%\system32\wbem;%SYSTEMROOT%\system32\WindowsPowerShell\v1.0;%LOCALAPPDATA%\Microsoft\WindowsApps;%TOOLS%;%TOOLS%\git\bin;%TOOLS%\git\usr\bin
@@ -180,14 +191,23 @@ cd w10install
 
 # 4. Get/Install essential building tools and software
 
+## 4.1 Microsoft Media Creation Tool
 
-## 4.1 Windows ADK
+The media creation tool is needed to create a bootable USB stick or you can download a Windows 10 ISO file with it. You can download it with the script "download-software.cmd". Or you can download it yourself: https://www.microsoft.com/en-us/software-download/windows10
+
+Save it in folder "software" as "MediaCreationTool20H2"
+
+### 4.1.1
+
+
+
+## 4.2 Windows ADK
 
 The Windows ADK contains the Windows Image Manager and some other essential tools.
 
-You can try to download it with the script "download-software.cmd" and then execute "install-adk.cmd". Or you can get it manually under: https://docs.microsoft.com/en-US/windows-hardware/get-started/adk-install
+You can download it with the script "download-software.cmd". Afterwards execute "install-adk.cmd" and it will be setup automatically. Or you can download it yourself: https://docs.microsoft.com/en-US/windows-hardware/get-started/adk-install
 
-Save it in folder "software" and install it with:
+Save it in folder "software" and install with:
 ```dos
 adksetup.exe /q /ceip off /norestart /features OptionId.DeploymentTools
 
