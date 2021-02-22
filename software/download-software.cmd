@@ -4,7 +4,7 @@ set LISTFILE=softwarelist.csv
 IF NOT EXIST %LISTFILE% (
   echo ERROR: %LISTFILE% not found!
   exit /b
-) 
+)
 
 rem ###################################
 rem MAIN loop ( download software ) ...
@@ -21,7 +21,7 @@ FOR /F "tokens=1,2 delims=, " %%E in (%LISTFILE%) do (
   IF NOT EXIST %%F (
 
     rem get it with curl ...
-    echo getting: [ %%E ] from [ %%F ]
+    echo getting: %%F [ %%E ]
     curl --connect-timeout 5 --fail-early -L %%E --output %%F
 
     rem success ?
