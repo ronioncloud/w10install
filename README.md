@@ -12,7 +12,7 @@ First I looked for a "professional" solution. Unfortunately I didn't find anythi
 
 Another major problem is the spying frenzy of software manufacturers. This primarily means Windows 10 telemetry. But unsolicited updates, whether by Microsoft or third-party manufacturers, are just as plague. This project also takes care of that - as far as possible - without impairing the functionality of the system in an intolerable manner. But what is still tolerable? This lies in the eye of the beholder.
 
-Finally, there is the problem of obesity. Modern systems are getting fatter, slower, more complex and therefore uglier. The whole thing has now reached a level that is no longer acceptable for many users. That is why one of the core tasks of this project is to strip down Windows 10 as much as possible (without loosing to much funtionality - see above). This also automatically results in a reduction of the attack surface (programs that do not exist cannot be attacked).
+Finally, there is the problem of obesity. Modern systems are getting fatter, slower, more complex and therefore uglier. The whole thing has now reached a level that is no longer acceptable for many users. That is why one of the core tasks of this project is to strip down Windows 10 as much as possible (without loosing to much functionality - see above). This also automatically results in a reduction of the attack surface (programs that do not exist cannot be attacked).
 
 
 ## Project goals
