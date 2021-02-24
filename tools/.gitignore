@@ -3,3 +3,6 @@
 *.xpi
 *.zip
 *.ini
+!setbgcol.exe
+!deltree.exe
+!allpull.exe
