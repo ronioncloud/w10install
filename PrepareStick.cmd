@@ -74,6 +74,7 @@ GOTO END
 
 :USAGE
 echo "usage: %0 <USBDRIVE>"
+echo.
 
 :END
 

@@ -1,10 +1,21 @@
 @echo off
-set LISTFILE=softwarelist.csv
+
+rem ===================
+rem COMMANDLINE CHECKS
+rem ===================
+
+IF %1.==. GOTO USAGE
+rem removing extension ...
+set LISTFILE=%~n1
+rem adding extension again ...
+set LISTFILE=%LISTFILE%.csv
 
 IF NOT EXIST %LISTFILE% (
   echo ERROR: %LISTFILE% not found!
   exit /b
 )
+
+echo using file [ %LISTFILE% ] ...
 
 rem ###################################
 rem MAIN loop ( download software ) ...
@@ -37,3 +48,15 @@ FOR /F "tokens=1,2 delims=, " %%E in (%LISTFILE%) do (
   )
 
 )
+
+rem =====
+rem END
+rem =====
+GOTO END
+
+:USAGE
+echo "usage: %0 <LISTFILE>"
+echo   LISTFILE = basic, browser or extended
+echo.
+
+:END
