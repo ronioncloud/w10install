@@ -58,9 +58,6 @@ echo.
 call modify-taskbar.cmd
 echo.
 
-call install-tweaks.cmd
-echo.
-
 echo #######################
 echo ### UNINSTALL tasks ###
 echo #######################
@@ -78,6 +75,12 @@ echo.
 echo #####################
 echo ### INSTALL tasks ###
 echo #####################
+echo.
+
+call install-zipfiles.cmd
+echo.
+
+call install-tweaks.cmd
 echo.
 
 call install-adk.cmd
