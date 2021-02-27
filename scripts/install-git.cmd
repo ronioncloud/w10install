@@ -33,4 +33,3 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Env
   /f
 
 echo ####### %0 #######
-

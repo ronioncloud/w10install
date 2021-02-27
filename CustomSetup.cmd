@@ -2,7 +2,7 @@
 rem this script puts everything in place ...
 
 set TOOLS=c:\tools
-set BATCH=%TOOLS%\scripts\\autoconfig-all.cmd
+set BATCH=%TOOLS%\scripts\autoconfig-all.cmd
 set LOG=c:\CustomSetup.txt
 
 del /F %LOG% 1>nul 2>nul
@@ -12,9 +12,6 @@ shift /1
 echo ####### %0 #######
 date /t
 time /t
-echo.
-
-echo ####### %0 #######
 echo.
 
 echo killing ssh agent ...
@@ -29,6 +26,10 @@ echo deleting %TOOLS% ...
 rd /S /Q %TOOLS%
 echo.
 
+echo copying folder %TOOLS% ...
+robocopy tools %TOOLS% /MIR /256 /NJH /NFL /NDL
+echo.
+
 echo starting %BATCH% ...
 call %BATCH%
 echo.
@@ -38,4 +39,3 @@ time /t
 echo ####### %0 #######
 echo READY.
 echo.
-
