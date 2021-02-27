@@ -1,6 +1,11 @@
 @echo off
 
-set EXE=..\software\VirtualBox-6.1.18-142142-Win.exe
+set EXE=..\software\virtualbox-setup.exe
+
+if NOT EXIST %EXE% (
+  echo ERROR: %EXE% not found!
+  exit /b
+)
 
 echo ####### %0 #######
 
@@ -15,4 +20,3 @@ rem refresh desktop (W10 style)
 ie4uinit.exe -show
 
 echo ####### %0 #######
-

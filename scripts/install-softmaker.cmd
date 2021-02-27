@@ -2,8 +2,12 @@
 
 set SCRIPTS=..\scripts
 set SOFTWARE=..\software
+set MSI=softmaker-setup.msi 
 
-set MSI=ofw2021_64.msi 
+if NOT EXIST %SOFTWARE%\%MSI% (
+  echo ERROR: %SOFTWARE%\%MSI% not found!
+  exit /b
+)
 
 echo ####### %0 #######
 

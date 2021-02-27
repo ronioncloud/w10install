@@ -21,12 +21,6 @@ mkdir %T% 1>nul 2>nul
 echo cd to %SCRIPTS% ...
 cd /D %SCRIPTS%
 
-echo copy files in deploy folder to %TOOLS% ...
-if EXIST deploy (
-  move /Y deploy\* %TOOLS% 2>nul
-  rmdir deploy 2>nul
-)
-
 echo.
 echo #######################
 echo ### GLOBAL settings ###

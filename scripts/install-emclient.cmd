@@ -2,8 +2,12 @@
 
 set SCRIPTS=..\scripts
 set SOFTWARE=..\software
+set MSI=emclient-setup.msi
 
-set MSI=emclient-v8.1.1054.msi
+if NOT EXIST %SOFTWARE%\%MSI% (
+  echo ERROR: %SOFTWARE%\%MSI% not found!
+  exit /b
+)
 
 echo ####### %0 #######
 

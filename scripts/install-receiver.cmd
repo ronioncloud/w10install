@@ -1,6 +1,11 @@
 @echo off
 
-set EXE=..\software\CitrixReceiver_4.9.9002_LTSR.exe
+set EXE=..\software\citrixreceiver-setup.exe
+
+if NOT EXIST %EXE% (
+  echo ERROR: %EXE% not found!
+  exit /b
+)
 
 echo ####### %0 #######
 

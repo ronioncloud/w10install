@@ -3,6 +3,11 @@
 set CONFIG=config\install-vscode.txt
 set EXE=..\software\VSCodeSetup-x64-1.53.2.exe
 
+if NOT EXIST %EXE% (
+  echo ERROR: %EXE% not found!
+  exit /b
+)
+
 echo ####### %0 #######
 
 echo killing ssh processes...

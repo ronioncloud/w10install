@@ -1,27 +1,31 @@
 @echo off
 
 set CONF=config\firefox
-set SCRIPTS=..\..\scripts
-set SOFTWARE=..\software\firefox
+set SCRIPTS=..\scripts
+set SOFTWARE=..\software
+set MSI=firefox-setup.msi
 
-set MSI=Firefox_Setup_83.0b9.msi
-set FIREFOXBASE="C:\Program Files\Mozilla Firefox"
+if NOT EXIST %SOFTWARE%\%MSI% (
+  echo ERROR: %SOFTWARE%\%MSI% not found!
+  exit /b
+)
 
-set BADGERFILE=%SOFTWARE%\privacy_badger-2020.12.10.xpi
+set FIREFOXBASE="%ProgramFiles%\Mozilla Firefox"
+
+set BADGERFILE=%SOFTWARE%\privacybadger-addon.xpi
 set BADGERTARGET=jid1-MnnxcxisBPnSXQ@jetpack.xpi
 
-set UBLOCKFILE=%SOFTWARE%\ublock_origin-1.32.0.xpi
+set UBLOCKFILE=%SOFTWARE%\ublockorigin-addon.xpi
 set UBLOCKTARGET=uBlock0@raymondhill.net.xpi
 
-set PASSWORD1FILE=%SOFTWARE%\1password-1.22.3.xpi
+set PASSWORD1FILE=%SOFTWARE%\1password-addon.xpi
 set PASSWORD1TARGET={d634138d-c276-4fc8-924b-40a0ea21d284}.xpi
 
-set BITWARDENFILE=%SOFTWARE%\bitwarden-1.47.1.xpi
+set BITWARDENFILE=%SOFTWARE%\bitwarden-addon.xpi
 set BITWARDENTARGET={446900e4-71c2-419f-a6a7-df9c091e268b}.xpi
 
 echo ####### %0 #######
 
-cd %SOFTWARE%
 @echo on
 msiexec /i %MSI% /passive
 @echo off

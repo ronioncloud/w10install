@@ -1,8 +1,13 @@
 @echo off
 
 set CONFIG=config\install-git.txt
-set EXE=..\software\Git-2.29.0-64-bit.exe
 set TOOLS=c:\tools
+set EXE=..\software\git-setup.exe
+
+if NOT EXIST %EXE% (
+  echo ERROR: %EXE% not found!
+  exit /b
+)
 
 echo ####### %0 #######
 

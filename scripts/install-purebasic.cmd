@@ -1,7 +1,7 @@
 @echo off
 
 set CONFIG=config\install-purebasic.txt
-set EXE=..\software\PureBasic_Windows_X64_LTS_5.73.exe
+set EXE=..\software\purebasic-setup.exe
 
 echo ####### %0 #######
 

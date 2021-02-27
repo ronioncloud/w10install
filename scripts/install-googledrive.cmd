@@ -3,8 +3,12 @@
 set SCRIPTS=..\scripts
 set SOFTWARE=..\software
 set STARTMENU="%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs"
+set MSI=gsync-setup.msi 
 
-set MSI=gsync_enterprise64.msi 
+if NOT EXIST %SOFTWARE%\%MSI% (
+  echo ERROR: %SOFTWARE%\%MSI% not found!
+  exit /b
+)
 
 echo ####### %0 #######
 

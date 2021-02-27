@@ -1,6 +1,11 @@
 @echo off
 
-set EXE=..\software\adksetup.exe
+set EXE=..\software\adk-setup.exe
+
+if NOT EXIST %EXE% (
+  echo ERROR: %EXE% not found!
+  exit /b
+)
 
 echo ####### %0 #######
 

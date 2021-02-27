@@ -1,6 +1,11 @@
 @echo off
 
-set EXE=..\software\vlc-3.0.12-win64.exe
+set EXE=..\software\vlc-setup.exe
+
+if NOT EXIST %EXE% (
+  echo ERROR: %EXE% not found!
+  exit /b
+)
 
 echo ####### %0 #######
 

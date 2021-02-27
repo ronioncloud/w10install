@@ -27,8 +27,8 @@ set noswapfile
 "                             "
 """""""""""""""""""""""""""""""
 
-"Show line numbers
-set number
+"dont't show line numbers
+set nonumber
 
 "Transform tabs to spaces
 set tabstop=8

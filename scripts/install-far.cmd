@@ -2,8 +2,12 @@
 
 set SCRIPTS=..\scripts
 set SOFTWARE=..\software
-
 set MSI=far-setup.msi
+
+if NOT EXIST %SOFTWARE%\%MSI% (
+  echo ERROR: %SOFTWARE%\%MSI% not found!
+  exit /b
+)
 
 echo ####### %0 #######
 
