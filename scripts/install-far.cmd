@@ -3,13 +3,14 @@
 set SCRIPTS=..\scripts
 set SOFTWARE=..\software
 
-set MSI=Far30b5700.x64.20201112.msi
+set MSI=far-setup.msi
 
 echo ####### %0 #######
 
 cd %SOFTWARE%
 @echo on
-msiexec /i %MSI% /quiet 
+msiexec /x %MSI% /passive
+msiexec /i %MSI% INSTALLDIR="%ProgramFiles%\FarManager" /passive
 @echo off
 cd %SCRIPTS%
 
