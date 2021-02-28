@@ -25,6 +25,6 @@ del /S /Q /A %T%\%MSI% 1>nul 2>nul
 rd /S /Q %T%\PFiles
 
 rem create symbolic link ...
-mklink %TOOLS%\tvnviewer.exe %TOOLS%\vnc.exe 2>nul
+mklink %TOOLS%\vnc.exe %TOOLS%\tvnviewer.exe 2>nul
 
 echo ####### %0 #######

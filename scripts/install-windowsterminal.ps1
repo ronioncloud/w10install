@@ -9,6 +9,6 @@ if (! (Test-Path $MSIBUNDLE)) {
 write-host '#######',(split-path $PSCommandPath -Leaf),'#######'
 
 $ErrorActionPreference = "SilentlyContinue"
-Add-AppXPackage -path "$MSIBUNDLE"
+Add-AppXPackage -allusers -path "$MSIBUNDLE"
 
 write-host '#######',(split-path $PSCommandPath -Leaf),'#######'

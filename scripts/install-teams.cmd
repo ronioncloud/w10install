@@ -13,4 +13,7 @@ echo installing Microsoft Teams ...
 %EXE% -s
 timeout /T 10
 
+echo renaming and moving Teams desktop link ...
+move /Y "%USERPROFILE%\Desktop\Microsoft Teams.lnk" "%PUBLIC%\Desktop\Teams.lnk"
+
 echo ####### %0 #######

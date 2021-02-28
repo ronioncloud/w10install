@@ -167,6 +167,9 @@ echo.
 call install-xnview.cmd
 echo.
 
+rem add full access rights to all users on public icons!
+icacls %PUBLIC%\Desktop\*.lnk /grant Users:F
+
 echo #####################
 echo ### DISABLE tasks ###
 echo #####################
@@ -205,8 +208,8 @@ rem echo ENABLE firewall ...
 rem netsh advfirewall set allprofiles state on
 rem echo.
 
-echo rebooting ...
-shutdown -g -t 0
+rem echo rebooting ...
+rem shutdown -g -t 0
 echo.
 
 date /t
