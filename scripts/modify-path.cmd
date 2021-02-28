@@ -1,6 +1,16 @@
 @echo off
 
-set newPATH=%SYSTEMROOT%;%SYSTEMROOT%\system32;%SYSTEMROOT%\system32\wbem;%SYSTEMROOT%\system32\WindowsPowerShell\v1.0;%LOCALAPPDATA%\Microsoft\WindowsApps;%TOOLS%;%TOOLS%\notepad++;%TOOLS%\git\bin;%TOOLS%\git\usr\bin;%ProgramFiles%\PureBasic\Compilers;%ProgramFiles%\FarManager
+set newPATH=%SYSTEMROOT%;%SYSTEMROOT%\system32;^
+%SYSTEMROOT%\system32\wbem;^
+%SYSTEMROOT%\system32\WindowsPowerShell\v1.0;^
+%LOCALAPPDATA%\Microsoft\WindowsApps;^
+%TOOLS%;^
+%TOOLS%\git\bin;^
+%TOOLS%\git\usr\bin;^
+%ProgramFiles%\PureBasic\Compilers;^
+%ProgramFiles%\Go\bin;^
+%SystemDrive%\Python27;^
+%ProgramFiles%\FarManager
 
 echo ####### %0 #######
 
@@ -12,4 +22,3 @@ setx PATH "%newPATH%"
 set PATH=%newPATH%
 
 echo ####### %0 #######
-

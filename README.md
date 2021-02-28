@@ -83,22 +83,21 @@ setx T c:\TEMP
 [7-ZIP Website](https://www.7-zip.org)
 
 Download: https://www.7-zip.org/a/7z1900-x64.exe  
-Save the executable as "7z-setup.exe" in folder "software".
+Save the MSI file as "7z-setup.msi" in your home folder.
 
-Execute the self extracting file:
+Unpack the MSI with:
 ```dos
-software\7z-setup.exe
+cd /D %USERPROFILE%
+msiexec /a 7z-setup.msi TARGETDIR=%T%
 
 ```
 
-Save the contents to: c:\temp.
-
 After extracting execute:
 ```dos
-move /Y %T%\7z.exe %TOOLS%
-move /Y %T%\7z.dll %TOOLS%
-del /S /Q /A %T%\*.* 1>nul
-rd /S /Q %T%\Lang
+move /Y %T%\Files\7-Zip\7z.exe %TOOLS%
+move /Y %T%\Files\7-zip\7z.dll %TOOLS%
+del /S /Q /A %T%\7z-setup.msi 1>nul 2>nul
+rd /S /Q %T%\Files
 
 ```
 

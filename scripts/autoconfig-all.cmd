@@ -31,6 +31,20 @@ rem echo DISABLE firewall ...
 rem netsh advfirewall set allprofiles state off
 rem echo.
 
+rem 7-zip is essential for other scripts ...
+call unpack-7zip.cmd
+echo.
+
+rem windows update blocker is in the zipfiles ...
+call unpack-zipfiles.cmd
+echo.
+
+rem copy some other stuff ...
+call copy-exefiles.cmd
+echo.
+
+
+
 rem this must be done EARLY!
 call disable-updates.cmd 
 echo.
@@ -77,9 +91,6 @@ echo ### INSTALL tasks ###
 echo #####################
 echo.
 
-call install-zipfiles.cmd
-echo.
-
 call install-tweaks.cmd
 echo.
 
@@ -99,6 +110,12 @@ call install-vscode.cmd
 echo.
 
 call install-purebasic.cmd
+echo.
+
+call install-go.cmd
+echo.
+
+call install-python.cmd
 echo.
 
 rem fuck you microsoft ...
@@ -124,16 +141,22 @@ echo.
 call install-vlc.cmd
 echo.
 
+call install-vnc.cmd
+echo.
+
 call install-virtualbox.cmd
 echo.
 
 call install-antivir.cmd
 echo.
 
-call install-desktopicons.cmd
+call install-desktoplinks.cmd
 echo.
 
 call install-logonscript.cmd
+echo.
+
+call install-dbbrowser.cmd
 echo.
 
 echo #####################

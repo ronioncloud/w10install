@@ -1,6 +1,6 @@
 @echo off
 
-set SOURCE=icons
+set SOURCE=links
 set TARGET=%PUBLIC%\Desktop
 
 echo ####### %0 #######

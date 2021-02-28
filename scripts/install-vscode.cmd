@@ -1,7 +1,7 @@
 @echo off
 
 set CONFIG=config\install-vscode.txt
-set EXE=..\software\VSCodeSetup-x64-1.53.2.exe
+set EXE=..\software\vscode-setup.exe
 
 if NOT EXIST %EXE% (
   echo ERROR: %EXE% not found!

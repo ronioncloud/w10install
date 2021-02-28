@@ -2,7 +2,7 @@
 
 set SCRIPTS=..\scripts
 set SOFTWARE=..\software
-set MSI=far-setup.msi
+set MSI=go-setup.msi
 
 if NOT EXIST %SOFTWARE%\%MSI% (
   echo ERROR: %SOFTWARE%\%MSI% not found!
@@ -13,12 +13,8 @@ echo ####### %0 #######
 
 cd %SOFTWARE%
 @echo on
-msiexec /i %MSI% INSTALLDIR="%ProgramFiles%\FarManager" /passive
+msiexec /i %MSI% /passive
 @echo off
 cd %SCRIPTS%
-
-rem copy link to desktop ...
-copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Far Manager 3 x64\Far*" ^
-  %PUBLIC%\Desktop
 
 echo ####### %0 #######

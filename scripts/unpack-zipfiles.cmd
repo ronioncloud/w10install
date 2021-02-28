@@ -25,12 +25,12 @@ for %%A in (
 
 ) do (
   
-  if NOT EXIST %SOFTWARE%\%MSI% (
+  if NOT EXIST %SOFTWARE%\%%A.zip (
     echo WARNING: %SOFTWARE%\%%A.zip not found!
+  ) else (
+    echo unpacking %%A.zip ...
+    %TOOLS%\7z e -y -aoa -o%T%\%%A %SOFTWARE%\%%A.zip
   )
-
-  echo unpacking %%A.zip ...
-  %TOOLS%\7z e -aoa -o%T%\%%A %SOFTWARE%\%%A.zip
 
 )
 

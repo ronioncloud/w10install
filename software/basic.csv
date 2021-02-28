@@ -1,4 +1,4 @@
-https://www.7-zip.org/a/7z1900-x64.exe 7z-setup.exe
+https://www.7-zip.org/a/7z1900-x64.msi 7z-setup.msi
 https://go.microsoft.com/fwlink/?linkid=2120254 adk-setup.exe
 https://download.sysinternals.com/files/BGInfo.zip bginfo.zip
 https://curl.se/windows/dl-7.75.0_3/curl-7.75.0_3-win64-mingw.zip curl.zip
@@ -11,7 +11,7 @@ https://github.com/Open-Shell/Open-Shell-Menu/releases/download/v4.4.160/OpenShe
 https://the.earth.li/~sgtatham/putty/latest/w64/puttygen.exe puttygen.exe
 https://downloads.rclone.org/v1.54.0/rclone-v1.54.0-windows-amd64.zip rclone.zip
 https://github.com/restic/restic/releases/download/v0.12.0/restic_0.12.0_windows_amd64.zip restic.zip
-https://www.tightvnc.com/download/2.8.59/tightvnc-2.8.59-gpl-setup-64bit.msi tvnc-setup.msi
+https://www.tightvnc.com/download/2.8.59/tightvnc-2.8.59-gpl-setup-64bit.msi vnc-setup.msi
 https://ftp.nluug.nl/pub/vim/pc/vim82w32.zip vim.zip
 https://winscp.net/download/WinSCP-5.17.10-Portable.zip winscp.zip
 https://www.sordum.org/files/downloads.php?st-windows-update-blocker wub.zip

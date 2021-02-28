@@ -13,16 +13,16 @@ echo ####### %0 #######
 
 cd %SOFTWARE%
 @echo on
-msiexec /i %MSI% /quiet 
+msiexec /i %MSI% /quiet
 @echo off
 cd %SCRIPTS%
 
-rem create icon on desktop ...
+rem copy link to desktop ...
 copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\eM Client.lnk" ^
   %PUBLIC%\Desktop
 
 rem remove autostart for em-Client ...
-reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "eM Client" /f
+reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" ^
+  /v "eM Client" /f
 
 echo ####### %0 #######
-
