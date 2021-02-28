@@ -161,6 +161,9 @@ echo.
 call install-totalcommander.cmd
 echo.
 
+call install-teams.cmd
+echo.
+
 call install-xnview.cmd
 echo.
 
