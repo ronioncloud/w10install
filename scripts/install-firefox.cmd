@@ -1,12 +1,12 @@
 @echo off
 
-set CONF=config\firefox
+set CONFIG=config\firefox
 set SCRIPTS=..\scripts
 set SOFTWARE=..\software
-set MSI=firefox-setup.msi
+set EXE=firefox-setup.exe
 
-if NOT EXIST %SOFTWARE%\%MSI% (
-  echo ERROR: %SOFTWARE%\%MSI% not found!
+if NOT EXIST %SOFTWARE%\%EXE% (
+  echo ERROR: %SOFTWARE%\%EXE% not found!
   exit /b
 )
 
@@ -27,13 +27,15 @@ set BITWARDENTARGET={446900e4-71c2-419f-a6a7-df9c091e268b}.xpi
 echo ####### %0 #######
 
 @echo on
-msiexec /i %MSI% /passive
+cd %SOFTWARE%
+firefox-setup.exe /S /MaintenanceService=false /TaskbarShortcut=false /RegisterDefaultAgent=false
+timeout /T 10
 @echo off
 cd %SCRIPTS%
 
 rem copy config ...
-copy /Y %CONF%\local-settings.js %FIREFOXBASE%\defaults\pref
-copy /Y %CONF%\mozilla.cfg %FIREFOXBASE%
+copy /Y %CONFIG%\local-settings.js %FIREFOXBASE%\defaults\pref
+copy /Y %CONFIG%\mozilla.cfg %FIREFOXBASE%
 
 echo disabling FireFox updates (all users) ...
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Mozilla\Firefox" ^

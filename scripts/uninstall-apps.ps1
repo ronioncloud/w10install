@@ -11,9 +11,9 @@ Get-AppxPackage -AllUsers |
   Remove-AppxPackage
 
 Get-AppxProvisionedPackage -online |
-  where-object {$_.name -notlike "*calc*"} |
-  where-object {$_.name -notlike "*store*"} |
-  where-object {$_.name -notlike "*terminal*"} |
+  where-object {$_.displayname -notlike "*calc*"} |
+  where-object {$_.displayname -notlike "*store*"} |
+  where-object {$_.displayname -notlike "*terminal*"} |
   Remove-AppxProvisionedPackage -online
 
 # make sure that the calculator is installed ...

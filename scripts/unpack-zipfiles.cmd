@@ -42,7 +42,7 @@ echo.
 
 echo BGinfo ...
 mkdir %TOOLS%\bginfo 2>nul
-move /Y %T%\bginfo\Bginfo64.exe %TOOLS%
+move /Y %T%\bginfo\Bginfo64.exe %TOOLS%\bginfo
 copy /Y config\config.bgi %TOOLS%\bginfo
 rd /S /Q %T%\bginfo 2>nul
 echo.

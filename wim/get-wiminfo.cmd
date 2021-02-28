@@ -11,5 +11,9 @@ GOTO END
 :USAGE
 echo "usage: %0 <FILENAME>"
 
+echo.
+dir /B %SOURCES%\*.esd %SOURCES%\*.wim
+echo.
+
 :END
 
