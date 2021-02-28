@@ -21,4 +21,7 @@ rem copy link to desktop ...
 copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Far Manager 3 x64\Far*" ^
   %PUBLIC%\Desktop
 
+echo renaming Far Manager desktop link ...
+move /Y "%PUBLIC%\Desktop\Far Manager 3 x64.lnk" "%PUBLIC%\Desktop\Far Manager.lnk"
+
 echo ####### %0 #######

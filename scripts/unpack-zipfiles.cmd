@@ -42,7 +42,8 @@ echo.
 
 echo BGinfo ...
 mkdir %TOOLS%\bginfo 2>nul
-move /Y %T%\bginfo\Bginfo64.exe %TOOLS%\bginfo
+move /Y %T%\bginfo\Bginfo64.exe %TOOLS%
+copy /Y config\config.bgi %TOOLS%\bginfo
 rd /S /Q %T%\bginfo 2>nul
 echo.
 
@@ -67,6 +68,7 @@ echo.
 echo OfflineRegistryFinder
 move /Y %T%\offlineregistryfinder\*.exe %TOOLS%
 rd /S /Q %T%\offlineregistryfinder
+copy /Y config\OfflineRegistryFinder.cfg %TOOLS%
 echo.
 
 echo RClone

@@ -10,7 +10,7 @@ https://www.softmaker.net/down/ofw2021_64.msi softmaker-setup.msi
 http://www.drivesnapshot.de/download/snapshot64.exe snapshot64.exe
 http://download.spotify.com/SpotifyFullSetup.exe spotify-setup.exe
 https://statics.teams.cdn.office.net/production-windows-x64/1.4.00.2879/Teams_windows_x64.exe teams-setup.exe
-https://totalcommander.ch/win/fixed/tcmd951x64.exe tcmd-setup.exe
+https://totalcommander.ch/win/fixed/tcmd951x64.exe totalcommander-setup.exe
 https://ftp.halifax.rwth-aachen.de/videolan/vlc/3.0.12/win64/vlc-3.0.12-win64.exe vlc-setup.exe
 https://download.virtualbox.org/virtualbox/6.1.18/VirtualBox-6.1.18-142142-Win.exe virtualbox-setup.exe
 https://code.visualstudio.com/sha/download?build=stable&os=win32-x64 vscode-setup.exe

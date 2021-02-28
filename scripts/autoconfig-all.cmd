@@ -39,11 +39,13 @@ rem windows update blocker is in the zipfiles ...
 call unpack-zipfiles.cmd
 echo.
 
+rem put vnc in place ...
+call unpack-vnc.cmd
+echo.
+
 rem copy some other stuff ...
 call copy-exefiles.cmd
 echo.
-
-
 
 rem this must be done EARLY!
 call disable-updates.cmd 
@@ -141,9 +143,6 @@ echo.
 call install-vlc.cmd
 echo.
 
-call install-vnc.cmd
-echo.
-
 call install-virtualbox.cmd
 echo.
 
@@ -157,6 +156,12 @@ call install-logonscript.cmd
 echo.
 
 call install-dbbrowser.cmd
+echo.
+
+call install-totalcommander.cmd
+echo.
+
+call install-xnview.cmd
 echo.
 
 echo #####################
