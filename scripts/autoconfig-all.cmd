@@ -170,6 +170,9 @@ echo.
 rem add full access rights to all users on public icons!
 icacls %PUBLIC%\Desktop\*.lnk /grant Users:F
 
+rem remove read-only flag on tools folder ...
+attrib /S /D -R %TOOLS%\*
+
 echo #####################
 echo ### DISABLE tasks ###
 echo #####################
@@ -208,8 +211,8 @@ rem echo ENABLE firewall ...
 rem netsh advfirewall set allprofiles state on
 rem echo.
 
-rem echo rebooting ...
-rem shutdown -g -t 0
+echo rebooting ...
+shutdown -g -t 0
 echo.
 
 date /t
