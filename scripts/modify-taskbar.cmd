@@ -15,5 +15,9 @@ reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" ^
   /v "SecurityHealth" /f 1>nul 2>nul
 taskkill /f /im SecurityHealthSystray.exe 1>nul 2>nul
 
+echo restarting explorer ...
+taskkill /f /im explorer.exe 1>nul 2>nul
+start explorer.exe
+
 echo ####### %0 #######
 

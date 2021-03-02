@@ -50,8 +50,7 @@ if NOT EXIST %LOCALSTATE%\settings.json (
     %LOCALSTATE%\settings.json
 )
 
-rem if EXIST %STATUSFILE% GOTO END
-GOTO END
+if EXIST %STATUSFILE% GOTO END
 echo.
 echo #####
 echo ##### USER TWEAKS
@@ -96,6 +95,8 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Ad
 echo disable cortana button on the taskbar ...
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" ^
   /v "ShowCortanaButton" /t REG_DWORD /d 0 /f 1>nul
+
+GOTO END
 
 echo disable autotray for the taskbar ...
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer" ^
