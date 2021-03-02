@@ -16,3 +16,4 @@ echo removing F-Secure desktop link ...
 del /F "%PUBLIC%\Desktop\F-Secure Anti-Virus.lnk" 2>nul
 
 echo ####### %0 #######
+

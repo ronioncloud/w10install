@@ -55,7 +55,7 @@ if EXIST tools (
   robocopy tools %USBDRIVE%\tools /COPY:DT /FFT /XO /256 /NJH /NJS /NDL /XF .gitignore
 )
 
-for %%P in (software scripts) do (
+for %%P in (software scripts source optional) do (
   if EXIST %%P (
     echo.
     echo copying folder %%P to drive %USBDRIVE%\tools ...

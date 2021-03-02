@@ -1,6 +1,6 @@
 @echo off
 
-set EXE=..\..\software\spotify-setup.exe
+set EXE=..\software\spotify-setup.exe
 
 if NOT EXIST %EXE% (
   echo ERROR: %EXE% not found!
