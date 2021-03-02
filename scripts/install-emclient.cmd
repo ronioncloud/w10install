@@ -25,6 +25,6 @@ rem remove autostart for em-Client ...
 reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" ^
   /v "eM Client" /f
 
-taskkill /F /IM SystemSettings.exe2>nul
+taskkill /F /IM SystemSettings.exe 2>nul
 
 echo ####### %0 #######

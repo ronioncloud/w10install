@@ -149,9 +149,6 @@ echo.
 call install-desktoplinks.cmd
 echo.
 
-call install-logonscript.cmd
-echo.
-
 call install-dbbrowser.cmd
 echo.
 
@@ -162,6 +159,10 @@ call install-teams.cmd
 echo.
 
 call install-xnview.cmd
+echo.
+
+rem should be done as late as possible ...
+call install-logonscript.cmd
 echo.
 
 rem add full access rights to all users on public icons!
