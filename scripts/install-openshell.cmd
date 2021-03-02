@@ -9,9 +9,6 @@ if NOT EXIST %SOFTWARE%\%EXE% (
   exit /b
 )
 
-rem config must be full qualified pathname (OpenShell BUG!)
-set CONFIG=c:\tools\scripts\config\OpenshellSettings.xml 
-
 echo ####### %0 #######
 
 cd %SOFTWARE%
@@ -22,9 +19,6 @@ cd %SCRIPTS%
 
 echo removing OpenShell Readme file link ...
 del /F "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Open-Shell\Open-Shell Readme.lnk" 2>nul
-
-echo loading OpenShell config ...
-"%ProgramFiles%\Open-Shell\StartMenu.exe" -xml %CONFIG%
 
 echo ####### %0 #######
 

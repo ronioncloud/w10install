@@ -146,9 +146,6 @@ echo.
 call install-virtualbox.cmd
 echo.
 
-call install-antivir.cmd
-echo.
-
 call install-desktoplinks.cmd
 echo.
 

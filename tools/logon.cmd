@@ -108,6 +108,11 @@ echo removing pinned apps from taskbar ...
 del /F /S /Q /A "%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\*"
 reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband" /f
 
+echo loading OpenShell config ...
+rem config must be full qualified pathname (OpenShell BUG!)
+set CONFIG=%TOOLS%\scripts\config\OpenshellSettings.xml
+"%ProgramFiles%\Open-Shell\StartMenu.exe" -xml %CONFIG%
+
 echo restarting explorer ...
 taskkill /f /im explorer.exe 1>nul 2>nul
 start explorer.exe
