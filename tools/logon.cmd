@@ -50,7 +50,8 @@ if NOT EXIST %LOCALSTATE%\settings.json (
     %LOCALSTATE%\settings.json
 )
 
-if EXIST %STATUSFILE% GOTO END
+rem if EXIST %STATUSFILE% GOTO END
+GOTO END
 echo.
 echo #####
 echo ##### USER TWEAKS

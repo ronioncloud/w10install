@@ -101,9 +101,11 @@
                 <LocalAccounts>
                     <LocalAccount wcm:action="add">
                         <Password>
-                            <Value>UwB0AGEAcgB0AF8AMQAyADMANAA1ACEAUABhAHMAcwB3AG8AcgBkAA==</Value>
-                            <PlainText>false</PlainText>
+                            <!-- PASSWORD HERE -->
+                            <Value></Value>
+                            <PlainText>true</PlainText>
                         </Password>
+                        <!-- USERNAME HERE -->
                         <DisplayName>support</DisplayName>
                         <Name>support</Name>
                         <Group>Administrators</Group>
@@ -112,11 +114,13 @@
             </UserAccounts>
             <AutoLogon>
                 <Password>
-                    <Value>UwB0AGEAcgB0AF8AMQAyADMANAA1ACEAUABhAHMAcwB3AG8AcgBkAA==</Value>
-                    <PlainText>false</PlainText>
+                    <!-- PASSWORD HERE -->
+                    <Value></Value>
+                    <PlainText>true</PlainText>
                 </Password>
                 <Enabled>true</Enabled>
                 <LogonCount>1</LogonCount>
+                <!-- USERNAME HERE -->
                 <Username>support</Username>
             </AutoLogon>
             <FirstLogonCommands>
