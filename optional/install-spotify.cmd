@@ -13,5 +13,5 @@ echo installing Spotify for user %USERNAME% ...
 %EXE%
 
 echo ####### %0 #######
-timeout /T 3
+pause
 

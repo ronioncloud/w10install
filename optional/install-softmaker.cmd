@@ -28,4 +28,5 @@ copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Softmaker Office 20
   %PUBLIC%\Desktop\Textmaker.lnk
 
 echo ####### %0 #######
+pause
 

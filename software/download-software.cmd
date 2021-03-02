@@ -56,7 +56,7 @@ GOTO END
 
 :USAGE
 echo "usage: %0 <LISTFILE>"
-echo   LISTFILE = basic, browser or extended
+echo   LISTFILE = basic, browser or optional
 echo.
 
 :END

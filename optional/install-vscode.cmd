@@ -17,4 +17,5 @@ echo installing Visual Studio CODE ...
 %EXE% /LOADINF=%CONFIG% /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
 
 echo ####### %0 #######
+pause
 

@@ -20,3 +20,5 @@ rem refresh desktop (W10 style)
 ie4uinit.exe -show
 
 echo ####### %0 #######
+pause
+

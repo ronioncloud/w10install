@@ -20,3 +20,5 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\S
   /v "Redirector" /d 030000005e06c842d402d701 /t REG_BINARY /f
 
 echo ####### %0 #######
+pause
+

@@ -108,12 +108,6 @@ echo.
 powershell -command .\install-windowsterminal.ps1
 echo.
 
-call install-vscode.cmd
-echo.
-
-call install-purebasic.cmd
-echo.
-
 call install-go.cmd
 echo.
 
@@ -128,37 +122,10 @@ rem fuck you google ...
 call install-firefox.cmd
 echo.
 
-call install-emclient.cmd
-echo.
-
-call install-softmaker.cmd
-echo.
-
-call install-googledrive.cmd
-echo.
-
-call install-receiver.cmd
-echo.
-
 call install-vlc.cmd
 echo.
 
-call install-virtualbox.cmd
-echo.
-
 call install-desktoplinks.cmd
-echo.
-
-call install-dbbrowser.cmd
-echo.
-
-call install-totalcommander.cmd
-echo.
-
-call install-teams.cmd
-echo.
-
-call install-xnview.cmd
 echo.
 
 rem should be done as late as possible ...

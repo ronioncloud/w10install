@@ -19,3 +19,5 @@ echo renaming and moving TotalCommander desktop link ...
 move /Y "%USERPROFILE%\Desktop\Total Commander*" "%PUBLIC%\Desktop\Total Commander.lnk"
 
 echo ####### %0 #######
+pause
+

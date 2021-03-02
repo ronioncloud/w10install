@@ -17,8 +17,10 @@ msiexec /i %MSI% /passive
 @echo off
 cd %SCRIPTS%
 
-rem copy icon to desktop ...
+rem copy link to desktop ...
 copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\DB Browser*" ^
   %PUBLIC%\Desktop\DB-Browser.lnk
 
 echo ####### %0 #######
+pause
+

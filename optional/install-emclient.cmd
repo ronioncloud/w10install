@@ -28,3 +28,5 @@ reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" ^
 taskkill /F /IM SystemSettings.exe 2>nul
 
 echo ####### %0 #######
+pause
+

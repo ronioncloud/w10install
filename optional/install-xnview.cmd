@@ -15,3 +15,5 @@ echo renaming and moving XnView desktop link ...
 move /Y "%USERPROFILE%\Desktop\XnViewMP.lnk" "%PUBLIC%\Desktop"
 
 echo ####### %0 #######
+pause
+

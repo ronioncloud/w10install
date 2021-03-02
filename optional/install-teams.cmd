@@ -17,3 +17,5 @@ echo renaming and moving Teams desktop link ...
 move /Y "%USERPROFILE%\Desktop\Microsoft Teams.lnk" "%PUBLIC%\Desktop\Teams.lnk"
 
 echo ####### %0 #######
+pause
+

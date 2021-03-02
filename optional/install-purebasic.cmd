@@ -17,4 +17,5 @@ copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\PureBasic\PureBasic
   %PUBLIC%\Desktop
 
 echo ####### %0 #######
+pause
 
