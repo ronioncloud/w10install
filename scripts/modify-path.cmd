@@ -10,6 +10,7 @@ set newPATH=%SYSTEMROOT%;%SYSTEMROOT%\system32;^
 %ProgramFiles%\PureBasic\Compilers;^
 %ProgramFiles%\Go\bin;^
 %SystemDrive%\Python27;^
+%ProgramFiles%\Python39;^
 %ProgramFiles%\FarManager
 
 echo ####### %0 #######

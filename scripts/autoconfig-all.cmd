@@ -111,7 +111,7 @@ echo.
 call install-go.cmd
 echo.
 
-call install-python.cmd
+call install-python3.cmd
 echo.
 
 rem fuck you microsoft ...
