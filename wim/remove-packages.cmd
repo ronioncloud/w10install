@@ -1,5 +1,7 @@
 @echo off
 set MNT=c:\TEMP\WIM
+
+rem the CHECKFILE is a file that will be monitored against deletion ...
 set CHECKFILE=%MNT%\Windows\SysWOW64\mf.dll
 
 echo exporting PACKAGE list BEFORE doing any changes ...
@@ -188,6 +190,7 @@ for %%P in (
   install_wim_tweak.exe /p %MNT% /c "%%P" /r /n
   @echo off 
 
+  rem we will exit here in case the checkfile was deleted by a package removal ...
   if NOT EXIST %CHECKFILE% (
     echo ERROR: File %CHECKFILE% was deleted
     exit /b
@@ -204,3 +207,4 @@ move /Y Packages.txt Packages-AFTER.txt
 
 rem showing packages ...
 dir Packages*.txt
+

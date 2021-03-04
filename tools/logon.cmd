@@ -96,8 +96,6 @@ echo disable cortana button on the taskbar ...
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" ^
   /v "ShowCortanaButton" /t REG_DWORD /d 0 /f 1>nul
 
-GOTO EXPLORER
-
 echo disable autotray for the taskbar ...
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer" ^
   /v "EnableAutoTray" /t REG_DWORD /d 0 /f 1>nul
@@ -115,7 +113,6 @@ rem config must be full qualified pathname (OpenShell BUG!)
 set CONFIG=%TOOLS%\scripts\config\OpenshellSettings.xml
 "%ProgramFiles%\Open-Shell\StartMenu.exe" -xml %CONFIG%
 
-:EXPLORER
 echo restarting explorer ...
 taskkill /f /im explorer.exe 1>nul 2>nul
 start explorer.exe
