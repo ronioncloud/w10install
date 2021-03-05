@@ -164,10 +164,6 @@ rem ... stupid os problem #2
 call cleanup-startmenu.cmd
 echo.
 
-rem ... remove ALL the stupid fucking microsoft TELEMETRY BULLSHIT!
-rem call uninstall-telemetry.cmd
-rem echo.
-
 echo rebooting ...
 shutdown -g -t 0
 echo.
