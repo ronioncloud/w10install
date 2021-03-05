@@ -27,10 +27,6 @@ echo ### GLOBAL settings ###
 echo #######################
 echo.
 
-rem echo DISABLE firewall ...
-rem netsh advfirewall set allprofiles state off
-rem echo.
-
 rem 7-zip is essential for other scripts ...
 call unpack-7zip.cmd
 echo.
@@ -170,10 +166,6 @@ echo.
 
 rem ... remove ALL the stupid fucking microsoft TELEMETRY BULLSHIT!
 rem call uninstall-telemetry.cmd
-rem echo.
-
-rem echo ENABLE firewall ...
-rem netsh advfirewall set allprofiles state on
 rem echo.
 
 echo rebooting ...

@@ -18,6 +18,7 @@ for %%A in (
   installwimtweak
   offlineregistryfinder
   rclone
+  regscanner
   restic
   vim
   winscp
@@ -74,6 +75,11 @@ echo.
 echo RClone
 move /Y %T%\rclone\rclone.exe %TOOLS%
 rd /S /Q %T%\rclone
+echo.
+
+echo RegScanner
+move /Y %T%\regscanner\*.exe %TOOLS%
+rd /S /Q %T%\regscanner
 echo.
 
 echo Restic

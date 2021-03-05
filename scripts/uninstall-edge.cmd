@@ -11,20 +11,27 @@ echo ####### %0 #######
 @echo off
 timeout /T 10
 
+echo.
 echo cleanup ...
-@echo on
-rd /S /Q %EDGEROOT%
-rd /S /Q %EDGEUPDATE%
-del /F "%PUBLIC%\Desktop\Microsoft Edge.lnk"
-del /F "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk"
-del /F "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk"
-del /F "%USERPROFILE%\Desktop\Microsoft Edge.lnk"
-rd /S /Q "%PROGRAMDATA%\Microsoft\EdgeUpdate"
-@echo off
+rd /S /Q %EDGEROOT% 2>nul
+rd /S /Q %EDGEUPDATE% 2>nul
+del /F "%PUBLIC%\Desktop\Microsoft Edge.lnk" 2>nul
+del /F "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk" 2>nul
+del /F "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk" 2>nul
+del /F "%USERPROFILE%\Desktop\Microsoft Edge.lnk" 2>nul
+rd /S /Q "%PROGRAMDATA%\Microsoft\EdgeUpdate" 2>nul
 
+echo.
 echo block edge updates ...
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\EdgeUpdate" ^
   /v "DoNotUpdateToEdgeWithChromium" /d 1 /t REG_DWORD /f
 
+echo.
+echo ... and finally delete ALL edge registry keys
+echo hoping that frankensteins monster cannot come back after this ...
+regedit /S delete-edgekeys.reg
+echo READY.
+
+echo.
 echo ####### %0 #######
 
