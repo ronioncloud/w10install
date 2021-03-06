@@ -5,13 +5,33 @@ rem most of this was took from:
 rem https://forum.level1techs.com/t/take-back-your-windows-10-privacy/143097/2
 rem THANKS!
 
+echo WARNING: executing this script may cripple some important functions in windows!
+echo especially the store app will not work anymore - and it will be removed by this script!
+
+set answer=
+:ask
+  set /p answer="REALLY remove all Microsoft telemetry (Y/N)? "
+  if /i "%answer:~,1%" EQU "Y" (
+    GOTO CONT 
+  )
+  if /i "%answer:~,1%" EQU "N" (
+    echo ABORTED.
+    exit /b
+  )
+  echo Please type Y or N.
+  goto ask
+:CONT
+
 echo.
-echo ... removing ALL the stupid fucking microsoft TELEMETRY BULLSHIT!
+echo OK ... trying to remove ALL the stupid fucking microsoft TELEMETRY BULLSHIT!
+
+exit /b
 
 echo.
 echo ADDING some registry keys to disable telemetry ...
 echo.
-reg add "HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\PhishingFilter" /v "EnabledV9" /t REG_DWORD /d "0" /f
+reg add "HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\PhishingFilter" ^
+  /v "EnabledV9" /t REG_DWORD /d "0" /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter" /v "EnabledV9" /t REG_DWORD /d 0 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v AITEnable /t REG_DWORD /d 0 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v DisableInventory /t REG_DWORD /d 1 /f
@@ -39,12 +59,16 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v AllowCortan
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /v "EnableSmartScreen" /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore" /v "DisableConfig" /t "REG_DWORD" /d "1" /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore" /v "DisableSR " /t "REG_DWORD" /d "1" /f
-reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SecHealthUI.exe" /v Debugger /t REG_SZ /d "%windir%\System32\taskkill.exe" /f
-reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\CompatTelRunner.exe" /v Debugger /t REG_SZ /d "%windir%\System32\taskkill.exe" /f
-reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DeviceCensus.exe" /v Debugger /t REG_SZ /d "%windir%\System32\taskkill.exe" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SecHealthUI.exe" /v Debugger ^
+  /t REG_SZ /d "%windir%\System32\taskkill.exe" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\CompatTelRunner.exe" /v Debugger ^
+  /t REG_SZ /d "%windir%\System32\taskkill.exe" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DeviceCensus.exe" /v Debugger ^
+  /t REG_SZ /d "%windir%\System32\taskkill.exe" /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SmartScreenEnabled /t REG_SZ /d "Off" /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\AppHost" /v "EnableWebContentEvaluation" /t REG_DWORD /d "0" /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance" /v "Enabled" /t REG_DWORD /d 0 /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance" ^
+  /v "Enabled" /t REG_DWORD /d 0 /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\AppHost" /v "EnableWebContentEvaluation" /t REG_DWORD /d 0 /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SilentInstalledAppsEnabled /t REG_DWORD /d 0 /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoRecentDocsHistory" /t REG_DWORD /d 1 /f
@@ -59,7 +83,8 @@ reg add "HKLM\Software\Policies\Microsoft\Windows\SettingSync" /v DisableSetting
 reg add "HKLM\Software\Policies\Microsoft\Windows\SettingSync" /v DisableSettingSyncUserOverride /t REG_DWORD /d 1 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules" /v "NumberOfSIUFInPeriod" /t REG_DWORD /d 0 /f
 reg add "HKLM\SYSTEM\ControlSet001\Control\WMI\AutoLogger\AutoLogger-Diagtrack-Listener" /v Start /t REG_DWORD /d 0 /f
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules" /v "{2765E0F4-2918-4A46-B9C9-43CDD8FCBA2B}" /t REG_SZ /d "BlockCortana|Action=Block|Active=TRUE|Dir=Out|App=C:\windows\systemapps\microsoft.windows.cortana_cw5n1h2txyewy\searchui.exe|Name=Search and Cortana application|AppPkgId=S-1-15-2-1861897761-1695161497-2927542615-642690995-327840285-2659745135-2630312742|" /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules" /v "{2765E0F4-2918-4A46-B9C9-43CDD8FCBA2B}" ^
+  /t REG_SZ /d "BlockCortana|Action=Block|Active=TRUE|Dir=Out|App=C:\windows\systemapps\microsoft.windows.cortana_cw5n1h2txyewy\searchui.exe|Name=Search and Cortana application|AppPkgId=S-1-15-2-1861897761-1695161497-2927542615-642690995-327840285-2659745135-2630312742|" /f
 
 echo.
 echo DELETING some registry keys to disable telemetry ...
@@ -70,15 +95,24 @@ reg delete "HKLM\SYSTEM\CurrentControlSet\Services\Sense" /f
 reg delete "HKLM\SYSTEM\CurrentControlSet\Services\SecurityHealthService" /f
 reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "SecurityHealth" /f
 reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" /v "SecurityHealth" /f
-for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "wscsvc" ^| find /i "wscsvc"') do (reg delete %%I /f)
-for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "OneSyncSvc" ^| find /i "OneSyncSvc"') do (reg delete %%I /f)
-for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "MessagingService" ^| find /i "MessagingService"') do (reg delete %%I /f)
-for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "PimIndexMaintenanceSvc" ^| find /i "PimIndexMaintenanceSvc"') do (reg delete %%I /f)
-for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "UserDataSvc" ^| find /i "UserDataSvc"') do (reg delete %%I /f)
-for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "UnistoreSvc" ^| find /i "UnistoreSvc"') do (reg delete %%I /f)
-for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "BcastDVRUserService" ^| find /i "BcastDVRUserService"') do (reg delete %%I /f)
-for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "Sgrmbroker" ^| find /i "Sgrmbroker"') do (reg delete %%I /f)
-for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "ClipSVC" ^| find /i "ClipSVC"') do (reg delete %%I /f)
+for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" ^
+  /k /f "wscsvc" ^| find /i "wscsvc"') do (reg delete %%I /f)
+for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" ^
+  /k /f "OneSyncSvc" ^| find /i "OneSyncSvc"') do (reg delete %%I /f)
+for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" ^
+  /k /f "MessagingService" ^| find /i "MessagingService"') do (reg delete %%I /f)
+for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" ^
+  /k /f "PimIndexMaintenanceSvc" ^| find /i "PimIndexMaintenanceSvc"') do (reg delete %%I /f)
+for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" ^
+  /k /f "UserDataSvc" ^| find /i "UserDataSvc"') do (reg delete %%I /f)
+for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" ^
+  /k /f "UnistoreSvc" ^| find /i "UnistoreSvc"') do (reg delete %%I /f)
+for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" ^
+  /k /f "BcastDVRUserService" ^| find /i "BcastDVRUserService"') do (reg delete %%I /f)
+for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" ^
+  /k /f "Sgrmbroker" ^| find /i "Sgrmbroker"') do (reg delete %%I /f)
+for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" ^
+  /k /f "ClipSVC" ^| find /i "ClipSVC"') do (reg delete %%I /f)
 
 echo.
 echo DELETING some services ...
@@ -168,6 +202,15 @@ echo.
 echo DELETING some files ...
 echo.
 del /F /Q "C:\Windows\System32\Tasks\Microsoft\Windows\SettingSync\*" 
+
+echo.
+echo REMOVING the store ...
+echo.
+powershell -Command "$ErrorActionPreference = 'SilentlyContinue' ^
+  Get-AppxPackage -AllUsers | where-object {$_.name -like "*store*"} | Remove-AppxPackage ^
+  Get-AppxProvisionedPackage -online | where-object {$_.displayname -like "*store*"} | ^
+  Remove-AppxProvisionedPackage -online"
+echo.
 
 echo ####### %0 #######
 pause

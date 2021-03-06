@@ -3,6 +3,11 @@
 set CONFIG=config\install-xnview.txt
 set EXE=..\software\xnview-setup.exe
 
+if NOT EXIST %EXE% (
+  echo ERROR: %EXE% not found!
+  exit /b
+)
+
 echo ####### %0 #######
 
 echo killing XnView processes...
