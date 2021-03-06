@@ -4,6 +4,9 @@ set EXE=..\software\citrixreceiver-setup.exe
 
 if NOT EXIST %EXE% (
   echo ERROR: %EXE% not found!
+  echo GOTO: https://www.citrix.com/de-de/downloads/citrix-receiver/legacy-receiver-for-windows/receiver-for-windows-49LTSR.html 
+  echo and save the file as "citrixreceiver-setup.exe" in folder "software" !
+  pause
   exit /b
 )
 

@@ -21,7 +21,6 @@ echo installing Visual Studio CODE ...
 rem start /wait %EXE% /LOADINF=%CONFIG% /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
 
 echo installing Desktop shortcut ...
-@echo on
 copy /Y %STARTMENU%\"Visual Studio Code\Visual*.lnk" "%PUBLIC%\Desktop"
 move /Y "%PUBLIC%\Desktop\Visual*.lnk" "%PUBLIC%\Desktop\VScode.lnk"
 
