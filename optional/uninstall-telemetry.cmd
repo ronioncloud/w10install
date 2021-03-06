@@ -25,11 +25,8 @@ set answer=
 echo.
 echo OK ... trying to remove ALL the stupid fucking microsoft TELEMETRY BULLSHIT!
 
-exit /b
-
 echo.
 echo ADDING some registry keys to disable telemetry ...
-echo.
 reg add "HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\PhishingFilter" ^
   /v "EnabledV9" /t REG_DWORD /d "0" /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter" /v "EnabledV9" /t REG_DWORD /d 0 /f
@@ -88,7 +85,6 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\Firewall
 
 echo.
 echo DELETING some registry keys to disable telemetry ...
-echo.
 reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules" /v "PeriodInNanoSeconds" /f
 reg delete "HKLM\SYSTEM\CurrentControlSet\Services\xbgm" /f
 reg delete "HKLM\SYSTEM\CurrentControlSet\Services\Sense" /f
@@ -116,7 +112,6 @@ for /f "tokens=1" %%I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" ^
 
 echo.
 echo DELETING some services ...
-echo.
 sc delete PushToInstall
 sc delete XblAuthManager
 sc delete XblGameSave
@@ -143,12 +138,10 @@ sc delete diagnosticshub.standardcollector.service
 
 echo.
 echo RECONFIGURING some services ...
-echo.
 sc config wlidsvc start=demand
 
 echo.
 echo DISABLING some tasks ...
-echo.
 schtasks /Change /TN "Microsoft\XblGameSave\XblGameSaveTask" /disable
 schtasks /Change /TN "Microsoft\XblGameSave\XblGameSaveTaskLogon" /disable
 schtasks /Change /TN "\Microsoft\Windows\Maps\MapsUpdateTask" /disable
@@ -195,23 +188,17 @@ schtasks /Change /TN "\Microsoft\Windows\NetTrace\GatherNetworkInfo" /disable
 
 echo.
 echo DELETING shadow copies ...
-echo.
 vssadmin delete shadows /all /Quiet
 
 echo.
 echo DELETING some files ...
-echo.
 del /F /Q "C:\Windows\System32\Tasks\Microsoft\Windows\SettingSync\*" 
 
 echo.
 echo REMOVING the store ...
-echo.
-powershell -Command "$ErrorActionPreference = 'SilentlyContinue' ^
-  Get-AppxPackage -AllUsers | where-object {$_.name -like "*store*"} | Remove-AppxPackage ^
-  Get-AppxProvisionedPackage -online | where-object {$_.displayname -like "*store*"} | ^
-  Remove-AppxProvisionedPackage -online"
-echo.
+powershell -Command ./uninstall-store.ps1
 
+echo.
 echo ####### %0 #######
 pause
 
