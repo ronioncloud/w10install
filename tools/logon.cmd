@@ -128,10 +128,29 @@ echo 1 >%STATUSFILE%
 
 echo.
 echo #####
-echo #####
+echo ##### cleaning ...
 echo #####
 echo.
 
+echo 3D Objects ...
+rd /S /Q %USERPROFILE%\"3D Objects" 2>nul
+
+echo Contacts ...
+rd /S /Q %USERPROFILE%\Contacts 2>nul
+
+echo Favorites ...
+rd /S /Q %USERPROFILE%\Favorites 2>nul
+
+echo Saved Games (folder used by Microsoft only) ...
+rd /S /Q %USERPROFILE%\"Saved Games" 2>nul
+
+echo Links ...
+rd /S /Q %USERPROFILE%\Links 2>nul
+
+echo Searches ...
+rd /S /Q %USERPROFILE%\Searches 2>nul
+
+echo.
 echo starting workstation service ...
 net start workstation 1>nul 2>nul
 net config workstation

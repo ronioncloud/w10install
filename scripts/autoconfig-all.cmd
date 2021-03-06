@@ -61,6 +61,9 @@ echo.
 call modify-path.cmd 
 echo.
 
+call modify-explorer.cmd 
+echo.
+
 call modify-powersettings.cmd
 echo.
 

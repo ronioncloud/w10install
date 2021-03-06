@@ -225,10 +225,11 @@
 		<Line>Item14.Settings=ITEM_DISABLED</Line>
 		<Line>Item15.Command=separator</Line>
 		<Line>Item16.Command=control_panel</Line>
-		<Line>Item16.Settings=TRACK_RECENT</Line>
+		<Line>Item16.Settings=TRACK_RECENT|ITEM_DISABLED</Line>
 		<Line>Item17.Command=admin</Line>
 		<Line>Item17.Settings=TRACK_RECENT</Line>
 		<Line>Item18.Command=devices</Line>
+		<Line>Item18.Settings=ITEM_DISABLED</Line>
 		<Line>Item19.Command=defaults</Line>
 		<Line>Item19.Settings=ITEM_DISABLED</Line>
 		<Line>Item20.Command=help</Line>
