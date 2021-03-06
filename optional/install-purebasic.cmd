@@ -24,7 +24,8 @@ if EXIST %EXE% (
   del /F /Q /A %PUBLIC%\Desktop\PureBasic*.lnk 2>nul
 
   echo installing purebasic ...
-  %EXE% /LOADINF=%CONFIG% /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
+  start /wait %EXE% /LOADINF=%CONFIG% /NORESTART /NOCANCEL ^
+    /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
   goto LINK
 )
 
@@ -38,7 +39,8 @@ if EXIST %ZIP% (
   move /Y %T%\purebasic\PureBasic*.exe %T%\purebasic\purebasic-setup.exe
 
   echo installing purebasic ...
-  %T%\purebasic\purebasic-setup.exe /LOADINF=%CONFIG% /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
+  start /wait %T%\purebasic\purebasic-setup.exe ^
+    /LOADINF=%CONFIG% /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
 
   echo cleanup ...
   rd /S /Q %T%\purebasic 2>nul  
@@ -46,9 +48,15 @@ if EXIST %ZIP% (
 )
 
 :LINK
+rem remove personal link ...
+del /F /Q /A %USERPROFILE%\Desktop\PureBasic*.lnk 2>nul
+
 echo copy new PureBasic link to desktop ...
 copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\PureBasic\PureBasic (x64).lnk" ^
   %PUBLIC%\Desktop\PureBasic.lnk
+
+rem refresh desktop (W10 style)
+ie4uinit.exe -show
 
 echo ####### %0 #######
 :END

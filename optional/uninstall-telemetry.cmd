@@ -5,8 +5,14 @@ rem most of this was took from:
 rem https://forum.level1techs.com/t/take-back-your-windows-10-privacy/143097/2
 rem THANKS!
 
+echo.
 echo WARNING: executing this script may cripple some important functions in windows!
 echo especially the store app will not work anymore - and it will be removed by this script!
+
+echo.
+echo WARNING: system will be REBOOTED after modify!
+echo SAVE YOUR WORK AND COME BACK!
+echo.
 
 set answer=
 :ask
@@ -201,4 +207,5 @@ powershell -Command ./uninstall-store.ps1
 echo.
 echo ####### %0 #######
 pause
+shutdown -g -t 0
 

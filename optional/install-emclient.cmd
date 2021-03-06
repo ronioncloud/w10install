@@ -1,6 +1,6 @@
 @echo off
 
-set SCRIPTS=..\scripts
+set OPT=..\optional
 set SOFTWARE=..\software
 set MSI=emclient-setup.msi
 
@@ -15,7 +15,7 @@ cd %SOFTWARE%
 @echo on
 msiexec /i %MSI% /quiet
 @echo off
-cd %SCRIPTS%
+cd %OPT%
 
 rem copy link to desktop ...
 copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\eM Client.lnk" ^
@@ -26,6 +26,9 @@ reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" ^
   /v "eM Client" /f
 
 taskkill /F /IM SystemSettings.exe 2>nul
+
+rem refresh desktop (W10 style)
+ie4uinit.exe -show
 
 echo ####### %0 #######
 pause

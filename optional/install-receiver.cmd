@@ -10,7 +10,7 @@ if NOT EXIST %EXE% (
 echo ####### %0 #######
 
 echo installing Citrix Receiver LTS ...
-%EXE% /silent /noreboot
+start /wait %EXE% /silent /noreboot
 
 echo disabling autostart for Citrix Receiver ...
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run32" ^

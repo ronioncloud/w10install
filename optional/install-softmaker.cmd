@@ -1,6 +1,6 @@
 @echo off
 
-set SCRIPTS=..\scripts
+set OPT=..\optional
 set SOFTWARE=..\software
 set MSI=softmaker-setup.msi 
 
@@ -17,7 +17,7 @@ msiexec /i %MSI% /qb APPLICATIONFOLDER="c:\Program Files\Softmaker Office 2021" 
   INSTALLTM=1 INSTALLPM=1 INSTALLPR=1 INSTALLTB1=0 INSTALLTB2=0 /l*v c:\temp\softmaker.log
 @echo off
 del /F c:\temp\softmaker.log
-cd %SCRIPTS%
+cd %OPT%
 
 echo installing desktop icons ...
 copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Softmaker Office 2021\PlanMaker 2021.lnk" ^
@@ -26,6 +26,9 @@ copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Softmaker Office 20
   %PUBLIC%\Desktop\Presentations.lnk
 copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Softmaker Office 2021\TextMaker 2021.lnk" ^
   %PUBLIC%\Desktop\Textmaker.lnk
+
+rem refresh desktop (W10 style)
+ie4uinit.exe -show
 
 echo ####### %0 #######
 pause

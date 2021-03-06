@@ -10,13 +10,13 @@ if NOT EXIST %EXE% (
 echo ####### %0 #######
 
 echo installing TotalCommander ...
-%EXE% /AHMGDU
-
-rem this runs in the background - we have to wait 10 seconds for it to complete ...
-timeout /T 10
+start /wait %EXE% /AHMGDU
 
 echo renaming and moving TotalCommander desktop link ...
-move /Y "%USERPROFILE%\Desktop\Total Commander*" "%PUBLIC%\Desktop\Total Commander.lnk"
+move /Y "%USERPROFILE%\Desktop\Total Commander*" "%PUBLIC%\Desktop\TCM.lnk"
+
+rem refresh desktop (W10 style)
+ie4uinit.exe -show
 
 echo ####### %0 #######
 pause

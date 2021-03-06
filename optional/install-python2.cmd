@@ -1,8 +1,8 @@
 @echo off
 
-set SCRIPTS=..\scripts
+set OPT=..\optional
 set SOFTWARE=..\software
-set MSI=python-setup.msi
+set MSI=python2-setup.msi
 
 if NOT EXIST %SOFTWARE%\%MSI% (
   echo ERROR: %SOFTWARE%\%MSI% not found!
@@ -15,6 +15,6 @@ cd %SOFTWARE%
 @echo on
 msiexec /i %MSI% /passive
 @echo off
-cd %SCRIPTS%
+cd %OPT%
 
 echo ####### %0 #######

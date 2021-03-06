@@ -1,6 +1,6 @@
 @echo off
 
-set SCRIPTS=..\scripts
+set OPT=..\optional
 set SOFTWARE=..\software
 set MSI=dbbrowser-setup.msi
 
@@ -15,11 +15,13 @@ cd %SOFTWARE%
 @echo on
 msiexec /i %MSI% /passive
 @echo off
-cd %SCRIPTS%
+cd %OPT%
 
 rem copy link to desktop ...
-copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\DB Browser*" ^
-  %PUBLIC%\Desktop\DB-Browser.lnk
+copy /Y "%SCRIPTS%\links\SQLite-DBB.lnk" %PUBLIC%\Desktop
+
+rem refresh desktop (W10 style)
+ie4uinit.exe -show
 
 echo ####### %0 #######
 pause

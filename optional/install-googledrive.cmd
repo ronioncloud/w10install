@@ -1,6 +1,6 @@
 @echo off
 
-set SCRIPTS=..\scripts
+set OPT=..\optional
 set SOFTWARE=..\software
 set STARTMENU="%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs"
 set MSI=gsync-setup.msi 
@@ -16,7 +16,7 @@ cd %SOFTWARE%
 @echo on
 msiexec /i %MSI% /qn 
 @echo off
-cd %SCRIPTS%
+cd %OPT%
 
 echo changing startmenu folder ...
 move /Y %STARTMENU%\"Backup and Sync from Google\Backup and Sync from Google.lnk" ^

@@ -14,10 +14,13 @@ echo killing XnView processes...
 taskkill /F /IM xnviewmp.exe 2>nul
 
 echo installing XnView ...
-%EXE% /LOADINF=%CONFIG% /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
+start /wait %EXE% /LOADINF=%CONFIG% /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
 
 echo renaming and moving XnView desktop link ...
 move /Y "%USERPROFILE%\Desktop\XnViewMP.lnk" "%PUBLIC%\Desktop"
+
+rem refresh desktop (W10 style)
+ie4uinit.exe -show
 
 echo ####### %0 #######
 pause
