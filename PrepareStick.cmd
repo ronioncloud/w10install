@@ -46,7 +46,7 @@ if EXIST %SOURCES%\install_FINAL.esd (
   robocopy %SOURCES% %USBDRIVE%\sources install_FINAL.esd /J /NJH
   del /F %USBDRIVE%\sources\install.esd 
   move /Y %USBDRIVE%\sources\install_FINAL.esd %USBDRIVE%\sources\install.esd
-  move /Y %SOURCES%\install_FINAL.esd %SOURCES%\install_FINAL_copy.esd
+  move /Y %SOURCES%\install_FINAL.esd %SOURCES%\install_FINAL_lastrun.esd
 )
 
 echo.
