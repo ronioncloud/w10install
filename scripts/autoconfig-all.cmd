@@ -15,6 +15,12 @@ date /t
 time /t
 echo.
 
+echo loading settings ...
+call settings.cmd
+echo windows_updates=%windows_updates%
+echo.
+echo ++++++++++++++++++
+
 echo creating %T% ...
 mkdir %T% 1>nul 2>nul
 
@@ -44,8 +50,10 @@ call copy-exefiles.cmd
 echo.
 
 rem this must be done EARLY!
-call disable-updates.cmd 
-echo.
+if %windows_updates% == 0 (
+  call disable-updates.cmd 
+  echo.
+)
 
 rem allow execution of any powershell script ...
 powershell -Command "Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine"
