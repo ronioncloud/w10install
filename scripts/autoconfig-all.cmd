@@ -43,7 +43,6 @@ rem copy some other stuff ...
 call copy-exefiles.cmd
 echo.
 
-echo.
 echo #######################
 echo ### MODIFICATIONS   ###
 echo #######################
@@ -173,6 +172,10 @@ echo.
 
 rem ... stupid os problem #2
 call cleanup-startmenu.cmd
+echo.
+
+rem ... stupid os problem #3
+call cleanup-programlist.cmd
 echo.
 
 echo rebooting ...
