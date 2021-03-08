@@ -27,10 +27,20 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\EdgeUpdate" ^
   /v "DoNotUpdateToEdgeWithChromium" /d 1 /t REG_DWORD /f
 
 echo.
-echo ... and finally delete ALL edge registry keys
-echo hoping that frankensteins monster cannot come back after this ...
-regedit /S delete-edgekeys.reg
-echo READY.
+echo trying to remove stale entries from software list ...
+for %%K in (
+
+  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge"
+  "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge"
+
+) do (
+
+  echo %%K
+  SetACL.exe -on %%K -ot reg -actn setowner -ownr "n:Administrators" 1>nul 2>nul
+  SetACL.exe -on %%K -ot reg -actn ace -ace "n:Administrators;p:full" 1>nul 2>nul
+  reg delete %%K /f
+
+)
 
 echo.
 echo ####### %0 #######

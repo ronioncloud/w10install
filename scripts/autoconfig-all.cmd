@@ -15,23 +15,17 @@ date /t
 time /t
 echo.
 
-echo loading settings ...
-call settings.cmd
-echo windows_updates=%windows_updates%
-echo.
-echo ++++++++++++++++++
-
 echo creating %T% ...
 mkdir %T% 1>nul 2>nul
 
 echo cd to %SCRIPTS% ...
 cd /D %SCRIPTS%
 
-echo.
-echo #######################
-echo ### GLOBAL settings ###
-echo #######################
-echo.
+echo loading settings ...
+call settings.cmd
+echo ++++++++++++++++++
+echo windows_updates=%windows_updates%
+echo ++++++++++++++++++
 
 rem 7-zip is essential for other scripts ...
 call unpack-7zip.cmd
@@ -47,6 +41,12 @@ echo.
 
 rem copy some other stuff ...
 call copy-exefiles.cmd
+echo.
+
+echo.
+echo #######################
+echo ### MODIFICATIONS   ###
+echo #######################
 echo.
 
 rem this must be done EARLY!

@@ -20,6 +20,7 @@ for %%A in (
   rclone
   regscanner
   restic
+  setacl
   vim
   winscp
   wub
@@ -85,6 +86,11 @@ echo.
 echo Restic
 move /Y %T%\restic\*.exe %TOOLS%\restic.exe
 rd /S /Q %T%\restic
+echo.
+
+echo Setacl
+move /Y %T%\setacl\*.exe %TOOLS%\setacl.exe
+rd /S /Q %T%\setacl
 echo.
 
 echo VIM
