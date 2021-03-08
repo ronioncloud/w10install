@@ -14,9 +14,11 @@ echo set desktop colour ...
 echo starting BGInfo ...
 %TOOLS%\bginfo\bginfo64.exe %TOOLS%\bginfo\config.bgi /NOLICPROMPT /silent /timer:0
 
-rem #####
-rem ##### USER CONFIG FILES
-rem #####
+echo.
+echo #####
+echo ##### USER CONFIG FILES
+echo #####
+echo.
 
 rem SSH
 mkdir %USERPROFILE%\workspace 1>nul 2>nul
@@ -113,14 +115,17 @@ rem config must be full qualified pathname (OpenShell BUG!)
 set CONFIG=%TOOLS%\scripts\config\OpenshellSettings.xml
 "%ProgramFiles%\Open-Shell\StartMenu.exe" -xml %CONFIG%
 
-echo restarting explorer ...
-taskkill /f /im explorer.exe 1>nul 2>nul
-start explorer.exe
+rem ... stupid os problem #4
+echo removing some useless files ...
+del /F %APPDATA%\"Microsoft\Windows\Start Menu\Programs\Accessories\Internet Explorer.lnk" 2>nul
+del /F %APPDATA%\"Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk" 2>nul 
+rd /S /Q %APPDATA%\"Microsoft\Windows\Start Menu\Programs\Maintenance" 2>nul
+del /F "%USERPROFILE%\Desktop\Microsoft Edge.lnk" 2>nul
 
-rem try to delete some useless files ...
-del /F "$APPDATA%\Microsoft\Windows\Start Menu\Programs\Accessories\Internet Explorer.lnk" 1>nul 2>nul
-del /F "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk" 1>nul 2>nul 
-del /F "%USERPROFILE%\Desktop\Microsoft Edge.lnk" 1>nul 2>nul
+echo restarting explorer ...
+taskkill /f /im explorer.exe 2>nul
+timeout /T 2
+start explorer.exe
 
 echo 1 >%STATUSFILE%
 
