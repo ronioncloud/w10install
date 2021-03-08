@@ -45,20 +45,28 @@ echo.
 echo using list [ %LISTFILE% ] ...
 
 rem ###################################
-rem MAIN loop ( UPLOAD top ftp ) ...
+rem MAIN loop ( DOWNLOAD from ftp ) ...
 rem ###################################
 
 FOR /F "tokens=1,2 delims=, " %%E in (%LISTFILE%) do (
 
-  rem file present ?
-  IF EXIST %%F (
-    rem UPLOAD with curl ...
+  IF NOT EXIST %%F (
+
+    rem get it with curl ...
     echo.
-    echo upload of: [ %%F ]
-    curl -u %FTP_USER%:%FTP_PASS% -T %%F ftp://%FTP_SERVER%/%FTP_PATH%/
-  ) else (
-    echo.
-    echo WARNING: [ %%F ] does not exist, cannot upload ...
+    echo getting: [ %%F ]
+    curl -u %FTP_USER%:%FTP_PASS% -L ftp://%FTP_SERVER%/%FTP_PATH%/%%F --output %%F
+
+    rem success ?
+    if NOT EXIST %%F (
+      echo ERROR: couldn't get %%F!
+    ) ELSE (
+      rem check size (it SHOULD NOT be 0!)
+      FORFILES /M %%F /C "cmd /C if @fsize EQU 0 echo ERROR: file @relpath is zero size!"
+    )
+
+  ) ELSE (
+    FORFILES /M %%F /C "cmd /C if @fsize NEQ 0 echo OK: file @relpath is [ @fsize ] bytes"
   )
 
 )

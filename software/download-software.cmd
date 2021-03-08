@@ -32,6 +32,7 @@ FOR /F "tokens=1,2 delims=, " %%E in (%LISTFILE%) do (
   IF NOT EXIST %%F (
 
     rem get it with curl ...
+    echo.
     echo getting: %%F [ %%E ]
     curl --connect-timeout 5 --fail-early -L %%E --output %%F
 
