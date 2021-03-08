@@ -1,7 +1,7 @@
 @echo off
 
 set SOURCE=links
-set TARGET=%PUBLIC%\Desktop
+set TARGET="%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs"
 
 echo ####### %0 #######
 
