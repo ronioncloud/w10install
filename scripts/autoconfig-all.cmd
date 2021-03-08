@@ -108,9 +108,6 @@ echo.
 call install-git.cmd
 echo.
 
-call install-far.cmd
-echo.
-
 powershell -command .\install-windowsterminal.ps1
 echo.
 
