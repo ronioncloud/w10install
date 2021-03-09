@@ -128,7 +128,7 @@ echo.
 call install-vlc.cmd
 echo.
 
-call install-desktoplinks.cmd
+call install-shortcuts.cmd
 echo.
 
 rem should be done as late as possible ...
