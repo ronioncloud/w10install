@@ -2,8 +2,8 @@
 
 set OPT=..\optional
 set SOFTWARE=..\software
+set MSI=gsync-setup.msi
 set STARTMENU="%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs"
-set MSI=gsync-setup.msi 
 
 if NOT EXIST %SOFTWARE%\%MSI% (
   echo ERROR: %SOFTWARE%\%MSI% not found!

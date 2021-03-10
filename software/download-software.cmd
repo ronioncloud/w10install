@@ -25,8 +25,9 @@ FOR /F "tokens=1,2 delims=, " %%E in (%LISTFILE%) do (
 
   rem file is already present ?
   IF %%~zF EQU 0 (
-    del /F %%F 2>nul
+    echo.
     echo INFO: [ %%F ] does not exist or is 0 bytes, starting download ...
+    del /F %%F 2>nul
   )
 
   IF NOT EXIST %%F (

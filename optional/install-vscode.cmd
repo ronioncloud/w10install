@@ -18,7 +18,7 @@ echo cleanup ...
 del /F "%PUBLIC%\Desktop\VScode.lnk" 2>nul
 
 echo installing Visual Studio CODE ...
-rem start /wait %EXE% /LOADINF=%CONFIG% /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
+start /wait %EXE% /LOADINF=%CONFIG% /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
 
 echo installing Desktop shortcut ...
 copy /Y %STARTMENU%\"Visual Studio Code\Visual*.lnk" "%PUBLIC%\Desktop"
@@ -26,9 +26,6 @@ move /Y "%PUBLIC%\Desktop\Visual*.lnk" "%PUBLIC%\Desktop\VScode.lnk"
 
 rem refresh desktop (W10 style)
 ie4uinit.exe -show
-
-echo killing VisualStudio code processes...
-taskkill /F /IM Code.exe 2>nul
 
 echo ####### %0 #######
 pause

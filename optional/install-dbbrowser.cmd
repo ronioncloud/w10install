@@ -18,7 +18,7 @@ msiexec /i %MSI% /passive
 cd %OPT%
 
 rem copy link to desktop ...
-copy /Y "SQLite-DBB.lnk" %PUBLIC%\Desktop
+copy /Y desktop\SQLite-DBB.lnk %PUBLIC%\Desktop
 
 rem refresh desktop (W10 style)
 ie4uinit.exe -show
