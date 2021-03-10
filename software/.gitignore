@@ -3,5 +3,6 @@
 *.xpi
 *.zip
 *.msixbundle
+*.7z
 ftpsettings.cmd
 
