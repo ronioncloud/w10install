@@ -4,6 +4,7 @@
 set TOOLS=c:\tools
 set CONFIG=config\hakchi2_config.ini
 set ZIP=..\software\hakchi2.zip
+set STARTMENU="%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs"
 
 if NOT EXIST %ZIP% (
   echo ERROR: %ZIP% not found!
@@ -22,11 +23,8 @@ echo copying config ...
 mkdir "%ProgramFiles(x86)%\hakchi2\config" 2>nul
 copy /Y %CONFIG% "%ProgramFiles(x86)%\hakchi2\config\config.ini"
 
-echo copy desktop link ...
-copy /Y desktop\HakChi2.lnk "%PUBLIC%\Desktop"
-
-rem refresh desktop (W10 style)
-ie4uinit.exe -show
+echo copy startmenu link ...
+copy /Y startmenu\HakChi2.lnk %STARTMENU%
 
 echo ####### %0 #######
 pause

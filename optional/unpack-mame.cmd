@@ -5,6 +5,8 @@ set T=c:\TEMP
 set TOOLS=c:\tools
 set ZIP=..\software\mame64.7z
 set TARGET=c:\MAME
+set CONFIG=config\mame.ini
+set STARTMENU="%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs"
 
 if NOT EXIST %ZIP% (
   echo ERROR: %ZIP% not found!
@@ -29,11 +31,11 @@ mkdir %TARGET%\roms 2>nul
 rd /S /Q %T%\mame
 echo.
 
-echo copy desktop link ...
-copy /Y desktop\MAME64.lnk "%PUBLIC%\Desktop"
+echo copy ini file ...
+copy /Y %CONFIG% %TARGET%
 
-rem refresh desktop (W10 style)
-ie4uinit.exe -show
+echo copy startmenu link ...
+copy /Y startmenu\MAME64.lnk %STARTMENU%
 
 echo ####### %0 #######
 pause

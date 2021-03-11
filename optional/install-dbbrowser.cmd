@@ -3,6 +3,7 @@
 set OPT=..\optional
 set SOFTWARE=..\software
 set MSI=dbbrowser-setup.msi
+set STARTMENU="%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs"
 
 if NOT EXIST %SOFTWARE%\%MSI% (
   echo ERROR: %SOFTWARE%\%MSI% not found!
@@ -17,11 +18,8 @@ msiexec /i %MSI% /passive
 @echo off
 cd %OPT%
 
-rem copy link to desktop ...
-copy /Y desktop\SQLite-DBB.lnk %PUBLIC%\Desktop
-
-rem refresh desktop (W10 style)
-ie4uinit.exe -show
+echo copying startmenu shortcut ...
+copy /Y startmenu\SQLite-DBB.lnk %STARTMENU%
 
 echo ####### %0 #######
 pause
