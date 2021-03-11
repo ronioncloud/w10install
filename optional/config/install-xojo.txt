@@ -1,0 +1,6 @@
+[Setup]
+Lang=english
+Dir=C:\Program Files\Xojo\Xojo 2020r2.1
+Group=XOJO
+NoIcons=0
+Tasks=desktopicon
