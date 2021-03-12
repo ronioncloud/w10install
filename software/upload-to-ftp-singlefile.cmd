@@ -8,7 +8,7 @@ if NOT EXIST ftpsettings.cmd (
   echo.
   echo ERROR: ftpsettings.cmd NOT FOUND
   echo.
-  echo --- please create with following content ---
+  echo --- please create it as follows ---
   echo set FTP_SERVER=example.com
   echo set FTP_PATH=/path/to/directory
   echo set FTP_USER=myuser
