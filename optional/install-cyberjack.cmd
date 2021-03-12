@@ -17,7 +17,10 @@ echo changing cyberjack startmenu folder ...
 move /Y %STARTMENU%\"Reiner SCT cyberjack\cyberjack*.*" %STARTMENU%\CyberJack.lnk 2>nul
 
 echo removing cyberjack startmenu folder ...
-rd /S /Q %STARTMENU%\"Reiner SCT cyberjack"
+rd /S /Q %STARTMENU%\"Reiner SCT cyberjack" 2>nul
+
+echo removing cyberjack desktop icon ...
+del /F /Q %PUBLIC%\Desktop\cyberjack*.* 2>nul
 
 echo ####### %0 #######
 pause
