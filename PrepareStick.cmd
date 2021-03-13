@@ -59,7 +59,7 @@ for %%P in (software scripts source optional personal) do (
   if EXIST %%P (
     echo.
     echo copying folder %%P to drive %USBDRIVE%\tools ...
-    robocopy %%P %USBDRIVE%\tools\%%P /COPY:DT /FFT /XO /MIR /256 /NJH /NJS /NDL /XF .gitignore
+    robocopy %%P %USBDRIVE%\tools\%%P /COPY:DT /FFT /XO /MIR /256 /NJH /NJS /NDL /XF .gitignore /XD .git
   )
 )
 
