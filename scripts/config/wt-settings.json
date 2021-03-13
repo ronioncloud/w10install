@@ -3,8 +3,8 @@
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "defaultProfile": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-    "initialCols": 140,
-    "initialRows": 40,
+    "initialCols": 100,
+    "initialRows": 30,
     "copyOnSelect": true,
     "copyFormatting": false,
     "profiles":

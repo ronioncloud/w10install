@@ -17,15 +17,18 @@ echo.
 
 echo creating %T% ...
 mkdir %T% 1>nul 2>nul
+echo.
 
 echo cd to %SCRIPTS% ...
 cd /D %SCRIPTS%
+echo.
 
 echo loading settings ...
 call settings.cmd
 echo ++++++++++++++++++
 echo windows_updates=%windows_updates%
 echo ++++++++++++++++++
+echo.
 
 rem 7-zip is essential for other scripts ...
 call unpack-7zip.cmd
@@ -54,7 +57,7 @@ if %windows_updates% == 0 (
   echo.
 )
 
-rem allow execution of any powershell script ...
+echo allow execution of any powershell script ...
 powershell -Command "Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine"
 powershell -Command ^
 "$T=Get-ExecutionPolicy ; if ($T -eq 'Bypass') { ^
@@ -135,11 +138,13 @@ rem should be done as late as possible ...
 call install-logonscript.cmd
 echo.
 
-rem add full access rights to all users on public icons!
+echo add full access rights to all users on public icons ...
 icacls %PUBLIC%\Desktop\*.lnk /grant Users:F
+echo.
 
-rem remove read-only flag on tools folder ...
+echo removing read-only flag on tools folder ...
 attrib /S /D -R %TOOLS%\*
+echo.
 
 echo #####################
 echo ### DISABLE tasks ###
@@ -175,13 +180,12 @@ rem ... stupid os problem #3
 call cleanup-programlist.cmd
 echo.
 
-echo rebooting ...
-shutdown -g -t 0
-echo.
-
 date /t
 time /t
 echo ####### %0 #######
 echo READY.
 echo.
+
+echo rebooting ...
+shutdown -g -t 0
 

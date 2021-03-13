@@ -5,18 +5,19 @@ set TARGET="%ALLUSERSPROFILE%\Microsoft\User Account Pictures"
 rem default: empty logo (disables all logos on logon screen)
 set LOGO=config\user-empty.png
 
+echo ####### %0 #######
+
 echo loading settings ...
 call settings.cmd
 echo ++++++++++++++++++
 echo logon_logo=%logon_logo%
 echo ++++++++++++++++++
+echo.
 
 if %logon_logo% == 1 (
   rem windows logo taken from: http://pngimg.com/image/23601
   set LOGO=config\windows-logo.png
 )
-
-echo ####### %0 #######
 
 echo disabling account pictures on logon screen ...
 for %%F in (
