@@ -11,7 +11,7 @@ set newPATH=%SYSTEMROOT%;%SYSTEMROOT%\system32;^
 %ProgramFiles%\Go\bin;^
 %SystemDrive%\Python27;^
 %ProgramFiles%\Python39;^
-%ProgramFiles%\FarManager
+%ProgramFiles%\Java\bin
 
 echo ####### %0 #######
 

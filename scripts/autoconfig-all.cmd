@@ -23,12 +23,18 @@ echo cd to %SCRIPTS% ...
 cd /D %SCRIPTS%
 echo.
 
-echo loading settings ...
-call settings.cmd
-echo ++++++++++++++++++
-echo windows_updates=%windows_updates%
-echo ++++++++++++++++++
-echo.
+if EXIST settings.cmd (
+  echo loading settings ...
+  call settings.cmd
+  echo ++++++++++++++++++
+  echo windows_updates=%windows_updates%
+  echo ++++++++++++++++++
+  echo.
+) else (
+  echo WARNING: settings.cmd not found!
+  echo setting defaults ...
+  set windows_updates=1
+)
 
 rem 7-zip is essential for other scripts ...
 call unpack-7zip.cmd
@@ -43,7 +49,7 @@ call unpack-vnc.cmd
 echo.
 
 rem copy some other stuff ...
-call copy-exefiles.cmd
+call copy-executables.cmd
 echo.
 
 echo #######################

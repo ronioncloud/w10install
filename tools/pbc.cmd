@@ -13,3 +13,4 @@ GOTO END
 echo "usage: %0 <PureBasic SOURCEFILE>"
   
 :END
+

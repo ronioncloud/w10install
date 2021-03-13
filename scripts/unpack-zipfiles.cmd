@@ -21,6 +21,7 @@ for %%A in (
   regscanner
   restic
   setacl
+  showkeyplus
   vim
   winscp
   wub
@@ -91,6 +92,11 @@ echo.
 echo Setacl
 move /Y %T%\setacl\*.exe %TOOLS%\setacl.exe
 rd /S /Q %T%\setacl
+echo.
+
+echo ShowKeyPlus
+move /Y %T%\showkeyplus\*.exe %TOOLS%
+rd /S /Q %T%\showkeyplus
 echo.
 
 echo VIM
