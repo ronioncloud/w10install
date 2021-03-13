@@ -2,6 +2,7 @@
 
 set TOOLS=c:\tools
 set SOFTWARE=..\software
+set PERSONAL=..\personal
 
 echo ####### %0 #######
 
@@ -20,6 +21,13 @@ for %%E in (
     copy /Y %SOFTWARE%\%%E %TOOLS%
   )
 
+)
+
+rem copy licensed snapshot64 executable
+rem (license is written to the binary)
+if EXIST %PERSONAL%\snapshot64.exe (
+  echo installing licensed version of snapshot64 ...
+  copy /Y %PERSONAL%\snapshot64.exe %TOOLS%
 )
 
 echo ####### %0 #######

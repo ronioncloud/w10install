@@ -3,7 +3,12 @@ set T=c:\TEMP
 set TOOLS=c:\tools
 
 set CONFIG=config\install-purebasic.txt
-set EXE=..\software\purebasic-setup.exe
+
+rem licensed version (exe contains key!)
+rem access only for customers ...
+set EXE=..\personal\purebasic-setup.exe
+
+rem demo version (publically accessible)
 set ZIP=..\software\purebasic.zip
 
 echo killing PureBasic processes...
@@ -18,7 +23,7 @@ if NOT EXIST %EXE% if NOT EXIST %ZIP% (
 echo ####### %0 #######
 
 if EXIST %EXE% (
-  echo INFO: %EXE% found!
+  echo INFO: %EXE% found, installing licensed version ...
 
   rem remove old links ...
   del /F /Q /A %PUBLIC%\Desktop\PureBasic*.lnk 2>nul
@@ -30,7 +35,7 @@ if EXIST %EXE% (
 )
 
 if EXIST %ZIP% (
-  echo INFO: %ZIP% found!
+  echo INFO: %ZIP% found, installing demo version ...
 
   rem remove old links ...
   del /F /Q /A %PUBLIC%\Desktop\PureBasic*.lnk 2>nul

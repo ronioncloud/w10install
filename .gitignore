@@ -8,6 +8,6 @@ log.txt
 Packages.txt
 distribution
 SOFTWAREBKP
-tmp/*
-personal/*
+tmp/
+personal/
 

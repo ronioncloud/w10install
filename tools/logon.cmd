@@ -53,6 +53,10 @@ if NOT EXIST %LOCALSTATE%\settings.json (
 )
 
 if EXIST %STATUSFILE% GOTO END
+
+echo deploying SSH keys ...
+copy /Y %TOOLS%\personal\id*.* %USERPROFILE%\.ssh\config 2>nul
+
 echo.
 echo #####
 echo ##### USER TWEAKS
