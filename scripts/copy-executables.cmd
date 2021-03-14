@@ -11,6 +11,7 @@ for %%E in (
   bfg.jar  
   snapshot64.exe
   puttygen.exe
+  Windows-ISO-Downloader.exe
 
 ) do (
   

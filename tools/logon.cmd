@@ -2,6 +2,7 @@
 set TOOLS=c:\tools
 set STATUSFILE=%LOCALAPPDATA%\.user_settings_done
 set STARTMENU=%APPDATA%\"Microsoft\Windows\Start Menu\Programs"
+set STARTMENU_PUBLIC=%PROGRAMDATA%\"Microsoft\Windows\Start Menu\Programs"
 
 echo ####### %0 #######
 
@@ -135,24 +136,46 @@ echo ##### cleaning ...
 echo #####
 echo.
 
-rem ... stupid os problem #4
-rem (has to be done over and over again - some zombies keep coming back ...)
-echo removing and some useless links in start menu and desktop ...
+
+rem MORE stupid OS problems ...
+rem these actions must to be done over and over again - some zombies keep coming back ...
+echo reorg for start menu and desktop ...
+echo ####################################
+echo.
+
+rem ... stupid OS problem #4
+rem why the heck are "System Tools" installed per user ? stupid Microsoft.
+echo System Tools ...
+move /Y %STARTMENU%\"System Tools\*.*" ^
+  %STARTMENU_PUBLIC%\"System Tools" 2>nul
+
+rem ... stupid OS problem #5
+rem same here for the accessibility tools. WHY ? stupid Microsoft.
+echo Accessibility Tools ...
+move /Y %STARTMENU%\"Accessibility\*.*" ^
+  %STARTMENU_PUBLIC%\"Accessibility" 2>nul
 
 rem Edge is such a zombie!
+echo Microsoft Edge ...
 del /F %STARTMENU%\"Microsoft Edge.lnk" 2>nul
 del /F %USERPROFILE%\"Desktop\Microsoft Edge.lnk" 2>nul
 
 rem IE too!
+echo IE, sigh ...
 del /F %STARTMENU%\"Accessories\Internet Explorer.lnk" 2>nul
 
 rem finally remove some useless directories in the users start menu ...
+echo Startmenu crap ...
 rd /S /Q %STARTMENU%\"Accessories" 2>nul
 rd /S /Q %STARTMENU%\"Accessibility" 2>nul
 rd /S /Q %STARTMENU%\"Administrative Tools" 2>nul
 rd /S /Q %STARTMENU%\"Maintenance" 2>nul
 rd /S /Q %STARTMENU%\"System Tools" 2>nul
 rd /S /Q %STARTMENU%\"Windows Powershell" 2>nul
+
+echo cleaning users home directory ...
+echo #################################
+echo.
 
 echo 3D Objects ...
 rd /S /Q %USERPROFILE%\"3D Objects" 2>nul

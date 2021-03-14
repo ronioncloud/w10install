@@ -35,16 +35,6 @@ move /Y %STARTMENU%\"Accessories\System Tools\Character*.*" ^
   %STARTMENU%\"Accessories" 2>nul
 rd /S /Q %STARTMENU%\"Accessories\System Tools" 2>nul
 
-rem ... stupid OS problem #5
-rem why the heck are "System Tools" installed per user ? stupid Microsoft.
-move /Y %STARTMENU_USER%\"System Tools\*.*" ^
-  %STARTMENU%\"System Tools" 2>nul
-
-rem ... stupid OS problem #6
-rem same here for the accessibility tools. WHY ? stupid Microsoft.
-move /Y %STARTMENU_USER%\"Accessibility\*.*" ^
-  %STARTMENU%\"Accessibility" 2>nul
-
 echo start explorer again ...
 ping 127.0.0.1 -n 3 >nul 2>nul
 start explorer.exe
