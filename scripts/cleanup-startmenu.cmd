@@ -25,6 +25,11 @@ rem VLC ...
 move /Y %STARTMENU%\"VideoLan\VLC media player.lnk" %STARTMENU% 2>nul
 rd /S /Q %STARTMENU%\VideoLan 2>nul
 
+rem ADK ...
+move /Y %STARTMENU%\"Windows Kits\Windows ADK\Windows System Image Manager.lnk" ^
+  %STARTMENU%\"System Tools\Image Manager.lnk" 2>nul
+rd /S /Q %STARTMENU%\"Windows Kits" 2>nul
+
 rem Windows stuff (Character map)...
 move /Y %STARTMENU%\"Accessories\System Tools\Character*.*" ^
   %STARTMENU%\"Accessories" 2>nul
