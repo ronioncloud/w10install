@@ -107,6 +107,7 @@ echo.
 
 echo ViveTool
 move /Y %T%\vivetool\vivetool.exe %TOOLS%
+move /Y %T%\vivetool\*.dll %TOOLS%
 rd /S /Q %T%\vivetool
 echo.
 
