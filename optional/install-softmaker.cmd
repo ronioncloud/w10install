@@ -5,6 +5,7 @@ set SOFTWARE=..\software
 set MSI=softmaker-setup.msi 
 set SETTINGS=..\personal\settings.cmd
 set softmaker_license=0
+set STARTMENU="%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs"
 
 if NOT EXIST %SOFTWARE%\%MSI% (
   echo ERROR: %SOFTWARE%\%MSI% not found!
@@ -42,6 +43,9 @@ copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Softmaker Office 20
 rem refresh desktop (W10 style)
 ie4uinit.exe -show
 
+echo cleaning startmenu ...
+del /F /Q /A %STARTMENU%\"Softmaker Office 2021\Bitte*.*" 2>nul
+
 echo disabling automatic updates for Softmaker Office 2021 ...
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\SoftMaker Office 2021" ^
   /v "UpdateCheckEnabled" /d 0 /t REG_DWORD /f
@@ -50,9 +54,13 @@ echo disabling WEB help ...
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\SoftMaker Office 2021" ^
   /v "HelpSoftMaker" /d 0 /t REG_DWORD /f
 
-echo disabling the asking for user info ...
+echo disabling the asking for user infos ...
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\SoftMaker Office 2021" ^
   /v "AskUserInfo" /d 0 /t REG_DWORD /f
+
+echo setting dialog language to US-english ...
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\SoftMaker Office 2021" ^
+  /v "DlgLID" /d 409 /t REG_DWORD /f
 
 if softmaker_license == 0 (
   echo no softmaker license found!
