@@ -39,10 +39,22 @@ if NOT EXIST %USERPROFILE%\.vimrc (
 
 rem TOTALCOMMANDER
 if NOT EXIST %APPDATA%\GHISLER\WINCMD.ini (
-  echo setup for TOTALCOMMANDER ...
+  echo copying ini file for TOTALCOMMANDER ...
   mkdir %APPDATA%\GHISLER 1>nul 2>nul
-  copy /Y %TOOLS%\optional\config\WINCMD.ini %APPDATA%\GHISLER
-  copy /Y %TOOLS%\optional\config\wcx_ftp.ini %APPDATA%\GHISLER
+
+  rem ini file ...
+  if EXIST %TOOLS%\personal\WINCMD.ini (
+    copy /Y %TOOLS%\personal\WINCMD.ini %APPDATA%\GHISLER
+  ) else (
+    copy /Y %TOOLS%\optional\config\WINCMD.ini %APPDATA%\GHISLER
+  )
+
+  rem ftp config file ...
+  if EXIST %TOOLS%\personal\wcx_ftp.ini (
+    copy /Y %TOOLS%\personal\wcx_ftp.ini %APPDATA%\GHISLER
+  ) else (
+    copy /Y %TOOLS%\optional\config\wcx_ftp.ini %APPDATA%\GHISLER
+  )
 )
 
 rem WINDOWS TERMINAL

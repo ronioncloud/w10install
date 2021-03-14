@@ -2,8 +2,6 @@
 
 set EXE=..\software\totalcommander-setup.exe
 set KEY=..\personal\wincmd.key
-set INI=..\personal\wincmd.ini
-set FTPCONFIG=..\personal\wcx_ftp.key
 set TARGET=c:\totalcmd
 set STARTMENU=%PROGRAMDATA%\"Microsoft\Windows\Start Menu\Programs"
 set STARTMENU_USER=%APPDATA%\"Microsoft\Windows\Start Menu\Programs"
@@ -28,16 +26,6 @@ move /Y %STARTMENU_USER%\"Total Commander" %STARTMENU% 2>nul
 if EXIST %KEY% (
   echo installing license ...
   copy /Y %KEY% %TARGET%
-)
-
-if EXIST %FTPCONFIG% (
-  echo copying ftp config file ...
-  copy /Y %FTPCONFIG% %TARGET%
-)
-
-if EXIST %INI% (
-  echo copying ini file ...
-  copy /Y %INI% %TARGET%
 )
 
 rem refresh desktop (W10 style)
