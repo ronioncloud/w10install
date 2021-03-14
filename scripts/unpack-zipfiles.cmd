@@ -3,6 +3,7 @@
 set TOOLS=c:\tools
 set SOFTWARE=..\software
 set T=c:\TEMP
+set WINSCPINI=..\personal\winscp.ini
 
 echo ####### %0 #######
 
@@ -114,6 +115,10 @@ echo.
 echo WinSCP
 move /Y %T%\winscp\*.exe %TOOLS%
 rd /S /Q %T%\winscp
+if EXIST %WINSCPINI% (
+  echo copying WinSCP ini file ...
+  copy /Y %WINSCPINI% %TOOLS%
+)
 echo.
 
 echo WUB - Windows update blocker
