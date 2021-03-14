@@ -4,12 +4,16 @@
 "                             "
 """""""""""""""""""""""""""""""
 
+set showmode
 set history=700       "Sets how many lines of history VIM has to remember
 set ttimeoutlen=50    "Speed up O etc in the Terminal
 set autoread          "Set to auto read when a file is changed from the outside
 set bs=2              "allow backspace
 set scrolloff=6       "start scrolling 5 lines before edge of viewport
-set pastetoggle=<f10> "Better paste behavior
+
+"Better paste behavior
+nnoremap <f10> :set invpaste paste?<CR>
+set pastetoggle=<f10>
 
 "Search Options
 set ignorecase "Ignore case when searching
@@ -27,8 +31,11 @@ set noswapfile
 "                             "
 """""""""""""""""""""""""""""""
 
-"dont't show line numbers
-set nonumber
+"Show line numbers
+set number
+
+"Toggle line numbers on f9
+nnoremap <f9> :set invnumber number?<CR>
 
 "Transform tabs to spaces
 set tabstop=8
@@ -53,11 +60,36 @@ set noerrorbells visualbell t_vb=
 "     Statusline              "
 "                             "
 """""""""""""""""""""""""""""""
+
+let g:currentmode={
+  \ 'n'  : 'Normal',
+  \ 'no' : 'Normal Operator Pending',
+  \ 'v'  : 'Visual',
+  \ 'V'  : 'V-Line',
+  \ '^V' : 'V-Block',
+  \ 's'  : 'Select',
+  \ 'S'  : 'S-Line',
+  \ '^S' : 'S-Block',
+  \ 'i'  : 'Insert',
+  \ 'R'  : 'Replace',
+  \ 'Rv' : 'V-Replace',
+  \ 'c'  : 'Command',
+  \ 'cv' : 'Vim Ex',
+  \ 'ce' : 'Ex',
+  \ 'r'  : 'Prompt',
+  \ 'rm' : 'More',
+  \ 'r?' : 'Confirm',
+  \ '!'  : 'Shell',
+  \ 't'  : 'Terminal'
+  \}
+
 set laststatus=2
 
 hi User1 ctermbg=green ctermfg=red   guibg=green guifg=red
-hi User2 ctermbg=red   ctermfg=white guibg=red   guifg=blue
-hi User3 ctermbg=blue  ctermfg=green guibg=white guifg=green
+hi User2 ctermbg=red   ctermfg=white guibg=red   guifg=white
+hi User3 ctermbg=blue  ctermfg=green guibg=blue  guifg=green
+hi User4 ctermbg=cyan  ctermfg=black guibg=cyan  guifg=black 
+hi User5 ctermbg=blue  ctermfg=black guibg=blue  guifg=black
 
 set statusline=
 set statusline+=%1* "switch to User1 highlight
@@ -67,8 +99,15 @@ set statusline+=\ %-40F
 
 set statusline+=%= "move to right
 
+set statusline+=%5* "switch to User5 highlight
+set statusline+=\ F9=linenumbers "user help
+set statusline+=\ F10=pastemode\ "user help
+
 set statusline+=%2* "switch to User2 highlight
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\ [%{&fileformat}\]
 set statusline+=\ %8((%l,%c)%)
-set statusline+=\ %P
+set statusline+=\ %P\ "percent and space at end off string
+set statusline+=%4* "switch to User4 highlight
+set statusline+=\ %{toupper(g:currentmode[mode()])}\ "The current mode
+

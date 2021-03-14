@@ -1,11 +1,14 @@
 @echo off
 set SOURCES=c:\TEMP\W10\sources
+set IMAGE=install_FINAL.esd
+set ALTIMAGE=install_FINAL_lastrun.esd
 
 rem ===================
 rem COMMANDLINE CHECKS
 rem ===================
 
 IF %1.==. GOTO USAGE
+
 set USBDRIVE=%1
 
 if /I %USBDRIVE% == C: (
@@ -13,12 +16,14 @@ if /I %USBDRIVE% == C: (
   exit /b
 )
 
-echo using drive %USBDRIVE% ...
-
 if NOT EXIST %USBDRIVE% (
   echo ERROR: drive %USBDRIVE% not found!
   exit /b
 )
+
+echo.
+echo ##########################################
+echo using drive %USBDRIVE% ...
 
 rem =====
 rem MAIN
@@ -30,25 +35,43 @@ set answer=
   if /i "%answer:~,1%" EQU "B" (
     echo selected: BIOS
     copy /Y autounattend_BIOS.xml %USBDRIVE%\autounattend.xml
-    GOTO CONT 
+    GOTO CONT
   )
   if /i "%answer:~,1%" EQU "U" (
     echo selected: UEFI
     copy /Y autounattend_UEFI.xml %USBDRIVE%\autounattend.xml
-    GOTO CONT 
+    GOTO CONT
   )
   echo Please type B for BIOS or U for UEFI setup.
   goto ask
 :CONT
 
-if EXIST %SOURCES%\install_FINAL.esd (
-  echo copying install.esd to drive %USBDRIVE% ...
-  robocopy %SOURCES% %USBDRIVE%\sources install_FINAL.esd /J /NJH
-  del /F %USBDRIVE%\sources\install.esd 
-  move /Y %USBDRIVE%\sources\install_FINAL.esd %USBDRIVE%\sources\install.esd
-  move /Y %SOURCES%\install_FINAL.esd %SOURCES%\install_FINAL_lastrun.esd
+if EXIST %SOURCES%\%IMAGE% (
+
+  echo.
+  echo copying [ %IMAGE ] to drive %USBDRIVE% ...
+  robocopy %SOURCES% %USBDRIVE%\sources %IMAGE% /J /NJH
+
+  rem move image in place ...
+  del /F %USBDRIVE%\sources\install.esd 2>nul
+  move /Y %USBDRIVE%\sources\%IMAGE% %USBDRIVE%\sources\install.esd
+
+  rem rename image in sources directory ...
+  move /Y %SOURCES%\%IMAGE% %SOURCES%\%ALTIMAGE%
+
+) else (
+
+  echo.
+  echo INFO: NOT copying image!
+  echo.
+  echo HINT: please rename
+  echo    [ %SOURCES%\%ALTIMAGE% ]
+  echo to [ %SOURCES%\%IMAGE% ]
+  echo for force copy of image.
+
 )
 
+:CONT
 echo.
 if EXIST tools (
   echo copying folder tools to drive %USBDRIVE% ...
@@ -66,6 +89,8 @@ for %%P in (software scripts source optional personal) do (
 echo.
 echo copying custom setup script to %USBDRIVE% ...
 copy /Y CustomSetup.cmd %USBDRIVE%\
+echo READY.
+echo.
 
 rem =====
 rem END
