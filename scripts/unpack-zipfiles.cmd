@@ -23,6 +23,7 @@ for %%A in (
   setacl
   showkeyplus
   vim
+  vivetool
   winscp
   wub
 
@@ -102,6 +103,11 @@ echo.
 echo VIM
 move /Y %T%\vim\vim.exe %TOOLS%
 rd /S /Q %T%\vim
+echo.
+
+echo ViveTool
+move /Y %T%\vivetool\vivetool.exe %TOOLS%
+rd /S /Q %T%\vivetool
 echo.
 
 echo WinSCP

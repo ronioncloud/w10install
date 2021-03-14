@@ -136,7 +136,6 @@ echo ##### cleaning ...
 echo #####
 echo.
 
-
 rem MORE stupid OS problems ...
 rem these actions must to be done over and over again - some zombies keep coming back ...
 echo reorg for start menu and desktop ...
@@ -148,6 +147,11 @@ rem why the heck are "System Tools" installed per user ? stupid Microsoft.
 echo System Tools ...
 move /Y %STARTMENU%\"System Tools\*.*" ^
   %STARTMENU_PUBLIC%\"System Tools" 2>nul
+
+rem remove and rename some stuff ...
+move /Y %STARTMENU_PUBLIC%\"System Tools\computer.lnk" ^
+  %STARTMENU_PUBLIC%\"System Tools\This PC.lnk" 2>nul
+del /F %STARTMENU_PUBLIC%\"System Tools\Command Prompt.lnk" 2>nul
 
 rem ... stupid OS problem #5
 rem same here for the accessibility tools. WHY ? stupid Microsoft.

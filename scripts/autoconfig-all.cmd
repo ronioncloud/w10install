@@ -166,6 +166,9 @@ echo.
 call disable-meetnow.cmd
 echo.
 
+call disable-settingsheader.cmd
+echo.
+
 call disable-autologon.cmd
 echo.
 
