@@ -1,6 +1,7 @@
 @echo off
 
-set STARTMENU="%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs"
+set STARTMENU=%PROGRAMDATA%\"Microsoft\Windows\Start Menu\Programs"
+set STARTMENU_USER=%APPDATA%\"Microsoft\Windows\Start Menu\Programs"
 
 echo ####### %0 #######
 
@@ -23,6 +24,21 @@ rd /S /Q %STARTMENU%\Maintenance 2>nul
 rem VLC ...
 move /Y %STARTMENU%\"VideoLan\VLC media player.lnk" %STARTMENU% 2>nul
 rd /S /Q %STARTMENU%\VideoLan 2>nul
+
+rem Windows stuff (Character map)...
+move /Y %STARTMENU%\"Accessories\System Tools\Character*.*" ^
+  %STARTMENU%\"Accessories" 2>nul
+rd /S /Q %STARTMENU%\"Accessories\System Tools" 2>nul
+
+rem ... stupid OS problem #5
+rem why the heck are "System Tools" installed per user ? stupid Microsoft.
+move /Y %STARTMENU_USER%\"System Tools\*.*" ^
+  %STARTMENU%\"System Tools" 2>nul
+
+rem ... stupid OS problem #6
+rem same here for the accessibility tools. WHY ? stupid Microsoft.
+move /Y %STARTMENU_USER%\"Accessibility\*.*" ^
+  %STARTMENU%\"Accessibility" 2>nul
 
 echo start explorer again ...
 ping 127.0.0.1 -n 3 >nul 2>nul

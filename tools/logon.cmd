@@ -1,6 +1,7 @@
 @echo off
 set TOOLS=c:\tools
 set STATUSFILE=%LOCALAPPDATA%\.user_settings_done
+set STARTMENU=%APPDATA%\"Microsoft\Windows\Start Menu\Programs"
 
 echo ####### %0 #######
 
@@ -119,13 +120,6 @@ rem config must be full qualified pathname (OpenShell BUG!)
 set CONFIG=%TOOLS%\scripts\config\OpenshellSettings.xml
 "%ProgramFiles%\Open-Shell\StartMenu.exe" -xml %CONFIG%
 
-rem ... stupid os problem #4
-echo removing some useless files ...
-del /F %APPDATA%\"Microsoft\Windows\Start Menu\Programs\Accessories\Internet Explorer.lnk" 2>nul
-del /F %APPDATA%\"Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk" 2>nul 
-rd /S /Q %APPDATA%\"Microsoft\Windows\Start Menu\Programs\Maintenance" 2>nul
-del /F "%USERPROFILE%\Desktop\Microsoft Edge.lnk" 2>nul
-
 echo restarting explorer ...
 taskkill /f /im explorer.exe 2>nul
 timeout /T 2
@@ -140,6 +134,25 @@ echo #####
 echo ##### cleaning ...
 echo #####
 echo.
+
+rem ... stupid os problem #4
+rem (has to be done over and over again - some zombies keep coming back ...)
+echo removing and some useless links in start menu and desktop ...
+
+rem Edge is such a zombie!
+del /F %STARTMENU%\"Microsoft Edge.lnk" 2>nul
+del /F %USERPROFILE%\"Desktop\Microsoft Edge.lnk" 2>nul
+
+rem IE too!
+del /F %STARTMENU%\"Accessories\Internet Explorer.lnk" 2>nul
+
+rem finally remove some useless directories in the users start menu ...
+rd /S /Q %STARTMENU%\"Accessories" 2>nul
+rd /S /Q %STARTMENU%\"Accessibility" 2>nul
+rd /S /Q %STARTMENU%\"Administrative Tools" 2>nul
+rd /S /Q %STARTMENU%\"Maintenance" 2>nul
+rd /S /Q %STARTMENU%\"System Tools" 2>nul
+rd /S /Q %STARTMENU%\"Windows Powershell" 2>nul
 
 echo 3D Objects ...
 rd /S /Q %USERPROFILE%\"3D Objects" 2>nul
