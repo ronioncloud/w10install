@@ -3,9 +3,10 @@ set SOURCES=c:\TEMP\W10\sources
 set IMAGE=install_FINAL.esd
 set ALTIMAGE=install_FINAL_lastrun.esd
 
-rem ===================
-rem COMMANDLINE CHECKS
-rem ===================
+echo.
+echo =====================
+echo Prepare USB Stick ...
+echo =====================
 
 IF %1.==. GOTO USAGE
 
@@ -21,8 +22,6 @@ if NOT EXIST %USBDRIVE% (
   exit /b
 )
 
-echo.
-echo ##########################################
 echo using drive %USBDRIVE% ...
 
 rem =====
@@ -74,14 +73,14 @@ if EXIST %SOURCES%\%IMAGE% (
 :CONT
 echo.
 if EXIST tools (
-  echo copying folder tools to drive %USBDRIVE% ...
+  echo copying folder [ tools ] to drive %USBDRIVE% ...
   robocopy tools %USBDRIVE%\tools /COPY:DT /FFT /XO /256 /NJH /NJS /NDL /XF .gitignore
 )
 
 for %%P in (software scripts source optional personal) do (
   if EXIST %%P (
     echo.
-    echo copying folder %%P to drive %USBDRIVE%\tools ...
+    echo copying folder [ %%P ] to %USBDRIVE%\tools ...
     robocopy %%P %USBDRIVE%\tools\%%P /COPY:DT /FFT /XO /MIR /256 /NJH /NJS /NDL /XF .gitignore /XD .git
   )
 )
@@ -89,6 +88,7 @@ for %%P in (software scripts source optional personal) do (
 echo.
 echo copying custom setup script to %USBDRIVE% ...
 copy /Y boot\CustomSetup.cmd %USBDRIVE%\
+
 echo READY.
 echo.
 

@@ -1,8 +1,9 @@
 @echo off
 
-rem ===================
-rem COMMANDLINE CHECKS
-rem ===================
+echo.
+echo ====================
+echo Create USB Stick ...
+echo ====================
 
 IF %1.==. GOTO USAGE
 IF %2.==. GOTO USAGE
@@ -30,8 +31,6 @@ rem =====
 rem MAIN
 rem =====
 
-echo.
-echo ##########################################
 echo using drive %USBDRIVE% ...
 echo using image %ISOFILE% ...
 

@@ -43,7 +43,7 @@ cd ..
 echo.
 date /t
 time /t
-echo =====
-echo END
-echo =====
+echo ======
+echo READY.
+echo ======
 

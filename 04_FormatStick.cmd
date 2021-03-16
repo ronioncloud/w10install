@@ -2,16 +2,13 @@
 set T=c:\TEMP
 set DPARTSCRIPT=%T%\diskpart.txt
 
-echo.
-echo ##########################################
-
 rem create temp directory and cleanup ...
 mkdir %T% 1>nul 2>nul
 del /Y %DPARTSCRIPT% 1>nul 2>nul
 
-rem =====
-rem QUESTIONS
-rem =====
+echo ====================
+echo Format USB Stick ...
+echo ====================
 
 echo.
 echo Showing disk list ...
@@ -82,7 +79,9 @@ if %errorlevel% NEQ 0 (
   echo ERROR: while formatting the disk!
   exit /b
 )
-echo READY. USB stick formatted.
+echo READY. 
+echo USB stick formatted.
+echo.
 
 rem =====
 rem END

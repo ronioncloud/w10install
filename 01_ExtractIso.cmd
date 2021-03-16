@@ -2,9 +2,9 @@
 set T=c:\TEMP
 set W10=%T%\W10
 
-rem ===================
-rem COMMANDLINE CHECKS
-rem ===================
+echo ====================
+echo Extract ISO file ...
+echo ====================
 
 IF %1.==. GOTO USAGE
 
@@ -33,6 +33,9 @@ robocopy \\.\CDROM0 %W10% /MIR /256 /NFL /NDL
 
 echo unmounting disk image (iso) ...
 powershell Dismount-Diskimage -ImagePath %ISOFILE%
+
+echo READY.
+echo.
 
 rem =====
 rem END
