@@ -97,9 +97,9 @@ EndProcedure
 
 allpull(ProgramParameter(0))
 CloseConsole()
-; IDE Options = PureBasic 5.62 (Windows - x64)
+; IDE Options = PureBasic 5.73 LTS (Windows - x64)
 ; ExecutableFormat = Console
-; CursorPosition = 16
+; CursorPosition = 18
 ; Folding = -
 ; Executable = C:\TEMP\allpull.exe
 ; DisableDebugger

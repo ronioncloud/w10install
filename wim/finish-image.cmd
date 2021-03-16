@@ -1,28 +1,34 @@
 @echo off
 set SOURCES=c:\TEMP\W10\sources
-set MNT=c:\TEMP\WIM
+set IMAGE=c:\TEMP\IMAGE
 
-rd /S /Q %MNT%\Windows\Setup\scripts 1>nul 2>nul
-mkdir %MNT%\Windows\Setup\scripts 1>nul 2>nul
+if NOT EXIST %SOURCES%\install.wim (
+  echo.
+  echo [%0] ERROR: %SOURCES%\install.wim NOT found!
+  exit /b
+)
 
-echo copying scripts to %MNT%\Windows\Setup\scripts ...
-copy /Y SetupComplete.cmd %MNT%\Windows\Setup\scripts
+rd /S /Q %IMAGE%\Windows\Setup\scripts 1>nul 2>nul
+mkdir %IMAGE%\Windows\Setup\scripts 1>nul 2>nul
+
+echo copying scripts to %IMAGE%\Windows\Setup\scripts ...
+copy /Y SetupComplete.cmd %IMAGE%\Windows\Setup\scripts
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-copy /Y StartCustomSetup.cmd %MNT%\Windows\Setup\scripts
+copy /Y StartCustomSetup.cmd %IMAGE%\Windows\Setup\scripts
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo showing directory contents :
-dir %MNT%\Windows\Setup\scripts
+dir %IMAGE%\Windows\Setup\scripts
 
-echo doing cleanup on mountpoint %MNT% ...
-dism /Image:%MNT% /Cleanup-Image /StartComponentCleanup /ResetBase
+echo doing cleanup on mountpoint %IMAGE% ...
+dism /Image:%IMAGE% /Cleanup-Image /StartComponentCleanup /ResetBase
 
 echo unmounting and committing changes to %SOURCES%\install.wim ...
-dism /Unmount-Wim /MountDir:%MNT% /Commit
+dism /Unmount-Wim /MountDir:%IMAGE% /Commit
 
-echo directory of %MNT% :
-dir %MNT%
+echo directory of %IMAGE% :
+dir %IMAGE%
 
 echo exporting %SOURCES%\install.wim to %SOURCES%\install_FINAL.esd ...
 dism /Export-Image ^

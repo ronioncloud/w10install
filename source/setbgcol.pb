@@ -4,7 +4,7 @@
 ; LICENSE  : GPL
 ; AUTHOR   : Michael H.G. Schmidt
 ; EMAIL    : michael@schmidt2.de
-; DATE     : 20190524
+; DATE     : 20210315
 ; ------------------------------------------------------------
 ;
 
@@ -40,5 +40,5 @@ SetSysColors_(1,@lpaElements(),@lpaRgbValues(0))
 CloseConsole()
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 35
+; CursorPosition = 6
 ; EnableXP

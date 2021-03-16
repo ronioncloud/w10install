@@ -1,10 +1,10 @@
 @echo off
 set SOURCES=c:\TEMP\W10\sources
-set MNT=c:\TEMP\WIM
+set IMAGE=c:\TEMP\IMAGE
 
-echo creating wim mountpoint ...
-mkdir %MNT% 1>nul 2>nul
+echo creating image mountpoint ...
+mkdir %IMAGE% 1>nul 2>nul
 
-echo mounting install.wim to %MNT% ...
-dism /Mount-Wim /WimFile:%SOURCES%\install.wim /Name:"Windows 10 Pro" /MountDir:%MNT%
+echo mounting install.IMAGE to %IMAGE% ...
+dism /Mount-IMAGE /IMAGEFile:%SOURCES%\install.wim /Name:"Windows 10 Pro" /MountDir:%IMAGE%
 
