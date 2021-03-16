@@ -34,12 +34,12 @@ set answer=
   set /p answer="BIOS or UEFI setup (B/U)? "
   if /i "%answer:~,1%" EQU "B" (
     echo selected: BIOS
-    copy /Y autounattend_BIOS.xml %USBDRIVE%\autounattend.xml
+    copy /Y boot\autounattend_BIOS.xml %USBDRIVE%\autounattend.xml
     GOTO CONT
   )
   if /i "%answer:~,1%" EQU "U" (
     echo selected: UEFI
-    copy /Y autounattend_UEFI.xml %USBDRIVE%\autounattend.xml
+    copy /Y boot\autounattend_UEFI.xml %USBDRIVE%\autounattend.xml
     GOTO CONT
   )
   echo Please type B for BIOS or U for UEFI setup.
@@ -49,7 +49,7 @@ set answer=
 if EXIST %SOURCES%\%IMAGE% (
 
   echo.
-  echo copying [ %IMAGE ] to drive %USBDRIVE% ...
+  echo copying [ %IMAGE% ] to drive %USBDRIVE% ...
   robocopy %SOURCES% %USBDRIVE%\sources %IMAGE% /J /NJH
 
   rem move image in place ...
@@ -88,7 +88,7 @@ for %%P in (software scripts source optional personal) do (
 
 echo.
 echo copying custom setup script to %USBDRIVE% ...
-copy /Y CustomSetup.cmd %USBDRIVE%\
+copy /Y boot\CustomSetup.cmd %USBDRIVE%\
 echo READY.
 echo.
 
