@@ -12,7 +12,7 @@ rem ###################################
 rem MAIN loop ( remove packages ) ...
 rem ###################################
 
-FOR /F %%P in (packages-to-remove.txt) do (
+FOR /F %%P in (packages-to-remove.csv) do (
 
   echo removing PACKAGE [ %%P ] ...
   install_wim_tweak.exe /p %IMAGE% /c "%%P" /r /n
