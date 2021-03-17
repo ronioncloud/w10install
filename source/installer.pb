@@ -1,19 +1,23 @@
-﻿; installwarning.pb
+﻿; installer.pb
 ; ------------------------------------------------------------
-; shows a warning when starting the install process 
+; installer wrapper for setup.exe 
 ; LICENSE  : GPL
 ; AUTHOR   : Michael H.G. Schmidt
 ; EMAIL    : michael@schmidt2.de
-; DATE     : 20210315
+; DATE     : 20210317
 ; ------------------------------------------------------------
 ;
-
-dummy$ = ""
 
 ; preparations to use native "system" command...
 ImportC "msvcrt.lib"
   system(str.p-ascii)
 EndImport
+
+; open window to hide all other windows on dekstop ...
+OpenWindow(0, 0, 0, 0, 0, "", #PB_Window_BorderLess | #PB_Window_Maximize)
+ 
+; set colour to windows blue ...
+SetWindowColor(0, RGB($00,$a2,$ed)) 
 
 Result = MessageRequester("+++ Windows 10 unattended Installation +++",
                           "This will install a new OS (unattended)" + Chr(13) +
@@ -36,7 +40,7 @@ If Result = #PB_MessageRequester_Yes
 EndIf
 
 ; show abort message ...
-OpenWindow(0, 0, 0, 270, 70, "Installation ABORTED",
+OpenWindow(1, 0, 0, 270, 70, "Installation ABORTED",
            #PB_Window_SystemMenu | #PB_Window_ScreenCentered)
 
 If LoadFont(0, "System", 10)
@@ -50,4 +54,5 @@ Repeat : Until WaitWindowEvent() = True
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
 ; CursorPosition = 32
+; FirstLine = 8
 ; EnableXP

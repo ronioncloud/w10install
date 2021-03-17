@@ -2,11 +2,11 @@
 set T=c:\TEMP
 set W10=%T%\W10
 
+IF %1.==. GOTO USAGE
+
 echo ====================
 echo Extract ISO file ...
 echo ====================
-
-IF %1.==. GOTO USAGE
 
 rem get fullpath of isofile ...
 set ISOFILE=%~f1

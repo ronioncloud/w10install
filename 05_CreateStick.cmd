@@ -1,12 +1,12 @@
 @echo off
 
+IF %1.==. GOTO USAGE
+IF %2.==. GOTO USAGE
+
 echo.
 echo ====================
 echo Create USB Stick ...
 echo ====================
-
-IF %1.==. GOTO USAGE
-IF %2.==. GOTO USAGE
 
 rem get fullpath of isofile ...
 set USBDRIVE=%1

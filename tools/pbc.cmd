@@ -1,10 +1,15 @@
 @echo off
 
 IF %1.==. GOTO USAGE
-rem removing extension ...
+
+rem remove extension ...
 set BASENAME=%~n1
-rem adding extension again ...
-set SOURCEFILE=%BASENAME%.pb
+
+rem removing extension and get full path ...
+set FULLBASE=%~dpn1
+
+rem adding extension to fullbase again ...
+set SOURCEFILE=%FULLBASE%.pb
 
 pbcompiler /EXE %BASENAME%.exe /CONSOLE %SOURCEFILE%
 GOTO END

@@ -4,12 +4,12 @@ set BOOT=boot.wim
 set IMAGE=install_FINAL.esd
 set ALTIMAGE=install_FINAL_lastrun.esd
 
+IF %1.==. GOTO USAGE
+
 echo.
 echo =====================
 echo Prepare USB Stick ...
 echo =====================
-
-IF %1.==. GOTO USAGE
 
 set USBDRIVE=%1
 

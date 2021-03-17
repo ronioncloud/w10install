@@ -3,12 +3,13 @@ set OSCDPATH="%ProgramFiles(x86)%\Windows Kits\10\Assessment and Deployment Kit\
 set OSLABEL=WIN10-AUTO
 set ISOFILE=c:\temp\%OSLABEL%.iso
 
+IF %1.==. GOTO USAGE
+
 echo ===================
 echo Make ISO file ...
 echo ===================
 echo.
 
-IF %1.==. GOTO USAGE
 set USBDRIVE=%1
 
 if /I %USBDRIVE% == C: (
