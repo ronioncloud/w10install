@@ -5,5 +5,5 @@
 *.dll
 *.txt
 *.BAK
-!instaler.exe
+!installer.exe
 
