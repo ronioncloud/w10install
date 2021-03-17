@@ -1,5 +1,6 @@
 @echo off
 set SOURCES=c:\TEMP\W10\sources
+set BOOT=boot.wim
 set IMAGE=install_FINAL.esd
 set ALTIMAGE=install_FINAL_lastrun.esd
 
@@ -44,6 +45,10 @@ set answer=
   echo Please type B for BIOS or U for UEFI setup.
   goto ask
 :CONT
+
+echo.
+echo copying [ %BOOT% ] to drive %USBDRIVE% ...
+robocopy %SOURCES% %USBDRIVE%\sources %BOOT% /J /NJH
 
 if EXIST %SOURCES%\%IMAGE% (
 
