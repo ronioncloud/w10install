@@ -5,5 +5,5 @@
 *.dll
 *.txt
 *.BAK
-!installwarning.exe
+!instaler.exe
 
