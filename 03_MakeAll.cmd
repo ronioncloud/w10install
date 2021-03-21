@@ -17,6 +17,10 @@ date /t
 time /t
 echo.
 
+echo cleanup ...
+del /F Apps*.txt 2>nul
+del /F Packages*.txt 2>nul
+
 rem start scripts
 for %%S in (
 
@@ -25,7 +29,7 @@ for %%S in (
 
   export-image.cmd
   mount-image.cmd
-  remove-apps.cmd
+  X_remove-apps.cmd
   remove-packages.cmd
   finish-image.cmd
 

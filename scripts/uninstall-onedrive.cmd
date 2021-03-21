@@ -7,6 +7,8 @@ echo ####### %0 #######
 
 echo KILLING OneDrive ...
 taskkill /f /im OneDrive.exe > NUL 2>&1
+
+echo sleep 5 seconds ...
 ping 127.0.0.1 -n 5 > NUL 2>&1
 
 echo UNINSTALLING OneDrive ...
@@ -15,6 +17,8 @@ if exist %x64% (
 ) else (
   %x86% /uninstall
 )
+
+echo sleep 5 seconds ...
 ping 127.0.0.1 -n 5 > NUL 2>&1
 
 echo CLEANUP OneDrive ...

@@ -10,6 +10,7 @@ taskkill /f /im StartMenuExperienceHost.exe 2>nul
 taskkill /f /im shellexperiencehost.exe 2>nul
 taskkill /f /im explorer.exe 2>nul
 
+echo sleep 3 seconds ...
 ping 127.0.0.1 -n 3 >nul 2>nul
 
 echo cleanup TempState directories and reset cache ...
@@ -35,7 +36,7 @@ move /Y %STARTMENU%\"Accessories\System Tools\Character*.*" ^
   %STARTMENU%\"Accessories" 2>nul
 rd /S /Q %STARTMENU%\"Accessories\System Tools" 2>nul
 
-echo start explorer again ...
+echo sleep 3 seconds and start explorer ...
 ping 127.0.0.1 -n 3 >nul 2>nul
 start explorer.exe
 

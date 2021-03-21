@@ -29,7 +29,8 @@ echo ####### %0 #######
 @echo on
 cd %SOFTWARE%
 firefox-setup.exe /S /MaintenanceService=false /TaskbarShortcut=false /RegisterDefaultAgent=false
-timeout /T 10
+echo sleep 10 seconds ...
+ping 127.0.0.1 -n 10 > NUL 2>&1
 @echo off
 cd %SCRIPTS%
 

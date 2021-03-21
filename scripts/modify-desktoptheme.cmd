@@ -10,7 +10,9 @@ echo activating AEROLITE theme ...
 powershell -command "Start-Process %THEMES%\aerolite.theme"
 @echo off
 
-timeout /T 5
+echo sleep 10 seconds ...
+ping 127.0.0.1 -n 10 > NUL 2>&1
+
 taskkill /F /IM SystemSettings.exe 2>nul
 
 echo ####### %0 #######

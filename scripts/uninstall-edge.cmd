@@ -9,7 +9,9 @@ echo ####### %0 #######
 @echo on
 %EDGEROOT%\%INSTALLER%\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 @echo off
-timeout /T 10
+
+echo sleep 10 seconds ...
+ping 127.0.0.1 -n 10 > NUL 2>&1
 
 echo.
 echo cleanup ...
