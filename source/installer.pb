@@ -4,7 +4,7 @@
 ; LICENSE  : GPL
 ; AUTHOR   : Michael H.G. Schmidt
 ; EMAIL    : michael@schmidt2.de
-; DATE     : 20210320
+; DATE     : 20210322
 ; ------------------------------------------------------------
 ;
 
@@ -33,7 +33,7 @@ Procedure StartInstallation()
     ; start installation ...
     If Result = #PB_MessageRequester_Yes
       dummy=system(SYS$ + "\winsetup.exe")
-      End 0
+      End
     EndIf
     
   EndIf
@@ -53,6 +53,14 @@ EndProcedure
 
 
 Procedure StartCMD()
+  
+  MessageRequester("HELP. Please read me 1st.",
+                   "Type <netuse> to mount a network share" + Chr(13) +
+                   "Type <snapshot64> to start backup/restore" + Chr(13) + Chr(13) +
+                   "(Network will be started automatically but it must" + Chr(13) +
+                   " be connected with a cable and a DHCP server" + Chr(13) +
+                   " must be present in your local network)",
+                   #PB_MessageRequester_Info)
   
   ; start a command shell ...
   dummy=system(SYS$ + "\windows\system32\cmd.exe /C start /D "+SYS$+"\ "+SYS$+"\windows\system32\cmd.exe /K wpeutil initializenetwork")
@@ -131,7 +139,6 @@ BindGadgetEvent(2, @ButtonHandler())
 Repeat : Until WaitWindowEvent() = #PB_Event_CloseWindow
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 118
-; FirstLine = 86
+; CursorPosition = 6
 ; Folding = -
 ; EnableXP

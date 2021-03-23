@@ -4,7 +4,7 @@
 ; LICENSE  : GPL
 ; AUTHOR   : Michael H.G. Schmidt
 ; EMAIL    : michael@schmidt2.de
-; DATE     : 20210321
+; DATE     : 20210322
 ; ------------------------------------------------------------
 ;
 
@@ -34,7 +34,7 @@ H = WindowHeight(0)
 EditorGadget(0, 8, 8, W-16, H-16, #PB_Editor_ReadOnly | #PB_Editor_WordWrap)
 
 ; load system font
-LoadFont(0, "System", 12)
+LoadFont(0, "Consolas", 12)
 SetGadgetFont(0, FontID(0))
 
 ; open logfile ...
@@ -75,6 +75,5 @@ Repeat
 Until WaitWindowEvent() = #PB_Event_CloseWindow
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 36
-; FirstLine = 15
+; CursorPosition = 6
 ; EnableXP
