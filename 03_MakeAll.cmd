@@ -29,7 +29,7 @@ for %%S in (
 
   export-image.cmd
   mount-image.cmd
-  X_remove-apps.cmd
+  remove-apps.cmd
   remove-packages.cmd
   finish-image.cmd
 
