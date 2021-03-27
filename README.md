@@ -197,8 +197,8 @@ mkdir workspace\github
 cd workspace\github
 git clone https://github.com/mhgschmidt/w10install.git
 cd w10install
-
 ```
+
 
 # 4. Get/Install essential building tools and software
 
