@@ -5,6 +5,17 @@ set WIM=%SOURCES%\install.wim
 set W10PRO=%SOURCES%\w10pro.wim
 set STATEFILE=%SOURCES%\w10pro.txt
 
+
+if EXIST %STATEFILE% (
+
+  echo.
+  echo INFO: found %STATEFILE% 
+  echo nothing todo. all work was already done.
+  echo READY.
+  exit /b
+
+)
+
 if EXIST %ESD% (
 
   echo.
@@ -49,16 +60,6 @@ if EXIST %WIM% (
   echo all done >%STATEFILE%
 
   echo.
-  echo READY.
-  exit /b
-
-)
-
-if EXIST %STATEFILE% (
-
-  echo.
-  echo INFO: found %STATEFILE% 
-  echo nothing todo. all work was already done.
   echo READY.
   exit /b
 

@@ -28,6 +28,11 @@ for %%S in (
   finish-boot.cmd
 
   export-image.cmd
+  IF %ERRORLEVEL% NEQ 0 (
+    echo ERROR while exporting image
+    exit /b
+  )
+
   mount-image.cmd
   remove-apps.cmd
   remove-packages.cmd
