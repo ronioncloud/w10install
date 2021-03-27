@@ -81,16 +81,14 @@ setx T c:\TEMP
 
 [7-ZIP Website](https://www.7-zip.org)
 
-Download: https://www.7-zip.org/a/7z1900-x64.exe  
-Save it in your "Downloads" folder.
+Download: https://www.7-zip.org/a/7z1900-x64.msi and save it in your "Downloads" folder.
 
 Unpack the MSI with:
 ```dos
 cd /D %USERPROFILE%\Downloads
-move /Y 7z1900-x64.exe 7z-setup.msi
+move /Y 7z1900-x64.msi 7z-setup.msi
 msiexec /a 7z-setup.msi TARGETDIR=%T%
 cd ..
-
 ```
 
 After extracting execute:
@@ -99,7 +97,6 @@ move /Y %T%\Files\7-Zip\7z.exe %TOOLS%
 move /Y %T%\Files\7-zip\7z.dll %TOOLS%
 del /S /Q /A %T%\7z-setup.msi 1>nul 2>nul
 rd /S /Q %T%\Files
-
 ```
 
 
@@ -117,7 +114,6 @@ move /Y %T%\curl\curl.exe %TOOLS%
 move /Y %T%\curl\libcurl*.dll %TOOLS%
 move /Y %T%\curl\curl-ca-bundle.crt %TOOLS%
 rd /S /Q %T%\curl
-
 ```
 
 
