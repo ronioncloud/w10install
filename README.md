@@ -292,7 +292,7 @@ cd /D %USERPROFILE%\workspace\github\w10install
 ```
 
 
-# 6. Install building tools
+# 6. Install build tools
 
 ## 6.1 Windows ADK
 
@@ -302,6 +302,15 @@ To install it just execute:
 ```dos
 cd /D %USERPROFILE%\workspace\github\w10install\scripts
 install-adk.cmd
+```
+
+## 6.2 Other tools
+
+Creating a new windows image and removing "builtin" packages needs a tool called "install_wim_tweak". To install this tool an some others just execute:
+
+```dos
+cd /D %USERPROFILE%\workspace\github\w10install\scripts
+unpack-zipfiles.cmd
 ```
 
 
