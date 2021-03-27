@@ -200,33 +200,47 @@ cd w10install
 ```
 
 
-# 4. Get/Install essential building tools and software
+# 4. Get essential building tools and software
 
-## 4.1 Microsoft Media Creation Tool
+## 4.1 Basic software
 
-The media creation tool is needed to create a bootable USB stick or you can download a Windows 10 ISO file with it. You can download it with the script "download-software.cmd". Or you can download it yourself: https://www.microsoft.com/en-us/software-download/windows10
+The "basic" software is needed to make this work.
 
-Save it in folder "software" as "MediaCreationTool20H2"
-
-
-## 4.2 Manual download of ISO file
-
-At the moment I don't know of any method to automate this. So start the media creation tool and download the Windows 10 ISO file or get it from somewhere else.
-
-Save the ISO file to folder "iso".
-
-**IMPORTANT HINT:** Download the ISO file with this tool and KEEP this copy on your local disk *and* in your BACKUP! As history shows Microsoft *removes* access to old Windows versions for some time now.
-
-
-## 4.3 Windows ADK
-
-The Windows ADK contains the Windows Image Manager and some other essential tools.
-
-You can download it with the script "download-software.cmd". Afterwards execute "install-adk.cmd" and it will be setup automatically. Or you can download it yourself: https://docs.microsoft.com/en-US/windows-hardware/get-started/adk-install
-
-Save it in folder "software" and install with:
+Execute:
 ```dos
-adksetup.exe /q /ceip off /norestart /features OptionId.DeploymentTools
-
+cd software
+download-from-source.cmd basic
+cd ..
 ```
 
+Config file: basic.csv
+
+
+## 4.2 Browser software
+
+This contains firefox and some addons ...
+
+To download it execute:
+```dos
+cd software
+download-from-source.cmd browser
+cd ..
+```
+
+Config file: browser.csv
+
+
+## 4.3 Optional software
+
+This contains optional software. For e.g.: Purebasic, TotalCommander, em-Client, Steam, Softmaker, Purebasic, Teams, Visual Studio Code etc. pp. ...
+
+To download it execute:
+```dos
+cd software
+download-from-source.cmd optional
+cd ..
+```
+
+Config file: optional.csv
+
+Notice: Purebasic is needed to compile the software in the folder "source". These tools are precompiled and i placed the compiled versions in the folder "tools" - but in case you want to make some changes you will have to install this. The free version is sufficient to compile these little machine programs. By the way: Purebasic is a really great Basic dialect. It is Ultrafast, produces really small executables, it's rock solid and you won't need such bullshit like "vbrun100.dll" (shame on you Microsoft) to execute these binaries. It was created by a french programmer (Frederic Laboureur). Please support them and buy a licence in case you like Purebasic!
