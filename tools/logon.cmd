@@ -30,6 +30,14 @@ if NOT EXIST %USERPROFILE%\.ssh\config (
   copy /Y %TOOLS%\scripts\config\ssh-config.txt %USERPROFILE%\.ssh\config
 )
 
+rem GIT
+if NOT EXIST %USERPROFILE%\.gitconfig (
+  if EXIST %TOOLS%\personal\gitconfig (
+    echo setup for GIT ...
+    copy /Y %TOOLS%\personal\gitconfig %USERPROFILE%\.gitconfig
+  )
+)
+
 rem VIM
 if NOT EXIST %USERPROFILE%\.vimrc (
   echo setup for VIM ...
