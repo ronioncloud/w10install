@@ -8,7 +8,7 @@ It doesn't matter whether it's Linux, Windows or Mac OS: You need an automated i
 
 Since I am forced to work with Windows on the desktop - for professional reasons - this collection of scripts / this HowTo is exclusively geared towards Windows - and that will not change either.
 
-First I looked for a "professional" solution. Unfortunately I didn't find anything suitable. Sure - there is commercial software (so-called "enterprise" programs) but mostly these are bad or expensive or both or simply not available for normal users or small companies. I'm following the KISS principle privately and professionally - this is why complicated software (aka. bloatware) with agents and whistles and bells etc. pp. was out of the question.
+First I looked for a "professional" solution. Unfortunately I didn't find anything suitable. Sure - there is commercial software (so-called "enterprise" programs) but mostly these are bad or expensive or both or simply not available for normal users or small companies. I'm following the KISS principle privately and professionally - this is why complicated software (aka. bloatware) with agents, whistles and bells etc. pp. was out of the question.
 
 Another major problem is the spying frenzy of software manufacturers. Yes - i mean you Microsoft! So this means primarily the removing of Windows 10 telemetry. But unsolicited updates, by third-party manufacturers, are just as plague. This project takes care of that problem - as far as possible - without impairing the functionality of the system in an intolerable manner. But what is still tolerable? This lies mostly in the eye of the beholder ...
 
@@ -250,3 +250,32 @@ download-from-source.cmd optional
 Config file: optional.csv
 
 Notice: Purebasic is needed to compile the software in the folder "source". These tools are precompiled and i placed the compiled versions in the folder "tools" - but in case you want to make some changes you will have to install this. The free version is sufficient to compile these little machine programs. By the way: Purebasic is a really great Basic dialect. It is Ultrafast, produces really small executables, it's rock solid and you won't need such bullshit like "vbrun100.dll" (shame on you Microsoft) to execute these binaries. It was created by a french programmer (Frederic Laboureur). Please support them and buy a licence in case you like Purebasic!
+
+
+## 4.4 Windows ISO file
+
+My actual work is based on the English version of Windows 20H2 v1 64-bit. So we will need the ISO-file: "Win10_20H2_English_x64.iso". You could: 
+
+- download it yourself from Microsoft,
+- you could use the tool "MediaCreationTool20H2.exe" (provided in the folder "software")
+- or you could use the "HeiDoc" Windows ISO Downloader
+
+I prefer to use the Windows ISO downloader ("Windows-ISO-Downloader.exe" in the folder "software").
+
+Just start it (no installation needed) and select "Windows 10" on the right side.
+
+Select edition (left side) and choose "Windows 10 Home/Pro" from "Windows 10 Version 20H2 - October 2020".
+
+**Please DO NOT use th v2 version! This is not tested yet (you have been warned)!**
+
+Click "Confirm".
+
+Select "English"
+
+**(DO NOT USE "International English"! or some other language)!**
+
+Click "Confirm"
+
+Click "64-bit download"
+
+Save the ISO file to the folder "iso" in the folder "w10install".
