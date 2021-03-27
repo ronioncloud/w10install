@@ -202,15 +202,23 @@ cd w10install
 
 # 4. Get essential building tools and software
 
+You can download almost all needed software with the script "01_DownloadAll.cmd".
+
+To do this execute:
+```dos
+cd /D %USERPROFILE%\workspace\github\w10install
+01_DownloadAll.cmd
+```
+
+
 ## 4.1 Basic software
 
 The "basic" software is needed to make this work.
 
 Execute:
 ```dos
-cd software
+cd /D %USERPROFILE%\workspace\github\w10install\software
 download-from-source.cmd basic
-cd ..
 ```
 
 Config file: basic.csv
@@ -222,9 +230,8 @@ This contains firefox and some addons ...
 
 To download it execute:
 ```dos
-cd software
+cd /D %USERPROFILE%\workspace\github\w10install\software
 download-from-source.cmd browser
-cd ..
 ```
 
 Config file: browser.csv
@@ -236,9 +243,8 @@ This contains optional software. For e.g.: Purebasic, TotalCommander, em-Client,
 
 To download it execute:
 ```dos
-cd software
+cd /D %USERPROFILE%\workspace\github\w10install\software
 download-from-source.cmd optional
-cd ..
 ```
 
 Config file: optional.csv
