@@ -30,8 +30,11 @@ if EXIST %ESD% (
 
 if EXIST %WIM% (
 
+  rem cleanup ...
+  del /F %W10PRO% 1>nul 2>nul
+
   echo.
-  echo INFO: found %WIM% 
+  echo INFO: found %WIM%
 
   echo exporting image from %WIM% ...
   dism /Export-Image ^
@@ -41,6 +44,7 @@ if EXIST %WIM% (
     /Compress:Max ^
     /CheckIntegrity
 
+  attrib -R %WIM%
   move /Y %W10PRO% %WIM%
   echo all done >%STATEFILE%
 
