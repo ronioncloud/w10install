@@ -15,6 +15,7 @@ if NOT EXIST %WIM% (
     rem rename WIM file ...
     move /Y %WIM% %SOURCES%\install-orig.wim
     set WIM=%SOURCES%\install-orig.wim
+  )
 )
 
 echo deleting "old" install.wim ...
