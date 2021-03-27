@@ -104,11 +104,12 @@ rd /S /Q %T%\Files
 
 [CURL Website](https://curl.se/windows)
 
-Download: https://curl.se/windows/dl-7.75.0_3/curl-7.75.0_3-win64-mingw.zip  
-Save the zipfile as "curl.zip" in folder "software".
+Download: https://curl.se/windows/dl-7.75.0_3/curl-7.75.0_3-win64-mingw.zip and save it in your "Downloads" folder.
 
 Extract: the self extracting file:
 ```dos
+cd /D %USERPROFILE%\Downloads
+move /Y curl*.zip curl.zip
 %TOOLS%\7z -y -o%T%\curl e software\curl.zip
 move /Y %T%\curl\curl.exe %TOOLS%
 move /Y %T%\curl\libcurl*.dll %TOOLS%
