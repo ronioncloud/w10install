@@ -252,7 +252,7 @@ Config file: optional.csv
 Notice: Purebasic is needed to compile the software in the folder "source". These tools are precompiled and i placed the compiled versions in the folder "tools" - but in case you want to make some changes you will have to install this. The free version is sufficient to compile these little machine programs. By the way: Purebasic is a really great Basic dialect. It is Ultrafast, produces really small executables, it's rock solid and you won't need such bullshit like "vbrun100.dll" (shame on you Microsoft) to execute these binaries. It was created by a french programmer (Frederic Laboureur). Please support them and buy a licence in case you like Purebasic!
 
 
-## 4.4 Windows ISO file
+## 4.4 Windows 10 ISO file
 
 My actual work is based on the English version of Windows 20H2 v1 64-bit. So we will need the ISO-file: "Win10_20H2_English_x64.iso". You could: 
 
@@ -266,16 +266,27 @@ Just start it (no installation needed) and select "Windows 10" on the right side
 
 Select edition (left side) and choose "Windows 10 Home/Pro" from "Windows 10 Version 20H2 - October 2020".
 
-**Please DO NOT use th v2 version! This is not tested yet (you have been warned)!**
+**Please DO NOT USE the v2 version! This is not tested yet (you have been warned)!**
 
 Click "Confirm".
 
 Select "English"
 
-**(DO NOT USE "International English"! or some other language)!**
+**Please DO NOT USE "International English" or some other language!**
 
 Click "Confirm"
 
 Click "64-bit download"
 
-Save the ISO file to the folder "iso" in the folder "w10install".
+Save the ISO file to the folder "iso" in the folder "w10install" and wait for the download to finish.
+
+
+# 5. Extract the Windows 10 ISO file
+
+The ISO file must be extacted to the disk now. The files will be place in c:\temp. The script "02_ExtractIso.cmd" does all the work.
+
+Just execute:
+```dos
+cd /D %USERPROFILE%\workspace\github\w10install
+02_ExtractIso.cmd iso\Win10_20H2_English_x64.iso
+```
