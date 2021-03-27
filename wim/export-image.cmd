@@ -55,7 +55,9 @@ if EXIST %WIM% (
     /Compress:Max ^
     /CheckIntegrity
 
+  echo set write access for install.wim ..
   attrib -R %WIM%
+
   move /Y %W10PRO% %WIM%
   echo all done >%STATEFILE%
 
