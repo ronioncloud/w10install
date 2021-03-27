@@ -125,8 +125,9 @@ cd ..
 
 Download with curl to software folder:
 ```dos
-%TOOLS%\curl -L https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe --output software\git-setup.exe
-
+cd /D %USERPROFILE%\Downloads
+%TOOLS%\curl -L https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe --output git-setup.exe
+cd ..
 ```
 
 Create the GIT configfile for the setup program (use notepad):
@@ -154,7 +155,7 @@ PerformanceTweaksFSCache=Disabled
 EnableSymlinks=Disabled
 EnablePseudoConsoleSupport=Disabled
 ```
-Save it to c:\temp\install-git.txt
+Save it as c:\temp\install-git.txt
 
 Execute the Git setup:
 ```dos
