@@ -18,7 +18,7 @@ if EXIST %ESD% (
     /SourceImageFile:%ESD% ^
     /DestinationImageFile:%WIM% ^
     /SourceName:"Windows 10 Pro" ^
-    /Compress:Fast ^
+    /Compress:Max ^
     /CheckIntegrity
 
   echo.
@@ -38,7 +38,7 @@ if EXIST %WIM% (
     /SourceImageFile:%WIM% ^
     /DestinationImageFile:%W10PRO% ^
     /SourceName:"Windows 10 Pro" ^
-    /Compress:Fast ^
+    /Compress:Max ^
     /CheckIntegrity
 
   move /Y %W10PRO% %WIM%
