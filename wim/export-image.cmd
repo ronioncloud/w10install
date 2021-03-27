@@ -1,30 +1,28 @@
 @echo off
 set SOURCES=c:\TEMP\W10\sources
-set WIM=%SOURCES%\install.esd
+set WIM=%SOURCES%\install
 
-if NOT EXIST %WIM% (
+if NOT EXIST %WIM%.esd (
   echo.
-  echo [%0] WARNING: %WIM% NOT found!
+  echo [%0] WARNING: %WIM%.esd NOT found!
 
   rem search for "install.wim" ...
-  set WIM=%SOURCES%\install.wim
-  if NOT EXIST %WIM% (
-    echo [%0] ERROR: %WIM% also NOT found!
+  if NOT EXIST %WIM%.wim (
+    echo [%0] ERROR: %WIM%.wim also NOT found!
     exit /b
   ) else (
     rem rename WIM file ...
-    move /Y %WIM% %SOURCES%\install-orig.wim
-    set WIM=%SOURCES%\install-orig.wim
+    move /Y %WIM%.wim %WIM%-orig.wim
   )
 )
 
 echo deleting "old" install.wim ...
-del %SOURCES%\install.wim 1>nul 2>nul
+del %WIM%.wim 1>nul 2>nul
 
-echo exporting image from %WIM% ...
+echo exporting image from %WIM%-orig.wim ...
 dism /Export-Image ^
-  /SourceImageFile: %WIM% ^
-  /DestinationImageFile:%SOURCES%\install.wim ^
+  /SourceImageFile: %WIM%-orig.wim ^
+  /DestinationImageFile:%WIM%.wim ^
   /SourceName:"Windows 10 Pro" ^
   /Compress:None ^
   /CheckIntegrity
