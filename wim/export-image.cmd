@@ -2,29 +2,63 @@
 set SOURCES=c:\TEMP\W10\sources
 set ESD=%SOURCES%\install.esd
 set WIM=%SOURCES%\install.wim
+set W10PRO=%SOURCES%\w10pro.wim
+set STATEFILE=%SOURCES%\w10pro.txt
 
-if NOT EXIST %ESD% (
+if EXIST %ESD% (
+
   echo.
-  echo [%0] WARNING: %ESD% NOT found!
+  echo INFO: found %ESD% 
 
-  rem search for "install.wim" ...
-  if NOT EXIST %WIM% (
-    echo [%0] ERROR: %WIM% also NOT found!
-    exit /b
-  ) else (
-    rem rename WIM file ...
-    move /Y %WIM% %SOURCES%\install-orig.wim
-  )
+  echo deleting "old" install.wim ...
+  del %WIM% 1>nul 2>nul
+
+  echo exporting image from %ESD% ...
+  dism /Export-Image ^
+    /SourceImageFile:%ESD% ^
+    /DestinationImageFile:%WIM% ^
+    /SourceName:"Windows 10 Pro" ^
+    /Compress:Fast ^
+    /CheckIntegrity
+
+  echo.
+  echo READY.
+  exit /b
+
 )
 
-echo deleting "old" install.wim ...
-del %WIM% 1>nul 2>nul
 
-echo exporting image from %SOURCES%\install-orig.wim ...
-dism /Export-Image ^
-  /SourceImageFile: %SOURCES%\install-orig.wim ^
-  /DestinationImageFile:%WIM% ^
-  /SourceName:"Windows 10 Pro" ^
-  /Compress:None ^
-  /CheckIntegrity
+if EXIST %WIM% (
+
+  echo.
+  echo INFO: found %WIM% 
+
+  echo exporting image from %WIM% ...
+  dism /Export-Image ^
+    /SourceImageFile:%WIM% ^
+    /DestinationImageFile:%W10PRO% ^
+    /SourceName:"Windows 10 Pro" ^
+    /Compress:Fast ^
+    /CheckIntegrity
+
+  move /Y %W10PRO% %WIM%
+  echo all done >%STATEFILE%
+
+  echo.
+  echo READY.
+  exit /b
+
+)
+
+if EXIST %STATEFILE% (
+
+  echo.
+  echo INFO: found %STATEFILE% 
+  echo nothing todo. all work was already done.
+  echo READY.
+  exit /b
+
+)
+
+set ERRORLEVEL=9009
 
