@@ -86,8 +86,8 @@ Save the MSI file as "7z-setup.msi" in your "Downloads" folder.
 
 Unpack the MSI with:
 ```dos
-cd /D %USERPROFILE%
-msiexec /a Downloads\7z-setup.msi TARGETDIR=%T%
+cd /D %USERPROFILE%\Downloads
+msiexec /a 7z-setup.msi TARGETDIR=%T%
 
 ```
 
