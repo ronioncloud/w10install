@@ -82,12 +82,12 @@ setx T c:\TEMP
 [7-ZIP Website](https://www.7-zip.org)
 
 Download: https://www.7-zip.org/a/7z1900-x64.exe  
-Save the MSI file as "7z-setup.msi" in your home folder.
+Save the MSI file as "7z-setup.msi" in your "Downloads" folder.
 
 Unpack the MSI with:
 ```dos
 cd /D %USERPROFILE%
-msiexec /a 7z-setup.msi TARGETDIR=%T%
+msiexec /a Downloads\7z-setup.msi TARGETDIR=%T%
 
 ```
 
