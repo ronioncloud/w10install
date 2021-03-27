@@ -313,6 +313,9 @@ This is a very long running and CPU intensive task. I recommend a 3 GHZ six core
 - extract Windows image (WIM file) and choose Windows 10 Pro version
 - remove all apps from the windows image (except the Store app!)
 - remove many packages from the windows image (including defender!)
+- etc. pp.
+
+**Start cmd.exe as ADMINISTRATOR!**
 
 Just execute:
 ```dos
