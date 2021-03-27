@@ -29,7 +29,7 @@ set DISK=
   )
 
   diskpart /s %DPARTSCRIPT% 1>nul 2>nul
-  if %errorlevel% EQU 0 (
+  if %ERRORLEVEL% EQU 0 (
     echo OK using disk %DISK%
     GOTO CONT1
   ) else (
@@ -75,7 +75,7 @@ rem =====
 )
 
 diskpart /s %DPARTSCRIPT% 1>nul 2>nul
-if %errorlevel% NEQ 0 (
+if %ERRORLEVEL% NEQ 0 (
   echo ERROR: while formatting the disk!
   del /F %DPARTSCRIPT% 1>nul 2>nul
   exit /b
