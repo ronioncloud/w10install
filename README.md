@@ -290,3 +290,16 @@ Just execute:
 cd /D %USERPROFILE%\workspace\github\w10install
 02_ExtractIso.cmd iso\Win10_20H2_English_x64.iso
 ```
+
+
+# 6. Install building tools
+
+## 6.1 Windows ADK
+
+This is needed to be able to edit the Microsoft XML files (needed for unattended installation) and for the creation of ISO files (last step in the build process - mainly needed for testing purposes).
+
+To install it just execute:
+```dos
+cd /D %USERPROFILE%\workspace\github\w10install\scripts
+install-adk.cmd
+```
