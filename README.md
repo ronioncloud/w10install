@@ -303,3 +303,21 @@ To install it just execute:
 cd /D %USERPROFILE%\workspace\github\w10install\scripts
 install-adk.cmd
 ```
+
+
+# 7. Build the Windows Image for unattended installations
+
+This is a very long running and CPU intensive task. I recommend a 3 GHZ six core machine with 16 GB RAM. Many things will be done here:
+
+- extract the boot image (WIM file) and add tools to provide a boot menu etc. pp.
+- extract Windows image (WIM file) and choose Windows 10 Pro version
+- remove all apps from the windows image (except the Store app!)
+- remove many packages from the windows image (including defender!)
+
+Just execute:
+```dos
+cd /D %USERPROFILE%\workspace\github\w10install
+03_MakeAll.cmd
+```
+
+Be patient: This whole process could run 1 - 3 hours.
