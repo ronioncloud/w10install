@@ -47,6 +47,9 @@ This is actually the only *supported* version!
 
 # 1. Setup your workspace
 
+Note: This was tested with a standard Windows 10 installation (20H2 v1).
+
+
 ## 1.1 Create some directories
 
 open cmd.exe and execute:
@@ -75,7 +78,6 @@ setx T c:\TEMP
 
 
 # 2. Get/Install basic tools and software
-
 
 ## 2.1 Get 7-zip
 
