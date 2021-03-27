@@ -159,14 +159,16 @@ Save it as c:\temp\install-git.txt
 
 Execute the Git setup:
 ```dos
-software\git-setup.exe /LOADINF=c:\temp\install-git.txt /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
+cd /D %USERPROFILE%\Downloads
+git-setup.exe /LOADINF=c:\temp\install-git.txt /NORESTART /NOCANCEL /SILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS
+cd ..
 ```
 
 Cleanup:
 ```dos
 del /S /Q /A c:\temp\install-git.txt 1>nul
-
 ```
+
 
 ## 2.4 Modify system PATH
 
@@ -176,14 +178,12 @@ You need to extend your PATH variable with the following directories:
 %TOOLS%
 %TOOLS%\git\bin
 %TOOLS%\git\usr\bin
-
 ```
 
 Or (in case you are fine with our path settings) execute:
 ```dos
 set PATH=%SYSTEMROOT%;%SYSTEMROOT%\system32;%SYSTEMROOT%\system32\wbem;%SYSTEMROOT%\system32\WindowsPowerShell\v1.0;%LOCALAPPDATA%\Microsoft\WindowsApps;%TOOLS%;%TOOLS%\git\bin;%TOOLS%\git\usr\bin
 setx PATH %SYSTEMROOT%;%SYSTEMROOT%\system32;%SYSTEMROOT%\system32\wbem;%SYSTEMROOT%\system32\WindowsPowerShell\v1.0;%LOCALAPPDATA%\Microsoft\WindowsApps;%TOOLS%;%TOOLS%\git\bin;%TOOLS%\git\usr\bin
-
 ```
 
 
