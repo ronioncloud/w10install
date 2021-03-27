@@ -110,11 +110,12 @@ Extract: the self extracting file:
 ```dos
 cd /D %USERPROFILE%\Downloads
 move /Y curl*.zip curl.zip
-%TOOLS%\7z -y -o%T%\curl e software\curl.zip
+%TOOLS%\7z -y -o%T%\curl e curl.zip
 move /Y %T%\curl\curl.exe %TOOLS%
 move /Y %T%\curl\libcurl*.dll %TOOLS%
 move /Y %T%\curl\curl-ca-bundle.crt %TOOLS%
 rd /S /Q %T%\curl
+cd ..
 ```
 
 
