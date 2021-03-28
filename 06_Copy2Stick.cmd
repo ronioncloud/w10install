@@ -54,7 +54,7 @@ echo MYUSER = %MYUSER%
 
 rem ask for real name ...
 echo.
-set MYNAME="Support User"
+set MYNAME=Support User
 set /p MYNAME="Display Name (%MYNAME%)? "
 echo MYNAME = %MYNAME%
 
@@ -65,9 +65,9 @@ set /p MYPASS="Password (not set)? "
 echo MYPASS = %MYPASS%
 
 echo.
-tools\searchreplace %USBDRIVE%\autounattend.xml ___MYUSER___ %MYUSER%
-tools\searchreplace %USBDRIVE%\autounattend.xml ___MYNAME___ %MYNAME%
-tools\searchreplace %USBDRIVE%\autounattend.xml ___MYPASS___ %MYPASS%
+tools\searchreplace %USBDRIVE%\autounattend.xml ___MYUSER___ "%MYUSER%"
+tools\searchreplace %USBDRIVE%\autounattend.xml ___MYNAME___ "%MYNAME%"
+tools\searchreplace %USBDRIVE%\autounattend.xml ___MYPASS___ "%MYPASS%"
 
 echo.
 echo copying [ %BOOT% ] to drive %USBDRIVE% ...
