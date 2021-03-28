@@ -326,10 +326,141 @@ This is a very long running and CPU intensive task. I recommend a 3 GHZ six core
 
 **Start cmd.exe as ADMINISTRATOR!**
 
-Just execute:
+Execute:
 ```dos
 cd /D %USERPROFILE%\workspace\github\w10install
 03_MakeAll.cmd
 ```
 
 Be patient: This whole process could run 1 - 3 hours.
+
+
+# 8. Create Boot media
+
+This has to be done in 3 steps:
+- format a media (USB stick)
+- create a standard Windows 10 boot media
+- copy everything (custom image, software, config) to the media
+
+
+## 8.1 Format USB stick
+
+Please use a fast USB 3 stick. The size should be 16 GB or more (you could use 8 GB but windows images are tending to get bigger and bigger. Additionally: We will copy lots of 3rd party software to the stick).
+
+To create it execute:
+```dos
+cd /D %USERPROFILE%\workspace\github\w10install
+04_FormatStick.cmd
+```
+
+Choose the correct drive (this should be drive 1 or 2)
+
+**WARNING: Please be careful and make absolutely sure NOT TO DELETE any important data!**
+
+Example run:
+```text
+====================
+Format USB Stick ...
+====================
+
+Showing disk list ...
+
+Microsoft DiskPart version 10.0.19041.610
+
+Copyright (C) Microsoft Corporation.
+On computer: DESKTOP-NN1UC68
+
+  Disk ###  Status         Size     Free     Dyn  Gpt
+  --------  -------------  -------  -------  ---  ---
+  Disk 0    Online          238 GB  1024 KB
+  Disk 1    Online           14 GB      0 B
+
+Leaving DiskPart...
+Please select a disk: 1
+OK using disk 1
+Please enter a label for the new disk: W1020H2v1
+WARNING ! This will DELETE ALL data on disk number [ 1 ]
+
+REALLY delete disk 1 (Y/N)? y
+READY.
+USB stick formatted.
+```
+
+
+## 8.2 Create standard Windows media
+
+The next script needs the ISO file again and will create a standard boot media with an UNMODIFIED windows 10 version. This is a good way to create a standard windows media without being forced to use Windows media creator or other rubbish tools.
+
+Just execute:
+```dos
+cd /D %USERPROFILE%\workspace\github\w10install
+05_CreateStick.cmd D: iso\Win10_20H2_English_x64.iso
+```
+
+After creating the stick with this script you can use it for a standard Windows 10 installation!
+
+Example run:
+```text
+====================
+Create USB Stick ...
+====================
+using drive D: ...
+using image C:\Users\support\workspace\github\w10install\iso\Win10_20H2_English_x64.iso ...
+mounting disk image (iso) with powershell ...
+
+Attached          : True
+BlockSize         : 0
+DevicePath        : \\.\CDROM0
+FileSize          : 6155782144
+ImagePath         : C:\Users\support\workspace\github\w10install\iso\Win10_20H2_English_x64.iso
+LogicalSectorSize : 2048
+Number            : 0
+Size              : 6155782144
+StorageType       : 1
+PSComputerName    :
+
+copying files from image to targetpath D: ...
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows
+-------------------------------------------------------------------------------
+
+  Started : Sunday, 28 March 2021 12:22:40
+   Source = \\.\CDROM0\
+     Dest = D:\
+
+    Files : *.*
+
+  Options : *.* /256 /NDL /NFL /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /R:10 /W:30
+
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        85        84         1         0         0         1
+   Files :       900       899         0         0         1         0
+   Bytes :   5.727 g  798.91 m         0         0   4.947 g         0
+   Times :   0:01:26   0:01:24                       0:00:00   0:00:02
+
+
+   Speed :             9966532 Bytes/sec.
+   Speed :             570.289 MegaBytes/min.
+   Ended : Sunday, 28 March 2021 12:24:07
+
+unmounting disk image (iso) ...
+
+Attached          : False
+BlockSize         : 0
+DevicePath        :
+FileSize          : 6155782144
+ImagePath         : C:\Users\support\workspace\github\w10install\iso\Win10_20H2_English_x64.iso
+LogicalSectorSize : 2048
+Number            :
+Size              : 6155782144
+StorageType       : 1
+PSComputerName    :
+
+READY.
+```
+
