@@ -108,7 +108,7 @@ if EXIST tools (
 if EXIST software (
   echo.
   echo copying folder [ software ] to %USBDRIVE%\tools ...
-  robocopy %%P %USBDRIVE%\tools\%%P /COPY:DT /FFT /XO /MIR /256 /NJH /NJS /NDL ^
+  robocopy software %USBDRIVE%\tools\software /COPY:DT /FFT /XO /MIR /256 /NJH /NJS /NDL ^
     /XF *.iso /XF *.txt /XF *.cmd /XF *.csv /XF .gitignore /XD .git
 )
 
