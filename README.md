@@ -450,14 +450,15 @@ USB stick formatted.
 ```
 
 
-## 9.2 Create standard Windows media
+## 9.2 Prepare the USB stick
 
-The next script needs the ISO file again and will create a standard boot media with an UNMODIFIED windows 10 version. This is a good way to create a standard windows media without being forced to use Windows media creator or other rubbish tools.
+The next script needs the ISO file again and will prepare the boot media with all needed files EXCEPT the image files (boot.wim & install.esd). In case you need a standard image (unmodified) you will have to use the Microsoft "MediaCreationTool20H2.exe" included in the "software" folder.
+
 
 Just execute:
 ```dos
 cd /D %USERPROFILE%\workspace\github\w10install
-05_CreateStick.cmd D: iso\Win10_20H2_English_x64.iso
+05_PrepareStick.cmd D: iso\Win10_20H2_English_x64.iso
 ```
 
 After creating the stick with this script you can use it for a standard Windows 10 installation!
