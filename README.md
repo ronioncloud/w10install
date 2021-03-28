@@ -278,7 +278,7 @@ Click "Confirm"
 
 Click "64-bit download"
 
-Save the ISO file to the folder "iso" in the folder "w10install" and wait for the download to finish.
+Save the ISO file to the folder "software" in the folder "w10install" and wait for the download to finish.
 
 
 # 5. Extract the Windows 10 ISO file
@@ -292,9 +292,72 @@ cd /D %USERPROFILE%\workspace\github\w10install
 ```
 
 
-# 6. Install build tools
+# 6. Upload software to private FTP server
 
-## 6.1 Windows ADK
+The internet is changing constantly. Software is changing at all times. URI's (files) **disappear**! Especially Microsoft has the habit to remove old versions of operating systems from their download servers. *But 3rd parties do this too.*
+
+In fact: This was one of the main reasons why i created this: I wanted to have a source i can trust - a source that will not change until i say so.
+
+So my advice is: upload the software to your own ftp server or create a local copy on some USB drive and most important: KEEP this copy for yourself!
+
+Uploading all the software to your own server is easy. Just create the folder "personal" (in w10install) and put a config file named "ftpsettings.cmd" in it:
+
+Example for w10install\ftpsettings.cmd:
+```text
+FTP_SERVER=example.com
+FTP_PATH=/path/to/directory/w10install/W1020H2v1
+FTP_USER=myuser
+FTP_PASS=mypass
+```
+
+The folder "personal" is also used by some other scripts in this project. You can place config files or license files in this folder (This will be described in detail in some other chapters). It may be a good idea to have this folder ("personal") as GIT repository on github or somewhere else - just my 50 cents.
+
+Please notice: In the example i have chosen the path "... w10install/W1020H2v1". Best practice would be to have a folder for each Windows version (W1020H2v1). All files (including the iso file) should be put there - this makes sure that you have everything in one place for the case that you come back a year later or so and you want to create a new USB stick with a older Windows version - for testing purposes.
+
+
+## 6.1 Upload ALL files to a private ftp server
+
+Lets say you want to upload all browser related software to your private ftp server.
+
+Execute:
+```dos
+cd /D %USERPROFILE%\workspace\github\w10install\software
+upload-to-ftp.cmd browser
+```
+
+The script reads the file "browser.csv" in folder "software" and uploads all files to your ftp server. The files will be uploaded in any case (the script is not checking the size of the file in the target or whether it's already present. This is a really dumb script - but IMHO there's no smarter way to do this in dos batch ...). This is the reason why i have created a script to upload single files (see next chapter).
+
+
+## 6.2 Upload a SINGLE file to a private ftp server
+
+Lets say you want to upload the driver software for the WFC5210 printer to your private ftp server.
+
+Execute:
+```dos
+cd /D %USERPROFILE%\workspace\github\w10install\software
+upload-to-ftp-singlefile.cmd WFC5210-setup.exe
+```
+
+HINT: You can use this also to upload the ISO file to the ftp server.
+
+
+## 6.3 Download software from a private FTP server
+
+When you have uploaded the entire software to your private ftp server you can download it again on another workstation with the script "download-from-ftp.cmd" and you are then not dependent on any of the original sources. This is useful when files "disappear" "accidentally" or "unintentionally" from some server. That is also a reason why I programmed all of this here.
+
+Just execute:
+```dos
+cd /D %USERPROFILE%\workspace\github\w10install\software
+download-from-ftp.cmd basic
+download-from-ftp.cmd browser
+download-from-ftp.cmd optional
+download-from-ftp.cmd other
+```
+
+
+# 7. Install build tools
+
+## 7.1 Windows ADK
 
 This is needed to be able to edit the Microsoft XML files (needed for unattended installation) and for the creation of ISO files (last step in the build process - mainly needed for testing purposes).
 
@@ -304,7 +367,7 @@ cd /D %USERPROFILE%\workspace\github\w10install\scripts
 install-adk.cmd
 ```
 
-## 6.2 Other tools
+## 7.2 Other tools
 
 Creating a new windows image and removing "builtin" packages needs a tool called "install_wim_tweak". To install this tool an some others just execute:
 
@@ -314,7 +377,7 @@ unpack-zipfiles.cmd
 ```
 
 
-# 7. Build the Windows Image for unattended installations
+# 8. Build the Windows Image for unattended installations
 
 This is a very long running and CPU intensive task. I recommend a 3 GHZ six core machine with 16 GB RAM. Many things will be done here:
 
@@ -335,7 +398,7 @@ cd /D %USERPROFILE%\workspace\github\w10install
 Be patient: This whole process could run 1 - 3 hours.
 
 
-# 8. Create Boot media
+# 9. Create Boot media
 
 This has to be done in 3 steps:
 - format a media (USB stick)
@@ -343,7 +406,7 @@ This has to be done in 3 steps:
 - copy everything (custom image, software, config) to the media
 
 
-## 8.1 Format USB stick
+## 9.1 Format USB stick
 
 Please use a fast USB 3 stick. The size should be 16 GB or more (you could use 8 GB but windows images are tending to get bigger and bigger. Additionally: We will copy lots of 3rd party software to the stick).
 
@@ -387,7 +450,7 @@ USB stick formatted.
 ```
 
 
-## 8.2 Create standard Windows media
+## 9.2 Create standard Windows media
 
 The next script needs the ISO file again and will create a standard boot media with an UNMODIFIED windows 10 version. This is a good way to create a standard windows media without being forced to use Windows media creator or other rubbish tools.
 
@@ -425,7 +488,7 @@ unmounting disk image (iso) ...
 READY.
 ```
 
-## 8.3 Copy custom image to boot media
+## 9.3 Copy custom image to boot media
 
 Now it's time to copy the custom windows image, alls scripts and additional 3rd party software to our boot media (USB stick).
 
@@ -483,7 +546,7 @@ READY.
 **Your customized windows image for UNATTENDED installation is READY now. Remove the USB stick and put it into a PC you want to install.**
 
 
-## 8.4 Create an ISO image
+## 9.4 Create an ISO image
 
 In case you need an ISO image you can create it with the following command:
 
@@ -524,4 +587,5 @@ READY.
 
 Having an ISO image is useful for testing purposes or it maybe needed for a special use case - for e.g.: you want to install the system on some machine in the datacenter and the remote console needs an ISO image as boot media.
 
+*Notice: This step is one of the reasons why we need the Windows ADK. The binary "oscdimg" is included in this Microsoft package. "oscdimg" is used by "07_MakeIso.cmd" for creating the ISO image.*
 

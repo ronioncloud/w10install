@@ -1,9 +1,11 @@
+*.7z
+*.dll
 *.exe
+*.iso
 *.jar
 *.msi
+*.swp
 *.xpi
+*.wim
 *.zip
 *.msixbundle
-*.7z
-ftpsettings.cmd
-
