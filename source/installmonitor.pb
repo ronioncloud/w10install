@@ -4,7 +4,7 @@
 ; LICENSE  : GPL
 ; AUTHOR   : Michael H.G. Schmidt
 ; EMAIL    : michael@schmidt2.de
-; DATE     : 20210322
+; DATE     : 20210328
 ; ------------------------------------------------------------
 ;
 
@@ -19,7 +19,7 @@ logfile$=SYS$+"\tools\scripts\autoconfig-all.txt"
 ;;;;;;;
 
 ; open window to hide all other windows on desktop ...
-OpenWindow(0, 0, 0, 0, 0, "Unattended Installation - running scripts ...", #PB_Window_SystemMenu | #PB_Window_Maximize)
+OpenWindow(0, 0, 0, 0, 0, "Unattended Installation - running scripts ...", #PB_Window_BorderLess|#PB_Window_Maximize)
 StickyWindow(0,#True)
 SetActiveWindow(0)
 
@@ -74,6 +74,7 @@ Repeat
   
 Until WaitWindowEvent() = #PB_Event_CloseWindow
 
-; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 6
+; IDE Options = PureBasic 5.71 LTS (Windows - x64)
+; CursorPosition = 19
+; FirstLine = 2
 ; EnableXP
