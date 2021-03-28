@@ -483,4 +483,45 @@ READY.
 **Your customized windows image for UNATTENDED installation is READY now. Remove the USB stick and put it into a PC you want to install.**
 
 
+## 8.4 Create an ISO image
+
+In case you need an ISO image you can create it with the following command:
+
+```dos
+cd /D %USERPROFILE%\workspace\github\w10install
+07_MakeIso.cmd D:
+```
+
+Example run:
+```text
+===================
+Make ISO file ...
+===================
+
+using drive [ D: ] ...
+
+OSCDIMG 2.56 CD-ROM and DVD-ROM Premastering Utility
+Copyright (C) Microsoft, 1993-2012. All rights reserved.
+Licensed only for producing Microsoft authorized content.
+
+
+Scanning source tree (1000 files in 93 directories)
+Scanning source tree complete (1090 files in 97 directories)
+
+Computing directory information complete
+
+Image file is 5697568768 bytes
+
+Writing 1090 files in 97 directories to c:\temp\WIN10-AUTO.iso
+
+100% complete
+
+Final image file is 5699987456 bytes
+
+Done.
+READY.
+```
+
+Having an ISO image is useful for testing purposes or it maybe needed for a special use case - for e.g.: you want to install the system on some machine in the datacenter and the remote console needs an ISO image as boot media.
+
 
