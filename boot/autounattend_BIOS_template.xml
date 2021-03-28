@@ -17,24 +17,14 @@
                 <Disk wcm:action="add">
                     <CreatePartitions>
                         <CreatePartition wcm:action="add">
-                            <Order>2</Order>
-                            <Type>EFI</Type>
-                            <Size>100</Size>
-                        </CreatePartition>
-                        <CreatePartition wcm:action="add">
                             <Order>1</Order>
-                            <Size>500</Size>
+                            <Size>100</Size>
                             <Type>Primary</Type>
                         </CreatePartition>
                         <CreatePartition wcm:action="add">
+                            <Order>2</Order>
+                            <Type>Primary</Type>
                             <Extend>true</Extend>
-                            <Order>4</Order>
-                            <Type>Primary</Type>
-                        </CreatePartition>
-                        <CreatePartition wcm:action="add">
-                            <Order>3</Order>
-                            <Size>16</Size>
-                            <Type>MSR</Type>
                         </CreatePartition>
                     </CreatePartitions>
                     <ModifyPartitions>
@@ -42,22 +32,12 @@
                             <Order>1</Order>
                             <PartitionID>1</PartitionID>
                             <Format>NTFS</Format>
-                            <Label>WinRE</Label>
-                            <TypeID>DE94BBA4-06D1-4D40-A16A-BFD50179D6AC</TypeID>
-                        </ModifyPartition>
-                        <ModifyPartition wcm:action="add">
-                            <Order>3</Order>
-                            <PartitionID>3</PartitionID>
+                            <Label>System</Label>
+                            <Active>true</Active>
                         </ModifyPartition>
                         <ModifyPartition wcm:action="add">
                             <Order>2</Order>
                             <PartitionID>2</PartitionID>
-                            <Label>System</Label>
-                            <Format>FAT32</Format>
-                        </ModifyPartition>
-                        <ModifyPartition wcm:action="add">
-                            <Order>4</Order>
-                            <PartitionID>4</PartitionID>
                             <Letter>C</Letter>
                             <Label>Windows</Label>
                             <Format>NTFS</Format>
@@ -71,7 +51,7 @@
                 <OSImage>
                     <InstallTo>
                         <DiskID>0</DiskID>
-                        <PartitionID>4</PartitionID>
+                        <PartitionID>2</PartitionID>
                     </InstallTo>
                     <WillShowUI>OnError</WillShowUI>
                 </OSImage>
@@ -122,12 +102,12 @@
                     <LocalAccount wcm:action="add">
                         <Password>
                             <!-- PASSWORD HERE -->
-                            <Value></Value>
-                            <PlainText>false</PlainText>
+                            <Value>___MYPASS___</Value>
+                            <PlainText>true</PlainText>
                         </Password>
-                        <DisplayName>support</DisplayName>
                         <!-- USERNAME HERE -->
-                        <Name>support</Name>
+                        <DisplayName>___MYNAME___</DisplayName>
+                        <Name>___MYUSER___</Name>
                         <Group>Administrators</Group>
                     </LocalAccount>
                 </LocalAccounts>
@@ -135,19 +115,19 @@
             <AutoLogon>
                 <Password>
                     <!-- PASSWORD HERE -->
-                    <Value></Value>
-                    <PlainText>false</PlainText>
+                    <Value>___MYPASS___</Value>
+                    <PlainText>true</PlainText>
                 </Password>
                 <Enabled>true</Enabled>
                 <LogonCount>1</LogonCount>
                 <!-- USERNAME HERE -->
-                <Username>support</Username>
+                <Username>___MYUSER___</Username>
             </AutoLogon>
             <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">
                     <Order>1</Order>
                     <Description>Password Never Expires</Description>
-                    <CommandLine>cmd /C wmic useraccount where name=&quot;support&quot; set PasswordExpires=false</CommandLine>
+                    <CommandLine>cmd /C wmic useraccount where name=&quot;___MYUSER___&quot; set PasswordExpires=false</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <Order>2</Order>

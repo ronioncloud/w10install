@@ -32,7 +32,7 @@ Finally, there is the problem of obesity. Modern systems are getting fatter, slo
 # **Please read this to get started!**
 
 **IMPORTANT:**
-This whole thing was crafted and tested with Windows 10 version 20H2.  
+This whole thing was crafted and tested with Windows 10 version 20H2 v1 english, 64-bit.  
 This is actually the only *supported* version!  
 
 

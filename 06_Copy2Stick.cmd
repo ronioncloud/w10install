@@ -34,17 +34,40 @@ set answer=
   set /p answer="BIOS or UEFI setup (B/U)? "
   if /i "%answer:~,1%" EQU "B" (
     echo selected: BIOS
-    copy /Y boot\autounattend_BIOS.xml %USBDRIVE%\autounattend.xml
+    copy /Y boot\autounattend_BIOS_template.xml %USBDRIVE%\autounattend.xml
     GOTO CONT
   )
   if /i "%answer:~,1%" EQU "U" (
     echo selected: UEFI
-    copy /Y boot\autounattend_UEFI.xml %USBDRIVE%\autounattend.xml
+    copy /Y boot\autounattend_UEFI_template.xml %USBDRIVE%\autounattend.xml
     GOTO CONT
   )
   echo Please type B for BIOS or U for UEFI setup.
   goto ask
 :CONT
+
+rem ask for user ...
+echo.
+set MYUSER=support
+set /p MYUSER="Username (%MYUSER%)? "
+echo MYUSER = %MYUSER%
+
+rem ask for real name ...
+echo.
+set MYNAME="Support User"
+set /p MYNAME="Display Name (%MYNAME%)? "
+echo MYNAME = %MYNAME%
+
+rem ask for a password ...
+echo.
+set MYPASS=
+set /p MYPASS="Password (not set)? "
+echo MYPASS = %MYPASS%
+
+echo.
+tools\searchreplace %USBDRIVE%\autounattend.xml ___MYUSER___ %MYUSER%
+tools\searchreplace %USBDRIVE%\autounattend.xml ___MYNAME___ %MYNAME%
+tools\searchreplace %USBDRIVE%\autounattend.xml ___MYPASS___ %MYPASS%
 
 echo.
 echo copying [ %BOOT% ] to drive %USBDRIVE% ...
