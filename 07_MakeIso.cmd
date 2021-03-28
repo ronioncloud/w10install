@@ -36,7 +36,7 @@ if EXIST %ISOFILE% (
   exit /b
 )
 
-%OSCDPATH%\oscdimg -l%OSLABEL% -m -u2 -b%OSCDPATH%\etfsboot.com %USBDRIVE% %ISOFILE%
+%OSCDPATH%\oscdimg -l%OSLABEL% -m -u2 -b%OSCDPATH%\etfsboot.com %USBDRIVE%\ %ISOFILE%
 
 echo READY.
 echo.
