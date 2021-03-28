@@ -288,7 +288,7 @@ The ISO file must be extacted to the disk now. The files will be place in c:\tem
 Just execute:
 ```dos
 cd /D %USERPROFILE%\workspace\github\w10install
-02_ExtractIso.cmd iso\Win10_20H2_English_x64.iso
+02_ExtractIso.cmd software\Win10_20H2_English_x64.iso
 ```
 
 
@@ -457,7 +457,7 @@ The next script needs the ISO file again and will prepare the boot media with al
 Execute:
 ```dos
 cd /D %USERPROFILE%\workspace\github\w10install
-05_PrepareStick.cmd D: iso\Win10_20H2_English_x64.iso
+05_PrepareStick.cmd D: software\Win10_20H2_English_x64.iso
 ```
 
 Example run:
@@ -466,7 +466,7 @@ Example run:
 Create USB Stick ...
 ====================
 using drive D: ...
-using image C:\Users\support\workspace\github\w10install\iso\Win10_20H2_English_x64.iso ...
+using image C:\Users\support\workspace\github\w10install\software\Win10_20H2_English_x64.iso ...
 mounting disk image (iso) with powershell ...
 
 [...]
