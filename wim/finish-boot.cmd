@@ -22,7 +22,11 @@ echo replacing setup.exe with our installer utility ...
 copy /Y installer.exe %BOOT%\setup.exe
 
 echo copy snapshot64 to boot ...
-copy /Y ..\software\snapshot64.exe %BOOT%
+if EXIST ..\personal\snapshot64.exe (
+  copy /Y ..\personal\snapshot64.exe %BOOT%
+) else (
+  copy /Y ..\software\snapshot64.exe %BOOT%
+)
 
 echo copy netuse helper script to boot ...
 copy /Y netuse.cmd %BOOT%
