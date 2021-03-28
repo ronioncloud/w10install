@@ -454,14 +454,11 @@ USB stick formatted.
 
 The next script needs the ISO file again and will prepare the boot media with all needed files EXCEPT the image files (boot.wim & install.esd). In case you need a standard image (unmodified) you will have to use the Microsoft "MediaCreationTool20H2.exe" included in the "software" folder.
 
-
-Just execute:
+Execute:
 ```dos
 cd /D %USERPROFILE%\workspace\github\w10install
 05_PrepareStick.cmd D: iso\Win10_20H2_English_x64.iso
 ```
-
-After creating the stick with this script you can use it for a standard Windows 10 installation!
 
 Example run:
 ```text
