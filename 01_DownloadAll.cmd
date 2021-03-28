@@ -23,6 +23,7 @@ for %%D in (
   basic
   browser
   optional
+  other
 
 ) do (
 
