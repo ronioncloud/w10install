@@ -408,16 +408,7 @@ using drive D: ...
 using image C:\Users\support\workspace\github\w10install\iso\Win10_20H2_English_x64.iso ...
 mounting disk image (iso) with powershell ...
 
-Attached          : True
-BlockSize         : 0
-DevicePath        : \\.\CDROM0
-FileSize          : 6155782144
-ImagePath         : C:\Users\support\workspace\github\w10install\iso\Win10_20H2_English_x64.iso
-LogicalSectorSize : 2048
-Number            : 0
-Size              : 6155782144
-StorageType       : 1
-PSComputerName    :
+[...]
 
 copying files from image to targetpath D: ...
 
@@ -425,42 +416,71 @@ copying files from image to targetpath D: ...
    ROBOCOPY     ::     Robust File Copy for Windows
 -------------------------------------------------------------------------------
 
-  Started : Sunday, 28 March 2021 12:22:40
-   Source = \\.\CDROM0\
-     Dest = D:\
-
-    Files : *.*
-
-  Options : *.* /256 /NDL /NFL /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /R:10 /W:30
-
-------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        85        84         1         0         0         1
-   Files :       900       899         0         0         1         0
-   Bytes :   5.727 g  798.91 m         0         0   4.947 g         0
-   Times :   0:01:26   0:01:24                       0:00:00   0:00:02
-
-
-   Speed :             9966532 Bytes/sec.
-   Speed :             570.289 MegaBytes/min.
-   Ended : Sunday, 28 March 2021 12:24:07
+[...]
 
 unmounting disk image (iso) ...
 
-Attached          : False
-BlockSize         : 0
-DevicePath        :
-FileSize          : 6155782144
-ImagePath         : C:\Users\support\workspace\github\w10install\iso\Win10_20H2_English_x64.iso
-LogicalSectorSize : 2048
-Number            :
-Size              : 6155782144
-StorageType       : 1
-PSComputerName    :
+[...]
 
 READY.
 ```
+
+## 8.3 Copy custom image to boot media
+
+Now it's time to copy the custom windows image, alls scripts and additional 3rd party software to our boot media (USB stick).
+
+Execute:
+```dos
+cd /D %USERPROFILE%\workspace\github\w10install
+06_Copy2Stick.cmd D:
+```
+
+IMPORTANT HINT: the script will ask for UEFI or BIOS mode. This means: In case you have a target machine that cannot boot in UEFI mode choose "BIOS" (or "B"). In all other cases UEFI may be a better choice. You can boot most modern boards in "BIOS" mode. Just enable "legacy" boot mode in you PC's firmware.
+
+Example run:
+```
+=====================
+Prepare USB Stick ...
+=====================
+using drive D: ...
+BIOS or UEFI setup (B/U)? b
+selected: BIOS
+        1 file(s) copied.
+
+copying [ boot.wim ] to drive D: ...
+
+[...]
+
+copying [ install_FINAL.esd ] to drive D: ...
+
+[...]
+
+        1 file(s) moved.
+        1 file(s) moved.
+
+copying folder [ tools ] to drive D: ...
+[...]
+
+copying folder [ software ] to D:\tools ...
+[...]
+
+copying folder [ scripts ] to D:\tools ...
+[...]
+
+copying folder [ source ] to D:\tools ...
+[...]
+
+copying folder [ optional ] to D:\tools ...
+[...]
+
+copying custom setup script to D: ...
+        1 file(s) copied.
+READY.
+```
+
+*Congratulations!*
+
+**Your customized windows image for UNATTENDED installation is READY now. Remove the USB stick and put it into a PC you want to install.**
+
+
 
