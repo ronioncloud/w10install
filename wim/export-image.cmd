@@ -5,12 +5,11 @@ set WIM=%SOURCES%\install.wim
 set W10PRO=%SOURCES%\w10pro.wim
 set STATEFILE=%SOURCES%\w10pro.txt
 
-
 if EXIST %STATEFILE% (
 
   echo.
-  echo INFO: found %STATEFILE% 
-  echo nothing todo. all work was already done.
+  echo [%0] INFO: found %STATEFILE% 
+  echo [%0] OK: nothing todo. all work was already done.
   echo READY.
   exit /b
 
@@ -19,12 +18,12 @@ if EXIST %STATEFILE% (
 if EXIST %ESD% (
 
   echo.
-  echo INFO: found %ESD% 
+  echo [%0] INFO: found %ESD% 
 
-  echo deleting "old" install.wim ...
-  del %WIM% 1>nul 2>nul
+  echo [%0] INFO: deleting %WIM% ...
+  del %WIM% 2>nul
 
-  echo exporting image from %ESD% ...
+  echo [%0] INFO: exporting image from %ESD% ...
   dism /Export-Image ^
     /SourceImageFile:%ESD% ^
     /DestinationImageFile:%WIM% ^
@@ -32,12 +31,16 @@ if EXIST %ESD% (
     /Compress:Max ^
     /CheckIntegrity
 
+  if %ERRORLEVEL% NEQ 0 (
+    echo [%0] ERROR: while extracting %ESD%
+    exit /b
+  )
+
   echo.
   echo READY.
   exit /b
 
 )
-
 
 if EXIST %WIM% (
 
@@ -45,9 +48,9 @@ if EXIST %WIM% (
   del /F %W10PRO% 1>nul 2>nul
 
   echo.
-  echo INFO: found %WIM%
+  echo [%0] INFO: found %WIM%
 
-  echo exporting image from %WIM% ...
+  echo [%0] INFO: exporting image from %WIM% ...
   dism /Export-Image ^
     /SourceImageFile:%WIM% ^
     /DestinationImageFile:%W10PRO% ^
@@ -55,9 +58,16 @@ if EXIST %WIM% (
     /Compress:Max ^
     /CheckIntegrity
 
-  echo set write access for install.wim ..
-  attrib -R %WIM%
+  if %ERRORLEVEL% NEQ 0 (
+    echo [%0] ERROR: while extracting %WIM%
+    exit /b
+  )
 
+  echo [%0] WARNING: removing original %WIM% ...
+  attrib -R %WIM% 2>nul
+  del /F %WIM% 1>nul 2>nul
+
+  echo [%0] INFO: renaming %W10PRO% ...
   move /Y %W10PRO% %WIM%
   echo all done >%STATEFILE%
 
@@ -66,6 +76,4 @@ if EXIST %WIM% (
   exit /b
 
 )
-
-set ERRORLEVEL=9009
 
