@@ -1,7 +1,6 @@
 @echo off
 set TOOLS=c:\tools
 set STATUSFILE=%LOCALAPPDATA%\.user_settings_done
-set ENDMESSAGE=%TOOLS%\scripts\.install_done
 set STARTMENU=%APPDATA%\"Microsoft\Windows\Start Menu\Programs"
 set STARTMENU_PUBLIC=%PROGRAMDATA%\"Microsoft\Windows\Start Menu\Programs"
 
@@ -228,10 +227,4 @@ net config workstation
 
 echo ####### %0 #######
 timeout /T 2
-
-rem check for statusfile and show endmessage ...
-if NOT EXIST %ENDMESSAGE% (
-  start /B %TOOLS%\installending.exe
-  echo all done >%ENDMESSAGE%
-)
 

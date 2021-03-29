@@ -10,8 +10,8 @@ del /F %LOG% 1>nul 2>nul
 if not "%1"=="STDOUT_TO_FILE" %0 STDOUT_TO_FILE %* 1>%LOG% 2>&1
 shift /1
 
-rem show window with log while running scripts ...
-start %TOOLS%\installmonitor.exe
+rem show window with logfile while running scripts ...
+start %TOOLS%\logmonitor.exe %LOG%
 
 echo ####### %0 #######
 date /t
