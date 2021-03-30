@@ -6,10 +6,10 @@
             <SetupUILanguage>
                 <UILanguage>en-US</UILanguage>
             </SetupUILanguage>
-            <InputLocale>de-DE</InputLocale>
-            <SystemLocale>de-DE</SystemLocale>
+            <InputLocale>___MYLANG___</InputLocale>
+            <SystemLocale>___MYLANG___</SystemLocale>
             <UILanguage>en-US</UILanguage>
-            <UserLocale>de-DE</UserLocale>
+            <UserLocale>___MYLANG___</UserLocale>
         </component>
         <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <DiskConfiguration>
@@ -84,10 +84,10 @@
     </settings>
     <settings pass="oobeSystem">
         <component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <InputLocale>de-DE</InputLocale>
-            <SystemLocale>de-DE</SystemLocale>
+            <InputLocale>___MYLANG___</InputLocale>
+            <SystemLocale>___MYLANG___</SystemLocale>
             <UILanguage>en-US</UILanguage>
-            <UserLocale>de-DE</UserLocale>
+            <UserLocale>___MYLANG___</UserLocale>
         </component>
         <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <OOBE>
@@ -101,11 +101,9 @@
                 <LocalAccounts>
                     <LocalAccount wcm:action="add">
                         <Password>
-                            <!-- PASSWORD HERE -->
                             <Value>___MYPASS___</Value>
                             <PlainText>true</PlainText>
                         </Password>
-                        <!-- USERNAME HERE -->
                         <DisplayName>___MYNAME___</DisplayName>
                         <Name>___MYUSER___</Name>
                         <Group>Administrators</Group>
@@ -114,13 +112,11 @@
             </UserAccounts>
             <AutoLogon>
                 <Password>
-                    <!-- PASSWORD HERE -->
                     <Value>___MYPASS___</Value>
                     <PlainText>true</PlainText>
                 </Password>
                 <Enabled>true</Enabled>
                 <LogonCount>1</LogonCount>
-                <!-- USERNAME HERE -->
                 <Username>___MYUSER___</Username>
             </AutoLogon>
             <FirstLogonCommands>

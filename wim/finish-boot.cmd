@@ -2,8 +2,8 @@
 set SOURCES=c:\TEMP\W10\sources
 set BOOT=c:\TEMP\BOOT
 
-if EXIST settings.cmd (
-  call settings.cmd
+if EXIST ..\settings.cmd (
+  call ..\settings.cmd
 ) else (
   set LANG=en-US
 )

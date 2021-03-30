@@ -13,6 +13,13 @@ echo =====================
 
 set USBDRIVE=%1
 
+if EXIST settings.cmd (
+  call settings.cmd
+) else (
+  set LANG=en-US
+)
+echo LANG=%LANG%
+
 if /I %USBDRIVE% == C: (
   echo ERROR: cannot use drive %USBDRIVE% !
   exit /b
@@ -68,6 +75,7 @@ echo.
 tools\searchreplace %USBDRIVE%\autounattend.xml ___MYUSER___ "%MYUSER%"
 tools\searchreplace %USBDRIVE%\autounattend.xml ___MYNAME___ "%MYNAME%"
 tools\searchreplace %USBDRIVE%\autounattend.xml ___MYPASS___ "%MYPASS%"
+tools\searchreplace %USBDRIVE%\autounattend.xml ___MYLANG___ "%LANG%"
 
 echo.
 echo copying [ %BOOT% ] to drive %USBDRIVE% ...

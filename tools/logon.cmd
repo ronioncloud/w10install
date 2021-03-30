@@ -137,6 +137,25 @@ rem config must be full qualified pathname (OpenShell BUG!)
 set CONFIG=%TOOLS%\scripts\config\OpenshellSettings.xml
 "%ProgramFiles%"\Open-Shell\StartMenu.exe -xml %CONFIG%
 
+echo removing user folders from explorer navigation pane ...
+for %%K in (
+  {0DB7E03F-FC29-4DC6-9020-FF41B59E513A}
+  {B4BFCC3A-DB2C-424C-B029-7FE99A87C641}
+  {D3162B92-9365-467A-956B-92703ACA08AF}
+  {088E3905-0323-4B02-9826-5D99428E115F}
+  {3DFDF296-DBEC-4FB4-81D1-6A3438BCF4DE}
+  {24AD3AD4-A569-4530-98E1-AB02F9417AA8}
+  {F86FA3AB-70D2-4FC7-9C99-FCBF05467F3A}
+) do (
+  echo %%K
+  reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\HideMyComputerIcons" ^
+    /v "%%K" /t REG_DWORD /d 1 /f 1>nul
+)
+
+echo adding home folder to explorer navigation pane ...
+reg add "HKEY_CURRENT_USER\Software\Classes\CLSID\{59031a47-3f72-44a7-89c5-5595fe6b30ee}" ^
+  /v "System.IsPinnedToNameSpaceTree" /t REG_DWORD /d 1 /f 1>nul
+
 echo restarting explorer ...
 taskkill /f /im explorer.exe 2>nul
 rem sleep 2 seconds ...
