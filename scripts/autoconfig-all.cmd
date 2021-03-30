@@ -78,8 +78,8 @@ echo.
 call modify-path.cmd 
 echo.
 
-call modify-explorer.cmd 
-echo.
+rem call modify-explorer.cmd 
+rem echo.
 
 call modify-powersettings.cmd
 echo.
