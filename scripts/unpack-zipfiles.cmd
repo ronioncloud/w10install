@@ -34,7 +34,7 @@ for %%A in (
     echo WARNING: %SOFTWARE%\%%A.zip not found!
   ) else (
     echo unpacking %%A.zip ...
-    %TOOLS%\7z e -y -aoa -o%T%\%%A %SOFTWARE%\%%A.zip
+    %TOOLS%\7z e -y -aoa -o%T%\%%A %SOFTWARE%\%%A.zip 1>nul
   )
 
 )

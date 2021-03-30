@@ -76,8 +76,14 @@ if NOT EXIST %LOCALSTATE%\settings.json (
 
 if EXIST %STATUSFILE% GOTO END
 
-echo deploying SSH keys ...
-copy /Y %TOOLS%\personal\id*.* %USERPROFILE%\.ssh 2>nul
+if EXIST %TOOLS%\personal (
+  echo.
+  echo #####
+  echo ##### SSH KEYS
+  echo #####
+  echo.
+  copy /Y %TOOLS%\personal\id*.* %USERPROFILE%\.ssh 2>nul
+)
 
 echo.
 echo #####
@@ -132,18 +138,15 @@ echo disable notification center ...
 reg add "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer" ^
   /v "DisableNotificationCenter" /t REG_DWORD /d 1 /f 1>nul
 
-echo removing pinned apps from taskbar ...
-del /F /S /Q /A "%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\*"
-reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband" /f
-
 echo loading OpenShell config ...
 rem config must be full qualified pathname (OpenShell BUG!)
 set CONFIG=%TOOLS%\scripts\config\OpenshellSettings.xml
-"%ProgramFiles%\Open-Shell\StartMenu.exe" -xml %CONFIG%
+"%ProgramFiles%"\Open-Shell\StartMenu.exe -xml %CONFIG%
 
 echo restarting explorer ...
 taskkill /f /im explorer.exe 2>nul
-timeout /T 2
+rem sleep 2 seconds ...
+ping 127.0.0.1 -n 2 >nul 2>&1
 start explorer.exe
 
 rem create statusfile (this block must be executed only once) ...
@@ -226,5 +229,11 @@ net start workstation 1>nul 2>nul
 net config workstation
 
 echo ####### %0 #######
-timeout /T 2
+
+if %ERRORLEVEL% NEQ 0 (
+  echo # unknown ERROR! #
+  echo ####### %0 #######
+  echo.
+  pause
+)
 

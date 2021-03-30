@@ -20,11 +20,9 @@ echo.
 
 echo creating %T% ...
 mkdir %T% 1>nul 2>nul
-echo.
 
 echo cd to %SCRIPTS% ...
 cd /D %SCRIPTS%
-echo.
 
 if EXIST settings.cmd (
   echo loading settings ...
@@ -84,9 +82,6 @@ call modify-explorer.cmd
 echo.
 
 call modify-powersettings.cmd
-echo.
-
-call modify-desktoptheme.cmd
 echo.
 
 call modify-taskbar.cmd

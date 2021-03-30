@@ -13,11 +13,11 @@ if NOT EXIST %SOFTWARE%\%MSI% (
 echo ####### %0 #######
 
 echo unpacking 7-zip ...
-@echo on
 cd %SOFTWARE%
+@echo on
 msiexec /a %MSI% TARGETDIR=%T% /qn
-cd %SCRIPTS%
 @echo off
+cd %SCRIPTS%
 
 echo moving 7-zip binaries to tools folder ...
 move /Y %T%\Files\7-Zip\7z.exe %TOOLS%

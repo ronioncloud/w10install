@@ -14,8 +14,5 @@ mklink %TARGET%\logon.cmd %TOOLS%\logon.cmd
 echo create link for Startup folder on desktop ...
 mklink /D "%PUBLIC%\Desktop\Startup" %TARGET%
 
-echo execute logon script ...
-call %TARGET%\logon.cmd
-
 echo ####### %0 #######
 

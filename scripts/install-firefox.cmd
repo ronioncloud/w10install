@@ -26,12 +26,12 @@ set BITWARDENTARGET={446900e4-71c2-419f-a6a7-df9c091e268b}.xpi
 
 echo ####### %0 #######
 
-@echo on
 cd %SOFTWARE%
+@echo on
 firefox-setup.exe /S /MaintenanceService=false /TaskbarShortcut=false /RegisterDefaultAgent=false
+@echo off
 echo sleep 10 seconds ...
 ping 127.0.0.1 -n 10 > NUL 2>&1
-@echo off
 cd %SCRIPTS%
 
 rem copy config ...

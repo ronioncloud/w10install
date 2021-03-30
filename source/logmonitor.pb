@@ -4,14 +4,14 @@
 ; LICENSE  : GPL
 ; AUTHOR   : Michael H.G. Schmidt
 ; EMAIL    : michael@schmidt2.de
-; DATE     : 20210329
+; DATE     : 20210330
 ; ------------------------------------------------------------
 ;
 
 If ( CountProgramParameters() <> 1 )
   dummy = MessageRequester("Usage:",
                            "logmonitor <filename>" + Chr(13) +
-                           "  shows a logfile and print changes in realtime in a window" + Chr(13) +
+                           "  shows a logfile and prints changes (in realtime) in a window" + Chr(13) +
                            "  filename : full or relative path to file",
                            #PB_MessageRequester_Info)
   End 99

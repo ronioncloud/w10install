@@ -13,11 +13,11 @@ if NOT EXIST %SOFTWARE%\%MSI% (
 echo ####### %0 #######
 
 echo unpacking vnc (tvnviewer) ...
-@echo on
 cd %SOFTWARE%
+@echo on
 msiexec /a %MSI% TARGETDIR=%T% /qn
-cd %SCRIPTS%
 @echo off
+cd %SCRIPTS%
 
 echo moving vnc binary to tools folder ...
 move /Y %T%\PFiles\TightVNC\tvnviewer.exe %TOOLS%

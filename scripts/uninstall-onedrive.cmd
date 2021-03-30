@@ -13,9 +13,9 @@ ping 127.0.0.1 -n 5 > NUL 2>&1
 
 echo UNINSTALLING OneDrive ...
 if exist %x64% (
-  %x64% /uninstall
+  %x64% /uninstall 2>nul
 ) else (
-  %x86% /uninstall
+  %x86% /uninstall 2>nul
 )
 
 echo sleep 5 seconds ...
