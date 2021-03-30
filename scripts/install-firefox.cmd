@@ -30,8 +30,8 @@ cd %SOFTWARE%
 @echo on
 firefox-setup.exe /S /MaintenanceService=false /TaskbarShortcut=false /RegisterDefaultAgent=false
 @echo off
-echo sleep 10 seconds ...
-ping 127.0.0.1 -n 10 > NUL 2>&1
+echo sleep 5 seconds ...
+ping 127.0.0.1 -n 5 > NUL 2>&1
 cd %SCRIPTS%
 
 rem copy config ...

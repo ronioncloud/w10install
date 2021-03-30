@@ -11,8 +11,5 @@ rd /S /Q %PUBLIC%\Desktop\Startup 1>nul 2>nul
 echo creating link for logon script ...
 mklink %TARGET%\logon.cmd %TOOLS%\logon.cmd
 
-echo create link for Startup folder on desktop ...
-mklink /D "%PUBLIC%\Desktop\Startup" %TARGET%
-
 echo ####### %0 #######
 
