@@ -236,6 +236,10 @@ rd /S /Q %USERPROFILE%\Links 2>nul
 echo Searches ...
 rd /S /Q %USERPROFILE%\Searches 2>nul
 
+echo recent files ...
+del /F /Q %APPDATA%\Microsoft\Windows\Recent\AutomaticDestinations\* 2>nul
+del /F /Q %APPDATA%\Microsoft\Windows\Recent\* 2>nul
+
 echo.
 echo starting workstation service ...
 net start workstation 1>nul 2>nul

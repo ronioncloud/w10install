@@ -10,15 +10,16 @@ echo ####### %0 #######
 if EXIST settings.cmd (
   echo loading settings ...
   call settings.cmd
-  echo ++++++++++++++++++
-  echo logon_logo=%logon_logo%
-  echo ++++++++++++++++++
-  echo.
 ) else (
   echo WARNING: settings.cmd not found!
   echo setting defaults ...
   set logon_logo=1
 )
+
+echo ++++++++++++++++++
+echo logon_logo=%logon_logo%
+echo ++++++++++++++++++
+echo.
 
 if %logon_logo% == 1 (
   rem windows logo taken from: http://pngimg.com/image/23601
