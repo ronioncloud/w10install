@@ -89,7 +89,7 @@ if EXIST %SOURCES%\%IMAGE% (
 ) else (
 
   rem echo.
-  echo DOH! no %IMAGE% in [ %SOURCES ] found
+  echo DOH! no %IMAGE% in [ %SOURCES% ] found
   exit /b
 
 )
