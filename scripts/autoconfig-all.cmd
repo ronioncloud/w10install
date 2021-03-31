@@ -35,6 +35,7 @@ if EXIST settings.cmd (
 
 echo ++++++++++++++++++
 echo windows_updates=%windows_updates%
+echo install_firefox=%install_firefox%
 echo ++++++++++++++++++
 echo.
 
@@ -130,8 +131,10 @@ call install-openshell.cmd
 echo.
 
 rem fuck you google ...
-call install-firefox.cmd
-echo.
+if %install_firefox% == 1 (
+  call install-firefox.cmd
+  echo.
+)
 
 call install-vlc.cmd
 echo.
