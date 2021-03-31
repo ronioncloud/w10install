@@ -2,9 +2,9 @@
 
 echo ####### %0 #######
 
-echo disabling quick access ...
+echo enabling quick access ...
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" ^
-  /v "HubMode" /t REG_DWORD /d 1 /f 1>nul
+  /v "HubMode" /t REG_DWORD /d 0 /f 1>nul
 
 echo disabling network icon ...
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\NonEnum" ^
