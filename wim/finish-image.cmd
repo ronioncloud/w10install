@@ -1,9 +1,9 @@
 @echo off
-set SOURCES=c:\TEMP\W10\sources
 set IMAGE=c:\TEMP\IMAGE
+set SOURCES=c:\TEMP\W10\sources
 set ESD=%SOURCES%\install.esd
 set WIM=%SOURCES%\install.wim
-set FINAL=%SOURCES%\install_FINAL.esd
+set TEMPFILE=%SOURCES%\temp.esd
 
 if NOT EXIST %WIM% (
   echo.
@@ -34,13 +34,16 @@ dism /Unmount-Wim /MountDir:%IMAGE% /Commit
 echo [%0] INFO: directory of %IMAGE% :
 dir %IMAGE%
 
-echo [%0] INFO: exporting %WIM% to %FINAL% ...
+echo [%0] INFO: exporting %WIM% to %TEMPFILE% ...
 dism /Export-Image ^
   /SourceImageFile:%WIM% ^
-  /DestinationImageFile:%FINAL% ^
+  /DestinationImageFile:%TEMPFILE% ^
   /SourceName:"Windows 10 Pro" ^
   /Compress:Recovery ^
   /CheckIntegrity
+
+echo [%0] INFO: renaming new esd file to %ESD% ...
+move /Y %TEMPFILE% %ESD%
 
 rem delete wim file only in case there is an esd file ...
 if EXIST %ESD% (

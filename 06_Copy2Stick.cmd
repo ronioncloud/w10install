@@ -1,8 +1,7 @@
 @echo off
 set SOURCES=c:\TEMP\W10\sources
 set BOOT=boot.wim
-set IMAGE=install_FINAL.esd
-set ALTIMAGE=install_FINAL_lastrun.esd
+set IMAGE=install.esd
 
 IF %1.==. GOTO USAGE
 
@@ -87,22 +86,11 @@ if EXIST %SOURCES%\%IMAGE% (
   echo copying [ %IMAGE% ] to drive %USBDRIVE% ...
   robocopy %SOURCES% %USBDRIVE%\sources %IMAGE% /J /NJH
 
-  rem move image in place ...
-  del /F %USBDRIVE%\sources\install.esd 2>nul
-  move /Y %USBDRIVE%\sources\%IMAGE% %USBDRIVE%\sources\install.esd
-
-  rem rename image in sources directory ...
-  move /Y %SOURCES%\%IMAGE% %SOURCES%\%ALTIMAGE%
-
 ) else (
 
-  echo.
-  echo INFO: NOT copying image!
-  echo.
-  echo HINT: please rename
-  echo    [ %SOURCES%\%ALTIMAGE% ]
-  echo to [ %SOURCES%\%IMAGE% ]
-  echo for force copy of image.
+  rem echo.
+  echo DOH! no %IMAGE% in [ %SOURCES ] found
+  exit /b
 
 )
 
