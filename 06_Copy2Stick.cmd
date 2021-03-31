@@ -95,8 +95,8 @@ if EXIST %SOURCES%\%IMAGE% (
 )
 
 :CONT
-echo.
 if EXIST tools (
+  echo.
   echo copying folder [ tools ] to drive %USBDRIVE% ...
   robocopy tools %USBDRIVE%\tools /COPY:DT /FFT /XO /256 /NJH /NJS /NDL /XF .gitignore
 )
@@ -114,6 +114,12 @@ for %%P in (scripts source optional personal) do (
     echo copying folder [ %%P ] to %USBDRIVE%\tools ...
     robocopy %%P %USBDRIVE%\tools\%%P /COPY:DT /FFT /XO /MIR /256 /NJH /NJS /NDL /XF .gitignore /XD .git
   )
+)
+
+if EXIST settings.cmd (
+  echo.
+  echo copying settings file to drive %USBDRIVE% ...
+  copy /Y settings.cmd %USBDRIVE%\tools\scripts
 )
 
 echo.
