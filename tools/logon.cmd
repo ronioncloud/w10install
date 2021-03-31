@@ -160,6 +160,11 @@ echo make explorer show ThisPC on top ...
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" ^
   /v "LaunchTo" /t REG_DWORD /d 1 /f 1>nul
 
+echo cleanup recent files and libraries ...
+del /F /Q %APPDATA%\Microsoft\Windows\Recent\AutomaticDestinations\* 2>nul
+del /F /Q %APPDATA%\Microsoft\Windows\Recent\* 2>nul
+del /F /Q %APPDATA%\Microsoft\Windows\Libraries\* 2>nul
+
 echo restarting explorer ...
 taskkill /f /im explorer.exe 2>nul
 rem sleep 2 seconds ...
@@ -239,11 +244,6 @@ rd /S /Q %USERPROFILE%\Links 2>nul
 
 echo Searches ...
 rd /S /Q %USERPROFILE%\Searches 2>nul
-
-echo Recent files and libraries ...
-del /F /Q %APPDATA%\Microsoft\Windows\Recent\AutomaticDestinations\* 2>nul
-del /F /Q %APPDATA%\Microsoft\Windows\Recent\* 2>nul
-del /F /Q %APPDATA%\Microsoft\Windows\Libraries\* 2>nul
 
 echo.
 echo starting workstation service ...
