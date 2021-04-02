@@ -1,5 +1,6 @@
 @echo off
 set TOOLS=c:\tools
+set SETTINGS=%TOOLS%\scripts\settings.cmd
 set STATUSFILE=%LOCALAPPDATA%\.user_settings_done
 set STARTMENU=%APPDATA%\"Microsoft\Windows\Start Menu\Programs"
 set STARTMENU_PUBLIC=%PROGRAMDATA%\"Microsoft\Windows\Start Menu\Programs"
@@ -10,8 +11,19 @@ echo removing wallpaper ...
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v WallPaper /t REG_SZ /d " " /f 1>nul
 RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters 
 
-echo set desktop colour (RGB) ...
-%TOOLS%\setbgcol 3 131 135
+if EXIST %SETTINGS% (
+  echo loading settings ...
+  call %SETTINGS%
+) else (
+  echo WARNING: [ %SETTINGS% ] not found!
+  echo setting defaults ...
+  set bgcol_R=3
+  set bgcol_G=131
+  set bgcol_B=135
+)
+
+echo setting desktop colour (RGB) ...
+%TOOLS%\setbgcol %bgcol_R% %bgcol_G% %bgcol_B%
 
 echo starting BGInfo ...
 %TOOLS%\bginfo\bginfo64.exe %TOOLS%\bginfo\config.bgi /NOLICPROMPT /silent /timer:0
