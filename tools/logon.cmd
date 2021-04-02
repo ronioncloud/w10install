@@ -100,14 +100,6 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Hi
 echo refresh desktop (W10 style)
 ie4uinit.exe -show
 
-echo enabling fast shutdown ...
-reg add "HKEY_CURRENT_USER\Control Panel\Desktop" ^
-  /v "WaitToKillAppTimeOut" /t REG_DWORD /d 2000 /f 1>nul
-reg add "HKEY_CURRENT_USER\Control Panel\Desktop" ^
-  /v "HungAppTimeout" /t REG_DWORD /d 2000 /f 1>nul
-reg add "HKEY_CURRENT_USER\Control Panel\Desktop" ^
-  /v "AutoEndTasks" /t REG_DWORD /d 1 /f 1>nul
-
 echo add seconds to clock ...
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" ^
   /v "ShowSecondsInSystemClock" /t REG_DWORD /d 1 /f 1>nul
@@ -182,10 +174,8 @@ echo ##### cleaning ...
 echo #####
 echo.
 
-rem MORE stupid OS problems ...
-rem these actions must to be done over and over again - some zombies keep coming back ...
-echo reorg for start menu and desktop ...
-echo ####################################
+echo reorganizing start menu and desktop ...
+echo ########################################
 echo.
 
 rem ... stupid OS problem #4
@@ -224,7 +214,7 @@ rd /S /Q %STARTMENU%\"System Tools" 2>nul
 rd /S /Q %STARTMENU%\"Windows Powershell" 2>nul
 
 echo cleaning users home directory ...
-echo #################################
+echo ########################################
 echo.
 
 echo 3D Objects ...
