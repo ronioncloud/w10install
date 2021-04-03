@@ -10,6 +10,7 @@ for %%E in (
 
   bfg.jar  
   snapshot64.exe
+  putty.exe
   puttygen.exe
   Windows-ISO-Downloader.exe
 
