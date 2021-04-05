@@ -19,6 +19,7 @@ https://www.sordum.org/files/downloads.php?st-windows-update-blocker wub.zip
 https://golang.org/dl/go1.16.windows-amd64.msi go-setup.msi
 https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe python3-setup.exe
 https://www.nirsoft.net/utils/regscanner-x64.zip regscanner.zip
+https://github.com/pbatard/rufus/releases/download/v3.13/rufus-3.13p.exe rufus.exe
 http://www.drivesnapshot.de/download/snapshot64.exe snapshot64.exe
 https://helgeklein.com/downloads/SetACL/current/SetACL%20(executable%20version).zip setacl.zip
 https://github.com/Superfly-Inc/ShowKeyPlus/releases/download/ShowKeyPlus1.1.14.1/ShowKeyPlus1.1.14.1.zip showkeyplus.zip

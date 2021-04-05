@@ -2,10 +2,13 @@
 set SOURCES=c:\TEMP\W10\sources
 set BOOT=c:\TEMP\BOOT
 
+rem cleanup ...
+rd /S /Q %BOOT% 2>nul
+
 echo creating wim mountpoint for BOOT ...
 mkdir %BOOT% 1>nul 2>nul
 
-echo set write access for boot.wim ..
+echo set write access for boot.wim ...
 attrib -R %SOURCES%\boot.wim
 
 echo mounting boot.wim to %BOOT% ...

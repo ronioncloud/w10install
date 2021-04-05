@@ -12,6 +12,7 @@ for %%E in (
   snapshot64.exe
   putty.exe
   puttygen.exe
+  rufus.exe
   Windows-ISO-Downloader.exe
 
 ) do (
