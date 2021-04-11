@@ -36,6 +36,7 @@ if EXIST settings.cmd (
 echo ++++++++++++++++++
 echo windows_updates=%windows_updates%
 echo install_firefox=%install_firefox%
+echo install_aerolite=%install_aerolite%
 echo ++++++++++++++++++
 echo.
 
@@ -85,6 +86,11 @@ echo.
 
 call modify-powersettings.cmd
 echo.
+
+if %install_aerolite% == 1 (
+  call modify-desktoptheme.cmd
+  echo.
+)
 
 call modify-taskbar.cmd
 echo.
