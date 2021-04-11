@@ -11,15 +11,13 @@ echo removing wallpaper ...
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v WallPaper /t REG_SZ /d " " /f 1>nul
 RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters 
 
+set bgcol_R=0
+set bgcol_G=0
+set bgcol_B=0
+
 if EXIST %SETTINGS% (
   echo loading settings ...
   call %SETTINGS%
-) else (
-  echo WARNING: [ %SETTINGS% ] not found!
-  echo setting defaults ...
-  set bgcol_R=3
-  set bgcol_G=131
-  set bgcol_B=135
 )
 
 echo setting desktop colour (RGB) ...
