@@ -1,4 +1,5 @@
 @echo off
+set TOOLS=c:\tools
 
 set newPATH=%SYSTEMROOT%;%SYSTEMROOT%\system32;^
 %SYSTEMROOT%\system32\wbem;^
@@ -6,12 +7,15 @@ set newPATH=%SYSTEMROOT%;%SYSTEMROOT%\system32;^
 %LOCALAPPDATA%\Microsoft\WindowsApps;^
 %TOOLS%;^
 %TOOLS%\git\bin;^
+%TOOLS%\git\cmd;^
 %TOOLS%\git\usr\bin;^
-%ProgramFiles%\PureBasic\Compilers;^
+%TOOLS%\git\mingw64\bin;^
 %ProgramFiles%\Go\bin;^
 %SystemDrive%\Python27;^
 %ProgramFiles%\Python39;^
-%ProgramFiles%\Java\bin
+%ProgramFiles%\Java\bin;^
+%ProgramFiles%\PureBasic\Compilers;^
+%ProgramFiles%\Microsoft VS Code\bin
 
 echo ####### %0 #######
 
@@ -23,3 +27,4 @@ setx PATH "%newPATH%"
 set PATH=%newPATH%
 
 echo ####### %0 #######
+
