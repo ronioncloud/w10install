@@ -5,6 +5,7 @@ Containers-DisposableClientVM
 Containers-Guest-Gated
 Containers-OptionalFeature
 Containers-Server
+DeviceAccess
 HyperV
 LanguageFeatures-WordBreaking
 Media-FaceAnalysis
@@ -12,6 +13,7 @@ Media-Ocr
 Microsoft-Composable-PlatformExtension
 Microsoft-Hyper-V
 Microsoft-IoTUAP-ShellExt-Tools
+Microsoft-Mobile
 Microsoft-PPIProjection
 Microsoft-UtilityVM
 Microsoft-Windows-3DAudio
@@ -38,6 +40,7 @@ Microsoft-Windows-ContentDeliveryManager
 Microsoft-Windows-CoreSystem-DebugTransports
 Microsoft-Windows-Cortana
 Microsoft-Windows-DataCenterBridging
+Microsoft-Windows-DeviceSync
 Microsoft-Windows-DirectoryServices
 Microsoft-Windows-EnterpriseClientSync
 Microsoft-Windows-FodMetadata
@@ -61,6 +64,9 @@ Microsoft-Windows-Lxss
 Microsoft-Windows-Management-SecureAssessment
 Microsoft-Windows-Migration
 Microsoft-Windows-MiracastView
+Microsoft-Windows-MobileBroadband
+Microsoft-Windows-MobileCore
+Microsoft-Windows-MobilePC
 Microsoft-Windows-MRT10
 Microsoft-Windows-MSMQ
 Microsoft-Windows-MultiPoint-Connector
@@ -77,6 +83,8 @@ Microsoft-Windows-PAW-Feature
 Microsoft-Windows-PeerDist
 Microsoft-Windows-PeerToPeer
 Microsoft-Windows-PerformanceCounters
+Microsoft-Windows-PhotoBasic
+Microsoft-Windows-Portable-Devices
 Microsoft-Windows-Printing-InternetPrinting-Client
 Microsoft-Windows-Printing-LocalPrinting-Enterprise
 Microsoft-Windows-Printing-PremiumTools
@@ -107,6 +115,7 @@ Microsoft-Windows-SMB1Server-D-Opt
 Microsoft-Windows-SmbDirect-Opt
 Microsoft-Windows-SmbDirect
 Microsoft-Windows-SNMP
+Microsoft-Windows-StorageService
 Microsoft-Windows-Store
 Microsoft-Windows-SystemRestore
 Microsoft-Windows-TabletPC
@@ -133,8 +142,6 @@ Microsoft-Windows-WinSATMediaFiles
 Microsoft-Windows-WMIPerf
 Microsoft-Windows-WordBreaking
 Microsoft-Windows-WorkplaceJoin
-Microsoft-Windows-WPD-LegacyWmdmFeature
-Microsoft-Windows-WPD-UltimatePortableDeviceFeature-Feature
 Microsoft-Windows-Xps
 Microsoft-Xbox
 MSMQ-Driver-Package
