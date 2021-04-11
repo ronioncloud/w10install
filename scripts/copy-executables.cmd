@@ -13,8 +13,6 @@ for %%E in (
   putty.exe
   puttygen.exe
   rufus.exe
-  uui.exe
-  unetbootin.exe
   Windows-ISO-Downloader.exe
 
 ) do (
