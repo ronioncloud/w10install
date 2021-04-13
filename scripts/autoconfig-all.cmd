@@ -145,6 +145,9 @@ if %install_firefox% == 1 (
 call install-vlc.cmd
 echo.
 
+call install-win32diskimager.cmd
+echo.
+
 call install-shortcuts.cmd
 echo.
 
