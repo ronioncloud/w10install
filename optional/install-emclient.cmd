@@ -3,6 +3,7 @@
 set OPT=..\optional
 set SOFTWARE=..\software
 set MSI=emclient-setup.msi
+set EMSERVERIP=168.62.48.183
 
 if NOT EXIST %SOFTWARE%\%MSI% (
   echo ERROR: %SOFTWARE%\%MSI% not found!
@@ -33,7 +34,7 @@ ie4uinit.exe -show
 echo disabling automatic updates via W10 firewall ...
 netsh advfirewall firewall delete rule name="block_emclient_updates" 2>nul
 netsh advfirewall firewall add rule name="block_emclient_updates" ^
-  dir=out action=block protocol=tcp localip=any remoteip=168.62.48.183 ^
+  dir=out action=block protocol=tcp localip=any remoteip=%EMSERVERIP% ^
   remoteport=80,443 program="%ProgramFiles(x86)%\eM Client\MailClient.exe"
 
 echo ####### %0 #######
