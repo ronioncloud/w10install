@@ -4,16 +4,13 @@
 "                             "
 """""""""""""""""""""""""""""""
 
-set showmode
+set showmode          "Always show mode
 set history=700       "Sets how many lines of history VIM has to remember
 set ttimeoutlen=50    "Speed up O etc in the Terminal
 set autoread          "Set to auto read when a file is changed from the outside
 set bs=2              "allow backspace
 set scrolloff=6       "start scrolling 5 lines before edge of viewport
 
-"Better paste behavior
-nnoremap <f10> :set invpaste paste?<CR>
-set pastetoggle=<f10>
 
 "Search Options
 set ignorecase "Ignore case when searching
@@ -25,11 +22,18 @@ set nobackup
 set nowb
 set noswapfile
 
+
 """""""""""""""""""""""""""""""
 "                             "
 "     Spacing and Lines       "
 "                             "
 """""""""""""""""""""""""""""""
+
+"Show cursorline
+set cursorline
+
+"Toggle cursorline on f8
+nnoremap <f8> :set invcursorline cursorline?<CR>
 
 "Show line numbers
 set number
@@ -37,10 +41,21 @@ set number
 "Toggle line numbers on f9
 nnoremap <f9> :set invnumber number?<CR>
 
+"Set paste mode
+set paste
+
+"Toggle paste mode on f10
+nnoremap <f10> :set invpaste paste?<CR>
+
 "Transform tabs to spaces
-set tabstop=8
-set shiftwidth=8
-set expandtab    
+set expandtab
+
+"Other tabs settings
+set smarttab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
 
 "Code formatting
 set autoindent
@@ -51,8 +66,11 @@ set wrap
 "Use system clipboard
 set clipboard=unnamed
 
-" disable bell and flashing
+"Disable bell and flashing
 set noerrorbells visualbell t_vb=
+
+"Set lines to yank between files
+set viminfo+=<1000
 
 
 """""""""""""""""""""""""""""""
@@ -100,8 +118,9 @@ set statusline+=\ %-40F
 set statusline+=%= "move to right
 
 set statusline+=%5* "switch to User5 highlight
-set statusline+=\ F9=linenumbers "user help
-set statusline+=\ F10=pastemode\ "user help
+set statusline+=\ F8=cline "user help
+set statusline+=\ F9=numbers "user help
+set statusline+=\ F10=paste\ "user help
 
 set statusline+=%2* "switch to User2 highlight
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
