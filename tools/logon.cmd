@@ -167,6 +167,12 @@ del /F /Q %APPDATA%\Microsoft\Windows\Recent\AutomaticDestinations\* 2>nul
 del /F /Q %APPDATA%\Microsoft\Windows\Recent\* 2>nul
 del /F /Q %APPDATA%\Microsoft\Windows\Libraries\* 2>nul
 
+echo Disabling frequent and recent files in explorer ...
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer" ^
+  /v "ShowRecent" /t REG_DWORD /d 0 /f 1>nul
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer" ^
+  /v "ShowFrequent" /t REG_DWORD /d 0 /f 1>nul
+
 echo Restarting explorer ...
 taskkill /f /im explorer.exe 2>nul
 rem sleep 2 seconds ...
