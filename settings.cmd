@@ -6,3 +6,5 @@ set install_aerolite=1
 set bgcol_R=3
 set bgcol_G=131
 set bgcol_B=135
+set explorer_quick_access=1
+

@@ -2,9 +2,29 @@
 
 echo ####### %0 #######
 
-echo enabling quick access ...
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" ^
-  /v "HubMode" /t REG_DWORD /d 0 /f 1>nul
+if EXIST settings.cmd (
+  echo loading settings ...
+  call settings.cmd
+) else (
+  echo WARNING: settings.cmd not found!
+  echo setting defaults ...
+  set explorer_quick_access=1
+)
+
+echo ++++++++++++++++++
+echo explorer_quick_access=%explorer_quick_access%
+echo ++++++++++++++++++
+echo.
+
+if %explorer_quick_access% == 0 (
+  echo disabling explorer quick access ...
+  reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" ^
+    /v "HubMode" /t REG_DWORD /d 1 /f 1>nul
+) else (
+  echo enabling explorer quick access ...
+  reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" ^
+    /v "HubMode" /t REG_DWORD /d 0 /f 1>nul
+)
 
 echo disabling network icon ...
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\NonEnum" ^
