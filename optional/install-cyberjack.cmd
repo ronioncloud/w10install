@@ -8,13 +8,18 @@ if NOT EXIST %EXE% (
   exit /b
 )
 
+if EXIST "%ProgramFiles(x86)%\REINER SCT\cyberJack\cJCC.exe" (
+  echo ERROR: Reiner SCT Cyberjack already installed!
+  exit /b
+)
+
 echo ####### %0 #######
 
 echo installing Reiner SCT Cyberjack ...
 start /wait %EXE%
 
 echo moving CyberJack startmenu shortcut ...
-move /Y %STARTMENU%\"Reiner SCT cyberjack\cyberjack*.*" %STARTMENU%\CyberJack.lnk
+move /Y %STARTMENU%\"Reiner SCT cyberjack\cyberjack Device Manager*.*" %STARTMENU%\CyberJack.lnk
 
 echo removing CyberJack startmenu folder ...
 rd /S /Q %STARTMENU%\"Reiner SCT cyberjack" 2>nul
