@@ -30,21 +30,21 @@ set noswapfile
 """""""""""""""""""""""""""""""
 
 "Show cursorline
-set cursorline
+set nocursorline
 
-"Toggle cursorline on f8
+"Toggle cursorline on F8
 nnoremap <f8> :set invcursorline cursorline?<CR>
 
 "Show line numbers
 set number
 
-"Toggle line numbers on f9
+"Toggle line numbers on F9
 nnoremap <f9> :set invnumber number?<CR>
 
 "Set paste mode
 set paste
 
-"Toggle paste mode on f10
+"Toggle paste mode on F10
 nnoremap <f10> :set invpaste paste?<CR>
 
 "Transform tabs to spaces
@@ -58,7 +58,10 @@ set shiftwidth=4
 set shiftround
 
 "Code formatting
-set autoindent
+set noautoindent
+
+"Toggle autoindent mode on F7
+nnoremap <f7> :set invautoindent autoindent?<CR>
 
 "Line Wrapping
 set wrap
@@ -118,6 +121,7 @@ set statusline+=\ %-40F
 set statusline+=%= "move to right
 
 set statusline+=%5* "switch to User5 highlight
+set statusline+=\ F7=autoindent "user help
 set statusline+=\ F8=cline "user help
 set statusline+=\ F9=numbers "user help
 set statusline+=\ F10=paste\ "user help
