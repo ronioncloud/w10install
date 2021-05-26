@@ -33,8 +33,8 @@ reg DELETE "HKEY_CLASSES_ROOT\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2E
 reg DELETE "HKEY_CURRENT_USER\Software\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}\ShellFolder" /f > NUL 2>&1
 reg DELETE "HKEY_CURRENT_USER\Software\Classes\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}\ShellFolder" /f > NUL 2>&1
 
-echo remove update tasks ...
-schtasks /Delete /F /TN "OneDrive Standalone Update Task-S-1-5-21-4127453296-551005713-2917436380-500" 2>nul
+echo remove OneDrive update task ...
+powershell -Command "Unregister-ScheduledTask -Confirm:$false | Where-Object {$_.Taskname -match 'OneDrive Standalone Update'}"
 
 echo ####### %0 #######
 
