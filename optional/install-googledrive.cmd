@@ -28,8 +28,12 @@ rd /S /Q %STARTMENU%\"Backup and Sync from Google" 2>nul
 echo removing google desktop icons ...
 del /F /Q %PUBLIC%\Desktop\Google*.* 2>nul
 
-rem refresh desktop (W10 style)
+echo refreshing desktop (W10 style) ...
 ie4uinit.exe -show
+
+echo removing update tasks ...
+schtasks /Delete /F /TN GoogleUpdateTaskMachineUA 2>nul
+schtasks /Delete /F /TN GoogleUpdateTaskMachineCore 2>nul
 
 echo ####### %0 #######
 pause
