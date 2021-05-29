@@ -1,6 +1,7 @@
 @echo off
 
 set EXE=..\software\virtualbox-setup.exe
+set VBOXMANAGE="C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
 
 if NOT EXIST %EXE% (
   echo ERROR: %EXE% not found!
@@ -18,6 +19,9 @@ move /Y "%PUBLIC%\Desktop\Oracle VM VirtualBox.lnk" ^
 
 rem refresh desktop (W10 style)
 ie4uinit.exe -show
+
+echo disabling VirtualBox update search ...
+%VBOXMANAGE% setextradata global GUI/UpdateDate never
 
 echo ####### %0 #######
 pause
