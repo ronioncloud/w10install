@@ -22,6 +22,7 @@ cd %SCRIPTS%
 echo moving 7-zip binaries to tools folder ...
 move /Y %T%\Files\7-Zip\7z.exe %TOOLS%
 move /Y %T%\Files\7-zip\7z.dll %TOOLS%
+move /Y %T%\Files\7-zip\7zCon.sfx %TOOLS%
 del /S /Q /A %T%\%MSI% 1>nul 2>nul
 rd /S /Q %T%\Files
 
