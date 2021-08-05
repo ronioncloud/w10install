@@ -183,6 +183,9 @@ echo.
 call disable-autologon.cmd
 echo.
 
+call disable-systemproxy.cmd
+echo.
+
 powershell -command .\disable-soundscheme.ps1
 echo.
 
