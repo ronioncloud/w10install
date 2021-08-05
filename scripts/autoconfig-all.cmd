@@ -183,6 +183,9 @@ echo.
 call disable-autologon.cmd
 echo.
 
+powershell -command .\disable-soundscheme.ps1
+echo.
+
 echo #####################
 echo ### CLEANUP tasks ###
 echo #####################
