@@ -6,6 +6,7 @@ set newPATH=%SYSTEMROOT%;%SYSTEMROOT%\system32;^
 %SYSTEMROOT%\system32\WindowsPowerShell\v1.0;^
 %LOCALAPPDATA%\Microsoft\WindowsApps;^
 %TOOLS%;^
+%TOOLS%\android;^
 %TOOLS%\git\bin;^
 %TOOLS%\git\cmd;^
 %TOOLS%\git\usr\bin;^

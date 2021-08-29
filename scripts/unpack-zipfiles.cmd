@@ -53,7 +53,7 @@ copy /Y config\config.bgi %TOOLS%\bginfo
 rd /S /Q %T%\bginfo 2>nul
 echo.
 
-echo Autorus ...
+echo Autoruns ...
 mkdir %TOOLS%\autoruns 2>nul
 move /Y %T%\autoruns\autoruns.exe %TOOLS%
 rd /S /Q %T%\autoruns 2>nul
@@ -131,6 +131,16 @@ echo.
 echo WUB - Windows update blocker
 move /Y %T%\wub\wub_x64.exe %TOOLS%\wub.exe
 rd /S /Q %T%\wub
+echo.
+
+echo Android tools ...
+if NOT EXIST %SOFTWARE%\android.zip (
+  echo WARNING: %SOFTWARE%\android.zip not found!
+) else (
+  echo unpacking android.zip ...
+  %TOOLS%\7z x -y -aoa -o%TOOLS% %SOFTWARE%\android.zip 1>nul
+  move /Y %TOOLS%\platform-tools %TOOLS%\android
+)
 echo.
 
 echo ####### %0 #######
