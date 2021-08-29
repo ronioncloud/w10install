@@ -68,7 +68,7 @@ rem =====
   @echo.clean
   @echo.create partition primary
   @echo.select partition 1
-  @echo.format fs=fat32 LABEL="%LABEL%" quick
+  @echo.format fs=exfat LABEL="%LABEL%" quick
   @echo.active
   @echo.exit
   @echo.
