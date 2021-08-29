@@ -1,4 +1,3 @@
-
 @echo off
 
 set TOOLS=c:\tools
