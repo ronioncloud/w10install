@@ -26,8 +26,8 @@ echo ####### %0 #######
 
 cd %SOFTWARE%
 @echo on
-msiexec /i %MSI% /qb APPLICATIONFOLDER="c:\Program Files\Softmaker Office 2021" ^
-  INSTALLTM=1 INSTALLPM=1 INSTALLPR=1 INSTALLTB1=0 INSTALLTB2=0 /l*v c:\temp\softmaker.log
+rem msiexec /i %MSI% /qb APPLICATIONFOLDER="c:\Program Files\Softmaker Office 2021" ^
+rem   INSTALLTM=1 INSTALLPM=1 INSTALLPR=1 INSTALLTB1=0 INSTALLTB2=0 /l*v c:\temp\softmaker.log
 @echo off
 del /F c:\temp\softmaker.log
 cd %OPT%
@@ -54,6 +54,10 @@ echo disabling WEB help ...
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\SoftMaker Office 2021" ^
   /v "HelpSoftMaker" /d 0 /t REG_DWORD /f
 
+echo disabling License Management ...
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\SoftMaker Office 2021" ^
+  /v "HelpManage" /d 0 /t REG_DWORD /f
+
 echo disabling the asking for user infos ...
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\SoftMaker Office 2021" ^
   /v "AskUserInfo" /d 0 /t REG_DWORD /f
@@ -61,6 +65,42 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\SoftMaker Office 2021" ^
 echo setting dialog language to US-english ...
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\SoftMaker Office 2021" ^
   /v "DlgLID" /d 409 /t REG_DWORD /f
+
+echo disabling backups ...
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\TextMaker 2021" ^
+  /v "AutoSave" /d 0 /t REG_DWORD /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\PlanMaker 2021" ^
+  /v "AutoSave" /d 0 /t REG_DWORD /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\Presentations 2021" ^
+  /v "AutoSave" /d 0 /t REG_DWORD /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\TextMaker 2021" ^
+  /v "BackupFilesNumber" /d 1 /t REG_DWORD /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\PlanMaker 2021" ^
+  /v "BackupFilesNumber" /d 1 /t REG_DWORD /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\Presentations 2021" ^
+  /v "BackupFilesNumber" /d 1 /t REG_DWORD /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\TextMaker 2021" ^
+  /v "BackupFilesPath" /d "" /t REG_SZ /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\PlanMaker 2021" ^
+  /v "BackupFilesPath" /d "" /t REG_SZ /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\Presentations 2021" ^
+  /v "BackupFilesPath" /d "" /t REG_SZ /f
+
+echo setting default formats ...
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\TextMaker 2021" ^
+  /v "DefaultFormat" /d 6 /t REG_DWORD /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\PlanMaker 2021" ^
+  /v "DefaultFormat" /d 6 /t REG_DWORD /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\Presentations 2021" ^
+  /v "DefaultFormat" /d 6 /t REG_DWORD /f
+
+echo disabling smart quotes ...
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\TextMaker 2021" ^
+  /v "SmartQuotes" /d 0 /t REG_DWORD /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\PlanMaker 2021" ^
+  /v "SmartQuotes" /d 0 /t REG_DWORD /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\Presentations 2021" ^
+  /v "SmartQuotes" /d 0 /t REG_DWORD /f
 
 if softmaker_license == 0 (
   echo no softmaker license found!
