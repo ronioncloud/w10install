@@ -14,9 +14,12 @@ echo ####### %0 #######
 echo installing Verizon BlueJeans ...
 cd %SOFTWARE%
 @echo on
-msiexec /i %MSI% INSTALLAUDIODRIVER=1 /qn
+msiexec /i %MSI% INSTALLAUDIODRIVER=1 INSTALLUPDATESVC=0 LAUNCHAFTERINSTALL=0 /q
 @echo off
 cd %OPT%
+
+echo removing Desktop icon ...
+del /F "%USERPROFILE%\Desktop\BlueJeans.lnk" 2>nul
 
 echo ####### %0 #######
 pause
