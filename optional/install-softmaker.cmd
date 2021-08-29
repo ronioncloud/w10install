@@ -26,8 +26,8 @@ echo ####### %0 #######
 
 cd %SOFTWARE%
 @echo on
-rem msiexec /i %MSI% /qb APPLICATIONFOLDER="c:\Program Files\Softmaker Office 2021" ^
-rem   INSTALLTM=1 INSTALLPM=1 INSTALLPR=1 INSTALLTB1=0 INSTALLTB2=0 /l*v c:\temp\softmaker.log
+msiexec /i %MSI% /qb APPLICATIONFOLDER="c:\Program Files\Softmaker Office 2021" ^
+  INSTALLTM=1 INSTALLPM=1 INSTALLPR=1 INSTALLTB1=0 INSTALLTB2=0 /l*v c:\temp\softmaker.log
 @echo off
 del /F c:\temp\softmaker.log
 cd %OPT%
