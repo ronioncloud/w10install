@@ -3,6 +3,7 @@ set T=c:\TEMP
 set TOOLS=c:\tools
 
 set CONFIG=config\install-purebasic.txt
+set STARTMENU="%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs"
 
 rem licensed version (exe contains key!)
 rem access only for customers ...
@@ -57,7 +58,7 @@ rem remove personal link ...
 del /F /Q /A %USERPROFILE%\Desktop\PureBasic*.lnk 2>nul
 
 echo copy new PureBasic link to desktop ...
-copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\PureBasic\PureBasic (x64).lnk" ^
+copy /Y "%STARTMENU%\PureBasic\PureBasic (x64).lnk" ^
   %PUBLIC%\Desktop\PureBasic.lnk
 
 rem refresh desktop (W10 style)

@@ -18,3 +18,5 @@ msiexec /i %MSI% /passive
 cd %OPT%
 
 echo ####### %0 #######
+pause
+
