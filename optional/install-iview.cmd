@@ -14,7 +14,7 @@ if NOT EXIST %EXE% (
 echo ####### %0 #######
 
 echo installing IrfanView ...
-start /wait %EXE% /silent /desktop=1 /folder="c:\iview" /group=1 /allusers=1 /assoc=1
+start /wait %EXE% /silent /desktop=1 /thumbs=1 /folder="c:\iview" /group=1 /allusers=1 /assoc=1
 
 echo removing IrfanView startmenu folder ...
 rd /S /Q %STARTMENU%\"IrfanView" 2>nul
