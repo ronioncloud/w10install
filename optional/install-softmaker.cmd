@@ -20,7 +20,10 @@ if NOT EXIST %SETTINGS% (
   echo.
   echo WARNING: %SETTINGS% NOT FOUND
   echo.
+) else (
+  call %SETTINGS%
 )
+
 
 echo ####### %0 #######
 
@@ -107,7 +110,7 @@ if softmaker_license == 0 (
 ) else (
   echo adding softmaker license ...
   reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SoftMaker\SoftMaker Office 2021" ^
-    /v "ProductKey" /d "115081474870" /t REG_SZ /f
+    /v "ProductKey" /d "%softmaker_license%" /t REG_SZ /f
 )
 
 echo ####### %0 #######
