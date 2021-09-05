@@ -1,7 +1,8 @@
 @echo off
 
 set EXE=..\software\virtualbox-setup.exe
-set VBOXMANAGE="C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
+set VBOXMANAGE="%ProgramFiles%\Oracle\VirtualBox\VBoxManage.exe"
+set STARTMENU=%PROGRAMDATA%\"Microsoft\Windows\Start Menu\Programs"
 
 if NOT EXIST %EXE% (
   echo ERROR: %EXE% not found!
@@ -22,6 +23,12 @@ ie4uinit.exe -show
 
 echo disabling VirtualBox update search ...
 %VBOXMANAGE% setextradata global GUI/UpdateDate never
+
+echo moving VirtualBox startmenu shortcut ...
+move /Y %STARTMENU%\"Oracle VM VirtualBox\Oracle VM VirtualBox.lnk" %STARTMENU%
+
+echo removing VirtualBox startmenu folder ...
+rd /S /Q %STARTMENU%\"Oracle VM VirtualBox" 2>nul
 
 echo ####### %0 #######
 pause

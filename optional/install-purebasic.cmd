@@ -63,6 +63,12 @@ copy /Y "%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\PureBasic\PureBasic
 rem refresh desktop (W10 style)
 ie4uinit.exe -show
 
+echo moving PureBasic startmenu shortcut ...
+move /Y %STARTMENU%\"PureBasic\PureBasic (x64).lnk" %STARTMENU%
+
+echo removing PureBasic startmenu folder ...
+rd /S /Q %STARTMENU%\"PureBasic" 2>nul
+
 echo ####### %0 #######
 :END
 pause

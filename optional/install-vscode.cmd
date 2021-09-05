@@ -30,6 +30,12 @@ move /Y "%PUBLIC%\Desktop\Visual*.lnk" "%PUBLIC%\Desktop\VScode.lnk"
 rem refresh desktop (W10 style)
 ie4uinit.exe -show
 
+echo moving VScode startmenu shortcut ...
+move /Y %STARTMENU%\"Visual Studio Code\Visual*.lnk" %STARTMENU%
+
+echo removing VScode startmenu folder ...
+rd /S /Q %STARTMENU%\"Visual Studio Code" 2>nul
+
 rem NO updates here! FUCK YOU!
 echo disabling automatic updates via W10 firewall ...
 netsh advfirewall firewall delete rule name="block_vscode_updates" 2>nul
