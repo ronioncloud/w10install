@@ -1,6 +1,0 @@
-[Setup]
-Lang=en
-Dir=C:\Program Files\XnViewMP
-Group=XnViewMP
-NoIcons=0
-Tasks=desktopicon
