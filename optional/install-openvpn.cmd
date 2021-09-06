@@ -40,10 +40,13 @@ del /F "%PUBLIC%\Desktop\OpenVPN Connect.lnk" 2>nul
 echo refreshing desktop (W10 style) ...
 ie4uinit.exe -show
 
+echo sleep 5 seconds ...
+ping 127.0.0.1 -n 5 > NUL 2>&1
+
 rem install configfile from folder personal ...
 if EXIST ..\personal\%openvpn_configfile% (
   echo importing OpenVPN configfile ...
-  %capicli% -w 10 -f ..\personal\%openvpn_configfile% ImportProfile
+  %capicli% -f ..\personal\%openvpn_configfile% ImportProfile
 ) else (
   echo no configfile found!
 )
