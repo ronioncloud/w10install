@@ -43,10 +43,11 @@ ie4uinit.exe -show
 rem install configfile from folder personal ...
 if EXIST ..\personal\%openvpn_configfile% (
   echo importing OpenVPN configfile ...
-  %capicli% -f ..\personal\%openvpn_configfile% ImportProfile
+  %capicli% -w 10 -f ..\personal\%openvpn_configfile% ImportProfile
 ) else (
   echo no configfile found!
 )
 
 echo ####### %0 #######
 pause
+
