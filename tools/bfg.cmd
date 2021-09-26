@@ -1,5 +1,5 @@
 @echo off
 set TOOLS=c:\tools
 
-java -jar %TOOLS%\bfg.jar
+java -jar %TOOLS%\bfg.jar %*
 
