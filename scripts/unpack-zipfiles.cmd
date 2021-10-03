@@ -22,12 +22,12 @@ for %%A in (
   rclone
   regscanner
   restic
-  setacl
   showkeyplus
   vim
   vivetool
   winscp
   wub
+  cmail
 
 ) do (
   
@@ -54,7 +54,6 @@ rd /S /Q %T%\bginfo 2>nul
 echo.
 
 echo Autoruns ...
-mkdir %TOOLS%\autoruns 2>nul
 move /Y %T%\autoruns\autoruns.exe %TOOLS%
 rd /S /Q %T%\autoruns 2>nul
 echo.
@@ -98,11 +97,6 @@ move /Y %T%\restic\*.exe %TOOLS%\restic.exe
 rd /S /Q %T%\restic
 echo.
 
-echo Setacl
-move /Y %T%\setacl\*.exe %TOOLS%\setacl.exe
-rd /S /Q %T%\setacl
-echo.
-
 echo ShowKeyPlus
 move /Y %T%\showkeyplus\*.exe %TOOLS%
 rd /S /Q %T%\showkeyplus
@@ -133,14 +127,21 @@ move /Y %T%\wub\wub_x64.exe %TOOLS%\wub.exe
 rd /S /Q %T%\wub
 echo.
 
+echo CMail - a Windows mailer
+move /Y %T%\cmail\cmail.exe %TOOLS%
+rd /S /Q %T%\cmail
+echo.
+
 echo Android tools ...
 if NOT EXIST %SOFTWARE%\android.zip (
   echo WARNING: %SOFTWARE%\android.zip not found!
 ) else (
   echo unpacking android.zip ...
   %TOOLS%\7z x -y -aoa -o%TOOLS% %SOFTWARE%\android.zip 1>nul
+  rd /S /Q %TOOLS%\android
   move /Y %TOOLS%\platform-tools %TOOLS%\android
 )
 echo.
 
 echo ####### %0 #######
+

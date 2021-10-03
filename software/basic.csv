@@ -2,7 +2,7 @@ https://www.7-zip.org/a/7z1900-x64.msi 7z-setup.msi
 https://go.microsoft.com/fwlink/?linkid=2120254 adk-setup.exe
 https://download.sysinternals.com/files/BGInfo.zip bginfo.zip
 https://download.sysinternals.com/files/Autoruns.zip autoruns.zip
-https://curl.se/windows/dl-7.75.0_3/curl-7.75.0_3-win64-mingw.zip curl.zip
+https://curl.se/windows/dl-7.79.1/curl-7.79.1-win64-mingw.zip curl.zip
 https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe git-setup.exe
 http://www.ardiehl.de/imapcopy/IMAPCopy.zip imapcopy.zip
 https://www.deskmodder.de/blog/wp-content/uploads/2018/06/install-wim-tweak.zip installwimtweak.zip
@@ -22,11 +22,11 @@ https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe python3-setup.exe
 https://www.nirsoft.net/utils/regscanner-x64.zip regscanner.zip
 https://github.com/pbatard/rufus/releases/download/v3.13/rufus-3.13p.exe rufus.exe
 http://www.drivesnapshot.de/download/snapshot64.exe snapshot64.exe
-https://helgeklein.com/downloads/SetACL/current/SetACL%20(executable%20version).zip setacl.zip
-https://github.com/Superfly-Inc/ShowKeyPlus/releases/download/ShowKeyPlus1.1.14.1/ShowKeyPlus1.1.14.1.zip showkeyplus.zip
+https://github.com/Superfly-Inc/ShowKeyPlus/releases/download/ShowKeyPlus1.1.16.0/ShowKeyPlus1.1.16.0_x64.zip showkeyplus.zip
 https://github.com/thebookisclosed/ViVe/releases/download/v0.2.1/ViVeTool-v0.2.1.zip vivetool.zip
 https://win32diskimager.org/wp-content/uploads/win32diskimager-1.0.0-install.exe win32diskimager.exe
 https://ftp.halifax.rwth-aachen.de/videolan/vlc/3.0.12/win64/vlc-3.0.12-win64.exe vlc-setup.exe
 https://www.heidoc.net/php/Windows-ISO-Downloader.exe Windows-ISO-Downloader.exe
-https://github.com/microsoft/terminal/releases/download/v1.10.2383.0/Microsoft.WindowsTerminal_1.10.2383.0_8wekyb3d8bbwe.msixbundle windowsterminal-setup.msixbundle
 https://dl.google.com/android/repository/platform-tools_r31.0.3-windows.zip android.zip
+https://www.inveigle.net/downloads/CMail_0.8.3_amd64.zip cmail.zip
+https://github.com/microsoft/terminal/releases/download/v1.10.2383.0/Microsoft.WindowsTerminal_1.10.2383.0_8wekyb3d8bbwe.msixbundle windowsterminal-setup.msixbundle
