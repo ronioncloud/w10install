@@ -243,20 +243,32 @@ echo.
 echo 3D Objects ...
 rd /S /Q %USERPROFILE%\"3D Objects" 2>nul
 
-echo Contacts ...
-rd /S /Q %USERPROFILE%\Contacts 2>nul
-
-echo Favorites ...
-rd /S /Q %USERPROFILE%\Favorites 2>nul
-
 echo Saved Games (folder used by Microsoft only) ...
 rd /S /Q %USERPROFILE%\"Saved Games" 2>nul
 
-echo Links ...
-rd /S /Q %USERPROFILE%\Links 2>nul
-
 echo Searches ...
-rd /S /Q %USERPROFILE%\Searches 2>nul
+rd /S /Q %USERPROFILE%\"Searches" 2>nul
+
+for %%D in (
+
+  Contacts
+  Documents
+  Favorites
+  Links
+  Music
+  Pictures
+  Searches
+  Videos
+
+) do (
+
+  echo %%D ...
+  attrib -R -S -H %USERPROFILE%\%%D 1>nul 2>nul
+  attrib -R -S -H %USERPROFILE%\%%D\desktop.ini 1>nul 2>nul
+  del /F /Q %USERPROFILE%\%%D\desktop.ini 2>nul
+  rmdir /Q %USERPROFILE%\%%D 2>nul
+
+)
 
 echo.
 echo Starting workstation service ...
